@@ -1,0 +1,22 @@
+[
+  {
+    "id": "uestc-linear-algebra",
+    "title": "线性代数",
+    "school": "电子科技大学",
+    "audience": "工科本科生",
+    "level": "standard",
+    "focus": ["计算", "矩阵", "方程组", "二次型"],
+    "status": "active",
+    "description": "先用工科线性代数跑通完整自测闭环，重点覆盖矩阵、行列式和线性方程组。"
+  },
+  {
+    "id": "sjtu-advanced-algebra",
+    "title": "高等代数",
+    "school": "上海交通大学",
+    "audience": "数学系本科生",
+    "level": "advanced",
+    "focus": ["证明", "抽象结构", "线性空间", "多项式"],
+    "status": "draft",
+    "description": "先放少量样例内容，验证同一套网页框架是否能承载更理论化的课程。"
+  }
+]

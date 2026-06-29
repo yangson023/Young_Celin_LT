@@ -1,0 +1,74 @@
+[
+  {
+    "id": "determinant-properties",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "determinant",
+    "title": "行列式性质",
+    "one_sentence": "用行列式性质可以把复杂行列式化成更容易计算的形式。",
+    "summary": "常用性质包括交换两行变号、某一行乘常数会使行列式乘同一常数、某一行加上另一行的倍数行列式不变。",
+    "formulas": ["交换两行：D -> -D", "某行乘 k：D -> kD"],
+    "common_mistakes": ["把行列式性质和矩阵初等变换的结论混淆", "交换两行后忘记变号"],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "approved"
+  },
+  {
+    "id": "elementary-row-operations",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "matrix",
+    "title": "矩阵初等变换",
+    "one_sentence": "通过行或列的基本变换，把矩阵化成更容易计算的形式。",
+    "summary": "矩阵初等变换包括交换两行、某一行乘以非零常数、某一行加上另一行的倍数。",
+    "formulas": [],
+    "common_mistakes": ["行变换和列变换混用", "求逆矩阵时忘记同步变换单位矩阵"],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "approved"
+  },
+  {
+    "id": "inverse-matrix",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "matrix",
+    "title": "逆矩阵",
+    "one_sentence": "如果矩阵 A 存在矩阵 B 使 AB=BA=E，则 B 是 A 的逆矩阵。",
+    "summary": "方阵可逆的常见判定包括行列式不为 0、满秩、能通过初等行变换化为单位矩阵。",
+    "formulas": ["A A^{-1} = E", "A^{-1} A = E"],
+    "common_mistakes": ["只验证 AB=E 就忽略 BA=E 的定义要求", "把非方阵也当成可逆矩阵"],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "approved"
+  },
+  {
+    "id": "solution-judgement",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "linear-systems",
+    "title": "线性方程组解的判定",
+    "one_sentence": "通过系数矩阵和增广矩阵的秩，可以判断方程组是否有解以及解的数量。",
+    "summary": "非齐次线性方程组有解当且仅当系数矩阵的秩等于增广矩阵的秩；若该秩小于未知数个数，则有无穷多解。",
+    "formulas": ["r(A)=r(A,b) 有解", "r(A)<n 有无穷多解"],
+    "common_mistakes": ["只看系数矩阵的秩就判断非齐次方程组", "忘记比较未知数个数"],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "approved"
+  },
+  {
+    "id": "polynomial-division",
+    "course_id": "sjtu-advanced-algebra",
+    "chapter_id": "polynomial",
+    "title": "多项式整除",
+    "one_sentence": "多项式整除描述一个多项式能否被另一个多项式无余地表示。",
+    "summary": "若存在多项式 q(x)，使 f(x)=g(x)q(x)，则称 g(x) 整除 f(x)。这是后续最大公因式和不可约多项式的基础。",
+    "formulas": ["g(x) | f(x) iff f(x)=g(x)q(x)"],
+    "common_mistakes": ["忽略除式不能为零多项式", "把数域不同导致的可约性差异忽略"],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "subspace",
+    "course_id": "sjtu-advanced-algebra",
+    "chapter_id": "vector-space",
+    "title": "子空间",
+    "one_sentence": "子空间是在原线性空间中仍然保持线性结构的非空子集。",
+    "summary": "判断子空间通常检查非空、对加法封闭、对数乘封闭。等价地，可以检查任意两个向量的线性组合仍在集合内。",
+    "formulas": ["u,v in W, a,b in F => au+bv in W"],
+    "common_mistakes": ["忘记验证非空", "只验证加法封闭却忘记数乘封闭"],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  }
+]
