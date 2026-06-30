@@ -1,0 +1,23 @@
+[
+  {
+    "id": "determinant",
+    "course_id": "uestc-linear-algebra",
+    "title": "行列式",
+    "order": 1,
+    "summary": "理解行列式的性质、展开和基础计算方法。"
+  },
+  {
+    "id": "matrix",
+    "course_id": "uestc-linear-algebra",
+    "title": "矩阵",
+    "order": 2,
+    "summary": "矩阵运算、初等变换、逆矩阵和秩。"
+  },
+  {
+    "id": "linear-systems",
+    "course_id": "uestc-linear-algebra",
+    "title": "线性方程组",
+    "order": 3,
+    "summary": "使用初等变换判断解的情况并求解方程组。"
+  }
+]

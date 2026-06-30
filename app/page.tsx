@@ -1,5 +1,6 @@
 import { ContinueLearningPanel } from "@/components/ContinueLearningPanel";
 import { CourseCard } from "@/components/CourseCard";
+import { LearningProgressPanel } from "@/components/LearningProgressPanel";
 import { PageShell } from "@/components/PageShell";
 import { QuickPracticePanel } from "@/components/QuickPracticePanel";
 import { WrongQuestionShortcut } from "@/components/WrongQuestionShortcut";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="grid gap-6">
           <ContinueLearningPanel />
+          <LearningProgressPanel title="整体学习进度" />
 
           <section>
             <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">

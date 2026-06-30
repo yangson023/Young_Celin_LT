@@ -1,0 +1,10 @@
+{
+  "id": "sjtu-advanced-algebra",
+  "title": "高等代数",
+  "school": "上海交通大学",
+  "audience": "数学系本科生",
+  "level": "advanced",
+  "focus": ["证明", "抽象结构", "线性空间", "多项式"],
+  "status": "draft",
+  "description": "先放少量样例内容，验证同一套网页框架是否能承载更理论化的课程。"
+}

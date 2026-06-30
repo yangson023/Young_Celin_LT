@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChapterList } from "@/components/ChapterList";
+import { LearningProgressPanel } from "@/components/LearningProgressPanel";
 import { PageShell } from "@/components/PageShell";
 import { StatusBadge } from "@/components/StatusBadge";
 import {
@@ -56,6 +57,11 @@ export default async function CoursePage({
             ))}
           </div>
         </section>
+
+        <LearningProgressPanel
+          courseId={course.id}
+          title={`${course.title} 学习进度`}
+        />
 
         <section>
           <div className="mb-4">

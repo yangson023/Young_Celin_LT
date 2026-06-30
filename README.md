@@ -175,6 +175,24 @@ data/source-index.json
 来源库只存索引、摘要和使用建议，不存完整教材、完整网页、完整题库或完整视频文稿。
 ```
 
+## 6.2 课程内容包
+
+项目已将课程内容拆分为独立内容包：
+
+```text
+content-packs/
+  uestc-linear-algebra/
+  sjtu-advanced-algebra/
+```
+
+维护说明见：
+
+```text
+docs/content-packs.md
+```
+
+当前前端会从内容包聚合课程、章节、知识点和题目。旧的 `data/*.json` 暂时保留，作为早期兼容参考。
+
 ## 7. 知识点卡片模板
 
 每个知识点建议整理成固定格式：

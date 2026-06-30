@@ -1,0 +1,16 @@
+[
+  {
+    "id": "polynomial",
+    "course_id": "sjtu-advanced-algebra",
+    "title": "多项式",
+    "order": 1,
+    "summary": "多项式整除、最大公因式和不可约多项式的基础概念。"
+  },
+  {
+    "id": "vector-space",
+    "course_id": "sjtu-advanced-algebra",
+    "title": "线性空间",
+    "order": 2,
+    "summary": "线性空间、子空间、基和维数。"
+  }
+]

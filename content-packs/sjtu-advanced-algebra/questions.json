@@ -1,0 +1,30 @@
+[
+  {
+    "id": "q-poly-001",
+    "course_id": "sjtu-advanced-algebra",
+    "knowledge_point_id": "polynomial-division",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "在多项式环中，g(x) 整除 f(x) 的含义是？",
+    "options": ["A. 存在 q(x) 使 f(x)=g(x)q(x)", "B. f(x) 的次数一定小于 g(x)", "C. f(x) 和 g(x) 没有公共根", "D. g(x) 必须是常数多项式"],
+    "answer": "A",
+    "explanation": "整除的定义是存在多项式 q(x)，使 f(x)=g(x)q(x)。",
+    "tags": ["高等代数", "多项式"],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-sub-001",
+    "course_id": "sjtu-advanced-algebra",
+    "knowledge_point_id": "subspace",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "判断一个集合是否为子空间时，只需要验证它对加法封闭。",
+    "options": ["A. 正确", "B. 错误"],
+    "answer": "B",
+    "explanation": "子空间还需要非空，并且对数乘封闭。常用做法是验证任意线性组合仍在集合内。",
+    "tags": ["高等代数", "线性空间"],
+    "source": "manual",
+    "status": "approved"
+  }
+]

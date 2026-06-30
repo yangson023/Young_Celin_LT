@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { QuestionCard } from "@/components/QuestionCard";
 import { ResultSummary } from "@/components/ResultSummary";
-import { saveLastLearning, saveWrongQuestions } from "@/lib/storage";
+import {
+  recordQuizProgress,
+  saveLastLearning,
+  saveWrongQuestions
+} from "@/lib/storage";
 import type { Course, KnowledgePoint, Question } from "@/lib/types";
 import { scoreQuiz, type QuizAnswerMap } from "@/lib/quiz";
 
@@ -44,6 +48,11 @@ export function QuizClient({
       }));
 
     saveWrongQuestions(wrongRecords);
+    recordQuizProgress({
+      courseId: course.id,
+      questionCount: result.total,
+      correctCount: result.correctCount
+    });
     saveLastLearning({
       courseId: course.id,
       courseTitle: course.title,

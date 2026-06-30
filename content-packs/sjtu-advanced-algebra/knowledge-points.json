@@ -1,0 +1,26 @@
+[
+  {
+    "id": "polynomial-division",
+    "course_id": "sjtu-advanced-algebra",
+    "chapter_id": "polynomial",
+    "title": "多项式整除",
+    "one_sentence": "多项式整除描述一个多项式能否被另一个多项式无余地表示。",
+    "summary": "若存在多项式 q(x)，使 f(x)=g(x)q(x)，则称 g(x) 整除 f(x)。这是后续最大公因式和不可约多项式的基础。",
+    "formulas": ["g(x) | f(x) iff f(x)=g(x)q(x)"],
+    "common_mistakes": ["忽略除式不能为零多项式", "把数域不同导致的可约性差异忽略"],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "subspace",
+    "course_id": "sjtu-advanced-algebra",
+    "chapter_id": "vector-space",
+    "title": "子空间",
+    "one_sentence": "子空间是在原线性空间中仍然保持线性结构的非空子集。",
+    "summary": "判断子空间通常检查非空、对加法封闭、对数乘封闭。等价地，可以检查任意两个向量的线性组合仍在集合内。",
+    "formulas": ["u,v in W, a,b in F => au+bv in W"],
+    "common_mistakes": ["忘记验证非空", "只验证加法封闭却忘记数乘封闭"],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  }
+]
