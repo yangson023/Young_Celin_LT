@@ -374,6 +374,12 @@ Trae + DeepSeek 主要负责：
 - 生成学习反馈文案和 AI Prompt 初稿
 - 帮助快速扩充内容，但不直接作为最终答案来源
 
+电科线性代数校内答疑资料的 Trae 总结提示词见：
+
+```text
+docs/trae-uestc-linear-algebra-summary-prompt.md
+```
+
 推荐协作流程：
 
 ```text
