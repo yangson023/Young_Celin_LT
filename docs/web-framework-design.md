@@ -57,6 +57,7 @@
 不同课程只改变：
 
 - 章节结构
+- 小节结构
 - 知识点内容
 - 题型策略
 - 判分方式
@@ -340,11 +341,11 @@ Supabase / PostgreSQL
 ```json
 [
   {
-    "id": "matrix",
+    "id": "chapter-1-matrix-elementary-transformations",
     "course_id": "uestc-linear-algebra",
-    "title": "矩阵",
-    "order": 2,
-    "summary": "矩阵运算、初等变换、逆矩阵和秩。"
+    "title": "第一章 矩阵及其初等变换",
+    "order": 1,
+    "summary": "矩阵运算、高斯消元、初等变换、逆矩阵和分块矩阵。"
   },
   {
     "id": "vector-space",
@@ -365,7 +366,10 @@ Supabase / PostgreSQL
   {
     "id": "elementary-row-operations",
     "course_id": "uestc-linear-algebra",
-    "chapter_id": "matrix",
+    "chapter_id": "chapter-1-matrix-elementary-transformations",
+    "section_id": "section-1-2-gaussian-elimination",
+    "section_title": "1.2 高斯消元法与矩阵的初等变换",
+    "order": 8,
     "title": "矩阵初等变换",
     "one_sentence": "通过行或列的基本变换，把矩阵化成更容易计算的形式。",
     "summary": "矩阵初等变换包括交换两行、某一行乘以非零常数、某一行加上另一行的倍数。",

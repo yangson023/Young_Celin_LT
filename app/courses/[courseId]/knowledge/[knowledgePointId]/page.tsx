@@ -40,6 +40,7 @@ export default async function KnowledgePointPage({
           <p className="text-sm text-muted">
             {course.title}
             {chapter ? ` · ${chapter.title}` : ""}
+            {point.section_title ? ` · ${point.section_title}` : ""}
           </p>
           <h1 className="mt-1 text-3xl font-semibold text-ink">
             {point.title}

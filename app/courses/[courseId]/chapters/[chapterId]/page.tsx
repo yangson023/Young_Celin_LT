@@ -25,6 +25,20 @@ export default async function ChapterPage({
     course.id,
     chapter.id
   );
+  const sectionGroups = knowledgePoints.reduce(
+    (groups, point) => {
+      const sectionTitle = point.section_title ?? "知识点";
+      const currentGroup = groups.find((group) => group.title === sectionTitle);
+
+      if (currentGroup) {
+        currentGroup.points.push(point);
+        return groups;
+      }
+
+      return [...groups, { title: sectionTitle, points: [point] }];
+    },
+    [] as { title: string; points: typeof knowledgePoints }[]
+  );
 
   return (
     <PageShell>
@@ -53,9 +67,22 @@ export default async function ChapterPage({
               先选一个小点开始
             </h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            {knowledgePoints.map((point) => (
-              <KnowledgeCard key={point.id} courseId={course.id} point={point} />
+          <div className="grid gap-6">
+            {sectionGroups.map((group) => (
+              <div key={group.title}>
+                <h3 className="mb-3 text-base font-semibold text-ink">
+                  {group.title}
+                </h3>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {group.points.map((point) => (
+                    <KnowledgeCard
+                      key={point.id}
+                      courseId={course.id}
+                      point={point}
+                    />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>

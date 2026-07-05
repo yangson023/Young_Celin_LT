@@ -12,6 +12,11 @@ export function KnowledgeCard({
     <article className="rounded-lg border border-line bg-white p-5 shadow-sm">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
+          {point.section_title ? (
+            <p className="mb-2 text-xs font-medium text-accent">
+              {point.section_title}
+            </p>
+          ) : null}
           <h2 className="text-lg font-semibold text-ink">{point.title}</h2>
           <p className="mt-2 text-sm leading-6 text-muted">
             {point.one_sentence}

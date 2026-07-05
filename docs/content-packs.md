@@ -87,14 +87,17 @@ questions.json
 
 ## 5. knowledge-points.json
 
-知识点挂在某个章节下面。
+知识点挂在某个章节下面。如果教材章节内部还有小节，可以给知识点增加 `section_id`、`section_title` 和 `order`，用于在章节页按小节展示。
 
 ```json
 [
   {
     "id": "elementary-row-operations",
     "course_id": "uestc-linear-algebra",
-    "chapter_id": "matrix",
+    "chapter_id": "chapter-1-matrix-elementary-transformations",
+    "section_id": "section-1-2-gaussian-elimination",
+    "section_title": "1.2 高斯消元法与矩阵的初等变换",
+    "order": 8,
     "title": "矩阵初等变换",
     "one_sentence": "通过行或列的基本变换，把矩阵化成更容易计算的形式。",
     "summary": "矩阵初等变换包括交换两行、某一行乘以非零常数、某一行加上另一行的倍数。",
@@ -109,6 +112,8 @@ questions.json
 注意：
 
 - `chapter_id` 必须对应本课程 `chapters.json` 中的章节。
+- `section_id`、`section_title` 是可选字段，适合记录 1.1、1.2 这类小节。
+- `order` 是可选字段，用于控制同一章内知识点的显示顺序。
 - `review_status` 可用：`approved`、`draft`。
 - AI 生成的知识点总结必须人工审核后再改成 `approved`。
 

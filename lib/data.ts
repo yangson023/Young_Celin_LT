@@ -28,6 +28,10 @@ const questions = [
   ...sjtuAdvancedAlgebraQuestions
 ] as Question[];
 
+function sortKnowledgePoints(a: KnowledgePoint, b: KnowledgePoint) {
+  return (a.order ?? 999) - (b.order ?? 999) || a.title.localeCompare(b.title);
+}
+
 export function getCourses() {
   return courses;
 }
@@ -49,16 +53,20 @@ export function getChapterById(courseId: string, chapterId: string) {
 }
 
 export function getKnowledgePointsByCourseId(courseId: string) {
-  return knowledgePoints.filter((point) => point.course_id === courseId);
+  return knowledgePoints
+    .filter((point) => point.course_id === courseId)
+    .sort(sortKnowledgePoints);
 }
 
 export function getKnowledgePointsByChapterId(
   courseId: string,
   chapterId: string
 ) {
-  return knowledgePoints.filter(
-    (point) => point.course_id === courseId && point.chapter_id === chapterId
-  );
+  return knowledgePoints
+    .filter(
+      (point) => point.course_id === courseId && point.chapter_id === chapterId
+    )
+    .sort(sortKnowledgePoints);
 }
 
 export function getKnowledgePointById(

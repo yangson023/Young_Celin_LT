@@ -1,31 +1,10 @@
 [
   {
-    "id": "matrix-operations",
+    "id": "chapter-1-matrix-elementary-transformations",
     "course_id": "uestc-linear-algebra",
-    "title": "1.1 矩阵及其运算",
+    "title": "第一章 矩阵及其初等变换",
     "order": 1,
-    "summary": "从矩阵概念出发，掌握矩阵相等、特殊矩阵、线性运算、乘法、方阵幂、多项式和转置。"
-  },
-  {
-    "id": "gaussian-elimination",
-    "course_id": "uestc-linear-algebra",
-    "title": "1.2 高斯消元法与矩阵的初等变换",
-    "order": 2,
-    "summary": "用增广矩阵和行初等变换求解线性方程组，理解阶梯形、矩阵等价和初等矩阵。"
-  },
-  {
-    "id": "inverse-matrix",
-    "course_id": "uestc-linear-algebra",
-    "title": "1.3 逆矩阵",
-    "order": 3,
-    "summary": "理解可逆矩阵的定义、性质、等价判定，并用行初等变换求逆矩阵。"
-  },
-  {
-    "id": "block-matrix",
-    "course_id": "uestc-linear-algebra",
-    "title": "1.4 分块矩阵",
-    "order": 4,
-    "summary": "根据结构对矩阵分块，掌握分块矩阵的加法、数乘、乘法、转置和常见分块逆矩阵。"
+    "summary": "本章包含 1.1 矩阵及其运算、1.2 高斯消元法与矩阵的初等变换、1.3 逆矩阵、1.4 分块矩阵，先建立矩阵语言，再学习用初等变换解决方程组、求逆和处理分块结构。"
   },
   {
     "id": "polynomial",

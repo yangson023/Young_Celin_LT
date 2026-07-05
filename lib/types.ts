@@ -23,6 +23,9 @@ export type KnowledgePoint = {
   id: string;
   course_id: string;
   chapter_id: string;
+  section_id?: string;
+  section_title?: string;
+  order?: number;
   title: string;
   one_sentence: string;
   summary: string;
