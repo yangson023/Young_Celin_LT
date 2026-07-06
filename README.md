@@ -380,6 +380,12 @@ Trae + DeepSeek 主要负责：
 docs/trae-uestc-linear-algebra-summary-prompt.md
 ```
 
+如果需要用完整教材校正 Trae 总结中的章节目录和知识点分类，请使用：
+
+```text
+docs/trae-textbook-check-uestc-linear-algebra-prompt.md
+```
+
 推荐协作流程：
 
 ```text
