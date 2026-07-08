@@ -311,6 +311,299 @@
     "status": "approved"
   },
   {
+    "id": "q-determinant-definition-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-definition",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "任意非方阵都可以定义行列式。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "B",
+    "explanation": "行列式只对方阵定义，非方阵没有通常意义下的行列式。",
+    "tags": [
+      "行列式",
+      "方阵"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-determinant-definition-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-definition",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "二阶行列式 |a b; c d| 的值是？",
+    "options": [
+      "A. ab-cd",
+      "B. ac-bd",
+      "C. ad-bc",
+      "D. a+b+c+d"
+    ],
+    "answer": "C",
+    "explanation": "二阶行列式的计算公式是 |a b; c d|=ad-bc。",
+    "tags": [
+      "二阶行列式",
+      "基础计算"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-determinant-properties-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-properties-calculation",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "若 A 是 3 阶方阵，则 |2A| 等于？",
+    "options": [
+      "A. 2|A|",
+      "B. 3|A|",
+      "C. 6|A|",
+      "D. 8|A|"
+    ],
+    "answer": "D",
+    "explanation": "n 阶方阵满足 |kA|=k^n|A|。A 为 3 阶时，|2A|=2^3|A|=8|A|。",
+    "tags": [
+      "行列式性质",
+      "数乘"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-determinant-properties-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-properties-calculation",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "把行列式的某一行加上另一行的 k 倍，行列式的值不变。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "行列式的倍加性质说明，某行加上另一行的倍数不会改变行列式的值。",
+    "tags": [
+      "行列式性质",
+      "倍加"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-cofactor-expansion-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cofactor-expansion",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "代数余子式 A_ij 与余子式 M_ij 完全相同，不需要考虑符号。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "B",
+    "explanation": "代数余子式 A_ij=(-1)^(i+j)M_ij，比余子式多了符号因子。",
+    "tags": [
+      "代数余子式",
+      "余子式"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-cofactor-expansion-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cofactor-expansion",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "若 M_23 是某行列式的余子式，则对应的代数余子式 A_23 等于？",
+    "options": [
+      "A. M_23",
+      "B. -M_23",
+      "C. 2M_23",
+      "D. 3M_23"
+    ],
+    "answer": "B",
+    "explanation": "A_23=(-1)^(2+3)M_23=-M_23。",
+    "tags": [
+      "代数余子式",
+      "符号"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-laplace-theorem-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "laplace-theorem",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "拉普拉斯定理在 k=1 时可以看作普通的按一行展开。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "拉普拉斯定理是按若干行展开的推广，k=1 时退化为按一行展开。",
+    "tags": [
+      "拉普拉斯定理"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-laplace-theorem-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "laplace-theorem",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "拉普拉斯定理中，对应代数余子式的符号通常与什么有关？",
+    "options": [
+      "A. 子式中元素的乘积",
+      "B. 选取行标和列标的和",
+      "C. 方阵中零元素个数",
+      "D. 矩阵是否可逆"
+    ],
+    "answer": "B",
+    "explanation": "拉普拉斯定理中对应符号因子含 (-1)^(行标和+列标和)。",
+    "tags": [
+      "拉普拉斯定理",
+      "符号"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-cramer-rule-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cramer-rule",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "克拉默法则要求系数矩阵 A 为方阵且 |A|≠0。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "克拉默法则适用于 n 个方程 n 个未知量且系数行列式不为零的情形。",
+    "tags": [
+      "克拉默法则",
+      "适用条件"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-cramer-rule-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cramer-rule",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "克拉默法则中，A_i 是怎样得到的？",
+    "options": [
+      "A. 把 A 的第 i 行换成 b",
+      "B. 把 A 的第 i 列换成 b",
+      "C. 把 A 的所有列都换成 b",
+      "D. 把 A 转置后得到"
+    ],
+    "answer": "B",
+    "explanation": "A_i 是将系数矩阵 A 的第 i 列替换为常数项列向量 b 得到的矩阵。",
+    "tags": [
+      "克拉默法则",
+      "A_i"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-adjoint-matrix-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "adjoint-matrix-core-properties",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "伴随矩阵是由代数余子式矩阵转置得到的。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "伴随矩阵的定义中包含转置这一步，这也是常见易错点。",
+    "tags": [
+      "伴随矩阵",
+      "定义"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-adjoint-matrix-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "adjoint-matrix-core-properties",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "若方阵 A 满足 |A|≠0，则下列关于伴随矩阵的公式正确的是？",
+    "options": [
+      "A. A^{-1}=A*/|A|",
+      "B. A^{-1}=|A|A*",
+      "C. A*=A^T",
+      "D. AA*=0"
+    ],
+    "answer": "A",
+    "explanation": "伴随矩阵满足 AA*=A*A=|A|I，因此 |A|≠0 时 A^{-1}=A*/|A|。",
+    "tags": [
+      "伴随矩阵",
+      "逆矩阵"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-matrix-rank-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-rank-concept-calculation",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "一个 3×4 矩阵的秩最大可能是多少？",
+    "options": [
+      "A. 2",
+      "B. 3",
+      "C. 4",
+      "D. 7"
+    ],
+    "answer": "B",
+    "explanation": "m×n 矩阵的秩不超过 min(m,n)。3×4 矩阵的秩最大为 3。",
+    "tags": [
+      "矩阵秩",
+      "秩的范围"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-matrix-rank-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-rank-concept-calculation",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "用可逆矩阵左乘 A，一定不会改变 A 的秩。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "可逆矩阵对应可逆的初等变换组合，左乘可逆矩阵不会改变矩阵的秩。",
+    "tags": [
+      "矩阵秩",
+      "可逆矩阵"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
     "id": "q-poly-001",
     "course_id": "sjtu-advanced-algebra",
     "knowledge_point_id": "polynomial-division",

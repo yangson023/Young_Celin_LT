@@ -375,6 +375,188 @@
     "order": 15
   },
   {
+    "id": "determinant-definition",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-1-determinant-definition",
+    "section_title": "2.1 n阶行列式的定义",
+    "order": 1,
+    "title": "n阶行列式的定义",
+    "one_sentence": "行列式是方阵对应的一个数值，二阶行列式为 ad-bc，三阶行列式可用对角线法则计算。",
+    "summary": "行列式只对方阵定义，结果是一个数。二阶行列式可用 ad-bc 计算，三阶行列式可用对角线法则，四阶及以上不能直接套用对角线法则，需要使用性质、展开或其他方法计算。n 阶行列式可以理解为从不同行不同列中各取一个元素相乘，再按排列符号求代数和。",
+    "formulas": [
+      "二阶行列式：|a b; c d| = ad - bc",
+      "n 阶行列式只对 n×n 方阵定义",
+      "三阶行列式可用对角线法则；四阶及以上不能直接使用对角线法则"
+    ],
+    "common_mistakes": [
+      "把行列式和矩阵本身混淆：矩阵是数表，行列式是一个数",
+      "误以为非方阵也有行列式",
+      "把三阶对角线法则推广到四阶及以上行列式"
+    ],
+    "question_types": [
+      "single_choice",
+      "true_false"
+    ],
+    "review_status": "draft"
+  },
+  {
+    "id": "determinant-properties-calculation",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-2-determinant-properties-calculation",
+    "section_title": "2.2 行列式的性质与计算",
+    "order": 2,
+    "title": "行列式的性质与计算",
+    "one_sentence": "行列式的性质是化简计算的核心工具，尤其要区分换行变号、倍加不变和公因子提取。",
+    "summary": "行列式转置后值不变；交换两行或两列会使行列式变号；某一行或某一列有公因子时可以提出；某一行加上另一行的倍数，行列式不变；若两行或两列成比例，则行列式为零。这些性质常用于把行列式化简成更容易计算的形式。",
+    "formulas": [
+      "|A^T| = |A|（A 为方阵）",
+      "|kA| = k^n|A|（A 为 n 阶方阵）",
+      "两行或两列成比例 ⇒ |A| = 0"
+    ],
+    "common_mistakes": [
+      "把 |kA| = k^n|A| 错写成 |kA| = k|A|",
+      "把倍加不变和某行乘以 k 的效果混淆",
+      "交换两行或两列后忘记行列式要变号"
+    ],
+    "question_types": [
+      "single_choice",
+      "true_false"
+    ],
+    "review_status": "draft"
+  },
+  {
+    "id": "cofactor-expansion",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-2-determinant-properties-calculation",
+    "section_title": "2.2 行列式的性质与计算",
+    "order": 3,
+    "title": "代数余子式与按行列展开",
+    "one_sentence": "行列式可以按任意一行或一列展开，关键是把元素和对应的代数余子式配对。",
+    "summary": "划去第 i 行第 j 列后得到的行列式称为余子式，记作 M_ij；在余子式前乘以符号因子 (-1)^(i+j) 后得到代数余子式 A_ij。行列式可以按任一行或任一列展开，展开时每个元素都要乘以它对应的代数余子式。计算时通常选择零元素较多的行或列展开。",
+    "formulas": [
+      "A_ij = (-1)^(i+j) M_ij（n≥2 时）",
+      "|A| = Σ a_ij A_ij（按第 i 行展开）",
+      "|A| = Σ a_ij A_ij（按第 j 列展开）"
+    ],
+    "common_mistakes": [
+      "把余子式 M_ij 和代数余子式 A_ij 混为一谈",
+      "忘记代数余子式中的符号因子 (-1)^(i+j)",
+      "展开时元素和代数余子式的位置对应错误"
+    ],
+    "question_types": [
+      "single_choice",
+      "true_false"
+    ],
+    "review_status": "draft"
+  },
+  {
+    "id": "laplace-theorem",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-3-laplace-theorem",
+    "section_title": "2.3 拉普拉斯定理",
+    "order": 4,
+    "title": "拉普拉斯定理",
+    "one_sentence": "拉普拉斯定理把按一行展开推广为按若干行展开，是处理分块和含零结构行列式的重要工具。",
+    "summary": "拉普拉斯定理说明：从 n 阶行列式中选定 k 行，取这些行中的所有 k 阶子式，并分别乘以对应的代数余子式再求和，可以得到原行列式。k=1 时就是普通的按一行展开。第一版只要求理解它是按行列展开的推广，能判断适用场景，不展开复杂证明。",
+    "formulas": [
+      "D = Σ M_k A_k（M_k 为选定 k 行中的 k 阶子式，A_k 为对应代数余子式）",
+      "对应符号因子含 (-1)^(行标和+列标和)",
+      "1≤k≤n-1 时常用于非平凡展开"
+    ],
+    "common_mistakes": [
+      "把子式和对应代数余子式的阶数搞反",
+      "漏掉符号因子 (-1)^(行标和+列标和)",
+      "把拉普拉斯定理当成必须手算所有复杂行列式的方法"
+    ],
+    "question_types": [
+      "single_choice",
+      "true_false"
+    ],
+    "review_status": "draft"
+  },
+  {
+    "id": "cramer-rule",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-4-cramer-rule",
+    "section_title": "2.4 克拉默法则",
+    "order": 5,
+    "title": "克拉默法则",
+    "one_sentence": "当系数行列式不为零时，克拉默法则可以用行列式表示线性方程组的唯一解。",
+    "summary": "对于 n 个方程 n 个未知量的线性方程组 AX=b，若系数矩阵 A 的行列式不为零，则方程组有唯一解。把 A 的第 i 列替换为常数项列向量 b 得到 A_i，则第 i 个未知量可写成 |A_i|/|A|。克拉默法则更适合理解理论关系和处理小规模计算，不适合大规模手算。",
+    "formulas": [
+      "x_i = |A_i| / |A|（A 为 n 阶方阵且 |A|≠0）",
+      "A_i 为把 A 的第 i 列替换为 b 得到的矩阵",
+      "AX=0 有非零解 ⇔ |A|=0（A 为 n 阶方阵）"
+    ],
+    "common_mistakes": [
+      "忘记克拉默法则要求 A 为方阵且 |A|≠0",
+      "构造 A_i 时替换了错误的列",
+      "误以为克拉默法则适用于任意形状的线性方程组"
+    ],
+    "question_types": [
+      "single_choice",
+      "true_false"
+    ],
+    "review_status": "draft"
+  },
+  {
+    "id": "adjoint-matrix-core-properties",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-2-determinant-properties-calculation",
+    "section_title": "2.2 行列式的性质与计算",
+    "order": 6,
+    "title": "伴随矩阵的定义与核心性质",
+    "one_sentence": "伴随矩阵由代数余子式矩阵转置得到，并可用来表示可逆矩阵的逆。",
+    "summary": "对 n 阶方阵 A，把每个元素对应的代数余子式排成矩阵，再作转置，得到 A 的伴随矩阵 A*。伴随矩阵满足 AA*=A*A=|A|I，因此当 |A|≠0 时，A 的逆矩阵可以表示为 A*/|A|。第一版先掌握定义和求逆公式，暂不展开伴随矩阵秩的规律。",
+    "formulas": [
+      "A* 为代数余子式矩阵的转置（A 为方阵）",
+      "AA* = A*A = |A|I",
+      "A^{-1} = A*/|A|（|A|≠0 时）"
+    ],
+    "common_mistakes": [
+      "忘记伴随矩阵定义中需要转置",
+      "把伴随矩阵和原矩阵的转置混淆",
+      "在 |A|=0 时仍套用 A^{-1}=A*/|A|"
+    ],
+    "question_types": [
+      "single_choice",
+      "true_false"
+    ],
+    "review_status": "draft"
+  },
+  {
+    "id": "matrix-rank-concept-calculation",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-5-matrix-rank",
+    "section_title": "2.5 矩阵的秩",
+    "order": 7,
+    "title": "矩阵秩的概念与计算",
+    "one_sentence": "矩阵的秩可理解为行阶梯形中的非零行数，初等变换是计算秩的重要方法。",
+    "summary": "矩阵的秩可以从两个角度理解：一是矩阵中非零子式的最高阶数，二是把矩阵化为行阶梯形后非零行的个数。实际计算中常用初等变换把矩阵化为阶梯形。秩适用于任意 m×n 矩阵，满足 0≤R(A)≤min(m,n)，并为后续判断向量组、线性方程组和空间维数提供基础。",
+    "formulas": [
+      "0≤R(A)≤min(m,n)（A 为 m×n 矩阵）",
+      "R(PA)=R(A)（P 可逆时）",
+      "自由变量个数 = n - R(A)（n 为未知量个数）"
+    ],
+    "common_mistakes": [
+      "把矩阵的秩和行列式的值混为一谈",
+      "忘记非方阵也可以讨论秩",
+      "误以为任意矩阵左乘后秩都不变，实际需要左乘矩阵可逆"
+    ],
+    "question_types": [
+      "single_choice",
+      "true_false"
+    ],
+    "review_status": "draft"
+  },
+  {
     "id": "polynomial-division",
     "course_id": "sjtu-advanced-algebra",
     "chapter_id": "polynomial",
