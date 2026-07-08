@@ -1,5 +1,6 @@
 "use client";
 
+import { MathText } from "@/components/MathText";
 import type { Question } from "@/lib/types";
 
 export function QuestionCard({
@@ -19,7 +20,7 @@ export function QuestionCard({
     <article className="rounded-lg border border-line bg-white p-5 shadow-sm">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <h2 className="text-base font-semibold leading-7 text-ink">
-          {index + 1}. {question.stem}
+          {index + 1}. <MathText>{question.stem}</MathText>
         </h2>
         <span className="rounded-md bg-paper px-2.5 py-1 text-xs text-muted">
           {question.difficulty}
@@ -51,7 +52,7 @@ export function QuestionCard({
                       : "border-line bg-white text-ink hover:border-accent"
               ].join(" ")}
             >
-              {option}
+              <MathText>{option}</MathText>
             </button>
           );
         })}
@@ -60,7 +61,9 @@ export function QuestionCard({
       {submitted ? (
         <div className="mt-4 rounded-md bg-paper p-4 text-sm leading-6">
           <p className="font-semibold text-ink">正确答案：{question.answer}</p>
-          <p className="mt-2 text-muted">{question.explanation}</p>
+          <p className="mt-2 text-muted">
+            <MathText>{question.explanation}</MathText>
+          </p>
         </div>
       ) : null}
     </article>

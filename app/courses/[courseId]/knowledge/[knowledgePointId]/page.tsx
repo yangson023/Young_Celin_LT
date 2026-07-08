@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MathText } from "@/components/MathText";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import {
@@ -64,10 +65,13 @@ export default async function KnowledgePointPage({
           <div className="rounded-lg border border-line bg-white p-5 shadow-sm">
             <h2 className="text-lg font-semibold text-ink">关键公式</h2>
             {point.formulas.length > 0 ? (
-              <ul className="mt-3 grid gap-2 text-sm text-muted">
+              <ul className="mt-3 grid gap-2 text-sm">
                 {point.formulas.map((formula) => (
-                  <li key={formula} className="rounded-md bg-paper p-3">
-                    {formula}
+                  <li
+                    key={formula}
+                    className="overflow-x-auto rounded-md bg-paper p-3"
+                  >
+                    <MathText>{formula}</MathText>
                   </li>
                 ))}
               </ul>
