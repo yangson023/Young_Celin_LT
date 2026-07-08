@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MathText } from "@/components/MathText";
+import { Formula } from "@/components/Formula";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import {
@@ -71,7 +71,7 @@ export default async function KnowledgePointPage({
                     key={formula}
                     className="overflow-x-auto rounded-md bg-paper p-3"
                   >
-                    <MathText>{formula}</MathText>
+                    <Formula block>{formula}</Formula>
                   </li>
                 ))}
               </ul>
