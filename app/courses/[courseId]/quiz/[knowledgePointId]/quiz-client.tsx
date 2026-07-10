@@ -50,6 +50,7 @@ export function QuizClient({
     saveWrongQuestions(wrongRecords);
     recordQuizProgress({
       courseId: course.id,
+      knowledgePointId: point.id,
       questionCount: result.total,
       correctCount: result.correctCount
     });

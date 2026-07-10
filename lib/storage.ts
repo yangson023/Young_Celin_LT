@@ -20,15 +20,21 @@ export type CourseProgressRecord = {
   correctCount: number;
 };
 
+export type KnowledgePointProgressRecord = {
+  completedQuizCount: number;
+};
+
 export type LearningProgressRecord = {
   completedQuizCount: number;
   answeredCount: number;
   correctCount: number;
   courses: Record<string, CourseProgressRecord>;
+  knowledgePoints: Record<string, KnowledgePointProgressRecord>;
 };
 
 export type QuizProgressInput = {
   courseId: string;
+  knowledgePointId: string;
   questionCount: number;
   correctCount: number;
 };
@@ -37,7 +43,8 @@ const emptyProgress: LearningProgressRecord = {
   completedQuizCount: 0,
   answeredCount: 0,
   correctCount: 0,
-  courses: {}
+  courses: {},
+  knowledgePoints: {}
 };
 
 function readJson<T>(key: string, fallback: T): T {
@@ -97,10 +104,17 @@ export function saveLastLearning(record: LastLearningRecord) {
 }
 
 export function getLearningProgress() {
-  return readJson<LearningProgressRecord>(
+  const progress = readJson<Partial<LearningProgressRecord>>(
     LEARNING_PROGRESS_KEY,
     emptyProgress
   );
+
+  return {
+    ...emptyProgress,
+    ...progress,
+    courses: progress.courses ?? {},
+    knowledgePoints: progress.knowledgePoints ?? {}
+  };
 }
 
 export function recordQuizProgress(input: QuizProgressInput) {
@@ -109,6 +123,9 @@ export function recordQuizProgress(input: QuizProgressInput) {
     completedQuizCount: 0,
     answeredCount: 0,
     correctCount: 0
+  };
+  const knowledgePointProgress = current.knowledgePoints[input.knowledgePointId] ?? {
+    completedQuizCount: 0
   };
 
   const next: LearningProgressRecord = {
@@ -121,6 +138,12 @@ export function recordQuizProgress(input: QuizProgressInput) {
         completedQuizCount: courseProgress.completedQuizCount + 1,
         answeredCount: courseProgress.answeredCount + input.questionCount,
         correctCount: courseProgress.correctCount + input.correctCount
+      }
+    },
+    knowledgePoints: {
+      ...current.knowledgePoints,
+      [input.knowledgePointId]: {
+        completedQuizCount: knowledgePointProgress.completedQuizCount + 1
       }
     }
   };

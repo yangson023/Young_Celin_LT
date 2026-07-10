@@ -75,10 +75,18 @@ export function Formula({ children, block = false }: FormulaProps) {
   const renderedLatex = renderLatex(latex, block);
 
   return (
-    <span className={block ? "block text-ink" : "inline text-ink"}>
+    <span
+      className={
+        block ? "block max-w-full text-center leading-8 text-ink" : "inline text-ink"
+      }
+    >
       {label ? <span className="mr-2 text-sm text-muted">{label}</span> : null}
       <span
-        className={block ? "inline-block min-w-0 max-w-full" : "inline-block"}
+        className={
+          block
+            ? "inline-block min-w-0 max-w-full align-middle text-base sm:text-lg"
+            : "inline-block"
+        }
         dangerouslySetInnerHTML={{ __html: renderedLatex }}
       />
       {suffix ? <span className="ml-2 text-sm text-muted">{suffix}</span> : null}
