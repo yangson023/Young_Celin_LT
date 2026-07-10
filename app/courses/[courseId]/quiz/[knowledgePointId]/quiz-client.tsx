@@ -15,10 +15,12 @@ import { scoreQuiz, type QuizAnswerMap } from "@/lib/quiz";
 export function QuizClient({
   course,
   point,
+  chapterTitle,
   questions
 }: {
   course: Course;
   point: KnowledgePoint;
+  chapterTitle?: string;
   questions: Question[];
 }) {
   const [answers, setAnswers] = useState<QuizAnswerMap>({});
@@ -38,6 +40,7 @@ export function QuizClient({
         questionId: question.id,
         courseId: course.id,
         courseTitle: course.title,
+        chapterTitle,
         knowledgePointId: point.id,
         knowledgeTitle: point.title,
         stem: question.stem,

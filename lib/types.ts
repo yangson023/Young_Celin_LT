@@ -56,6 +56,7 @@ export type WrongQuestionRecord = {
   questionId: string;
   courseId: string;
   courseTitle: string;
+  chapterTitle?: string;
   knowledgePointId: string;
   knowledgeTitle: string;
   stem: string;

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import {
   getCourseById,
+  getChapterById,
   getKnowledgePointById,
   getQuestionsByKnowledgePointId
 } from "@/lib/data";
@@ -24,10 +25,16 @@ export default async function QuizPage({
     0,
     5
   );
+  const chapter = getChapterById(course.id, point.chapter_id);
 
   return (
     <PageShell>
-      <QuizClient course={course} point={point} questions={questions} />
+      <QuizClient
+        course={course}
+        point={point}
+        chapterTitle={chapter?.title}
+        questions={questions}
+      />
     </PageShell>
   );
 }

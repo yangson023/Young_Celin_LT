@@ -7,6 +7,13 @@ export function ResultSummary({
   total: number;
   accuracy: number;
 }) {
+  const studySuggestion =
+    accuracy >= 90
+      ? "掌握得不错。可以去错题本确认是否还有需要再看的题。"
+      : accuracy >= 60
+        ? "基础已经建立，建议先看错题解析，再回到本知识点完成一次复习。"
+        : "建议先回到知识点速讲梳理概念和条件，再带着易错点重新自测。";
+
   return (
     <section className="rounded-lg border border-line bg-white p-5 shadow-sm">
       <p className="text-sm font-medium text-muted">本次自测结果</p>
@@ -28,6 +35,10 @@ export function ResultSummary({
           </p>
         </div>
       </div>
+
+      <p className="mt-4 rounded-md bg-paper p-3 text-sm leading-6 text-muted">
+        {studySuggestion}
+      </p>
     </section>
   );
 }

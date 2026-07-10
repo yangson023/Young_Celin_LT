@@ -95,6 +95,16 @@ export function clearWrongQuestions() {
   writeJson(WRONG_QUESTIONS_KEY, []);
 }
 
+export function removeWrongQuestions(questionIds: string[]) {
+  const questionIdSet = new Set(questionIds);
+  const next = getWrongQuestions().filter(
+    (record) => !questionIdSet.has(record.questionId)
+  );
+
+  writeJson(WRONG_QUESTIONS_KEY, next);
+  return next;
+}
+
 export function getLastLearning() {
   return readJson<LastLearningRecord | null>(LAST_LEARNING_KEY, null);
 }
