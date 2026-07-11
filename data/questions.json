@@ -604,6 +604,781 @@
     "status": "approved"
   },
   {
+    "id": "q-matrix-multiplication-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-multiplication",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "矩阵乘法一般满足交换律，即对任意可乘的矩阵 A 和 B，总有 $AB=BA$。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "B",
+    "explanation": "矩阵乘法一般不满足交换律，即使 A 和 B 都是方阵，$AB$ 也不一定等于 $BA$。乘法交换是矩阵和数的运算之间的一个关键区别。",
+    "tags": [
+      "矩阵乘法",
+      "交换律"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "检查是否强调了「即使两个都是方阵也不一定可交换」，避免学生误认为方阵乘法一定可交换"
+  },
+  {
+    "id": "q-matrix-multiplication-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-multiplication",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "若 A 为 $m \\times t$ 矩阵，B 为 $t \\times n$ 矩阵，则乘积 AB 中第 i 行第 j 列的元素由 A 的第 i 行与 B 的第 j 列对应元素相乘再求和得到。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "这正是矩阵乘法的定义：$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\\cdots+a_{it}b_{tj}$，即行与列对应相乘再求和。",
+    "tags": [
+      "矩阵乘法",
+      "定义"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 $c_{ij}$ 求和式中使用的是 A 的列标与 B 的行标的对应关系"
+  },
+  {
+    "id": "q-matrix-multiplication-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-multiplication",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "设 A 是 $3 \\times 2$ 矩阵，B 是 $2 \\times 5$ 矩阵，C 是 $5 \\times 3$ 矩阵。下列乘积中运算有意义的是？",
+    "options": [
+      "A. AC",
+      "B. CB",
+      "C. BC",
+      "D. BA"
+    ],
+    "answer": "C",
+    "explanation": "矩阵乘法要求左矩阵列数等于右矩阵行数。B 为 $2 \\times 5$，C 为 $5 \\times 3$，B 的列数 5 等于 C 的行数 5，所以 BC 有意义，结果为 $2 \\times 3$ 矩阵。AC（$3 \\neq 5$）、CB（$3 \\neq 2$）、BA（$5 \\neq 3$）均不可乘。",
+    "tags": [
+      "矩阵乘法",
+      "维度匹配"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "逐一核对四个选项的维度匹配关系"
+  },
+  {
+    "id": "q-matrix-multiplication-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-multiplication",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "设 A、B、C 为适当阶数的矩阵，下列等式恒成立的是？",
+    "options": [
+      "A. $AB=BA$",
+      "B. $(AB)C=A(BC)$",
+      "C. 若 $AB=O$ 则 $A=O$ 或 $B=O$",
+      "D. $(A+B)^2=A^2+2AB+B^2$"
+    ],
+    "answer": "B",
+    "explanation": "矩阵乘法满足结合律 $(AB)C=A(BC)$。A 不成立因为乘法一般不可交换；C 不成立因为非零矩阵的乘积可能为零矩阵（存在零因子）；D 不成立因为 $(A+B)^2=A^2+AB+BA+B^2$，中间两项通常不能合并为 $2AB$。",
+    "tags": [
+      "矩阵乘法",
+      "运算律"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 D 选项中 $AB$ 和 $BA$ 不相等时展开式确实不能写成 $2AB$，这是数的恒等式向矩阵推广时的经典错误"
+  },
+  {
+    "id": "q-gaussian-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "gaussian-elimination-echelon",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "下列哪一项不是矩阵的初等行变换？",
+    "options": [
+      "A. 交换两行",
+      "B. 某一行乘以非零常数",
+      "C. 某一行加上另一行的倍数",
+      "D. 某一列加上另一列的倍数"
+    ],
+    "answer": "D",
+    "explanation": "三种初等行变换是：交换两行、某行乘以非零常数、某行加上另一行的倍数。对列的操作属于初等列变换，不属于初等行变换。",
+    "tags": [
+      "初等行变换",
+      "高斯消元"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 D 选项是「某一列」而不是「某一行」，明确区分行变换和列变换"
+  },
+  {
+    "id": "q-gaussian-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "gaussian-elimination-echelon",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "在行阶梯形矩阵中，每个非零行的首个非零元素随着行号增加逐渐右移，且所有零行位于非零行的下方。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "行阶梯形矩阵有两个特征：每个非零行的首个非零元素（主元）在上一行首个非零元素的右侧，零行全部集中在矩阵底部。这两个条件缺一不可。",
+    "tags": [
+      "阶梯形",
+      "高斯消元"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认是否明确「首个非零元素右移」和「零行在底部」两个条件"
+  },
+  {
+    "id": "q-gaussian-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "gaussian-elimination-echelon",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "高斯消元法中，将增广矩阵的某一行乘以常数 $k$ 作为新行，$k$ 必须满足什么条件？",
+    "options": [
+      "A. $k>0$",
+      "B. $k \\neq 0$",
+      "C. $k=1$",
+      "D. $k$ 为正整数"
+    ],
+    "answer": "B",
+    "explanation": "初等行变换中倍乘变换要求 $k \\neq 0$。若 $k=0$，整行变为零，会丢失方程信息，不能保证与原方程组同解。",
+    "tags": [
+      "高斯消元",
+      "倍乘变换"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认强调了 $k=0$ 的非法性及其原因——破坏同解性"
+  },
+  {
+    "id": "q-gaussian-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "gaussian-elimination-echelon",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "对增广矩阵作初等行变换不会改变原线性方程组的解集。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "三种初等行变换（交换、倍乘非零常数、倍加）都是同解变换，因此对增广矩阵作行初等变换后，方程组的解集不变。",
+    "tags": [
+      "高斯消元",
+      "同解变换"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认限定词是「行」初等变换而非一般初等变换，列变换不能保证同解"
+  },
+  {
+    "id": "q-transform-equivalence-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "elementary-transform-equivalence",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "矩阵等价关系满足自反性，即任意矩阵 A 与自己等价。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "等价关系满足自反性（A 经零次初等变换即为自己）、对称性和传递性，构成一个等价关系。",
+    "tags": [
+      "矩阵等价",
+      "自反性"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认「零次初等变换」的表述是否合适，建议保留"
+  },
+  {
+    "id": "q-transform-equivalence-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "elementary-transform-equivalence",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "若矩阵 B 仅由 A 经有限次初等行变换得到，则称 A 与 B 满足什么关系？",
+    "options": [
+      "A. 行等价",
+      "B. 相似",
+      "C. 合同",
+      "D. 正交"
+    ],
+    "answer": "A",
+    "explanation": "仅使用行初等变换得到的等价关系称为行等价。相似、合同、正交是不同的矩阵概念，不适用于只作初等行变换的情形。",
+    "tags": [
+      "行等价",
+      "矩阵等价"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "已按审核要求删除章节编号，改为说明相似、合同、正交为不同矩阵概念"
+  },
+  {
+    "id": "q-transform-equivalence-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "elementary-transform-equivalence",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "初等变换中，将第 $i$ 行乘以常数 $k$ 后替换原行。$k$ 不能取下列哪个值？",
+    "options": [
+      "A. $2$",
+      "B. $-1$",
+      "C. $0$",
+      "D. $\\frac{1}{2}$"
+    ],
+    "answer": "C",
+    "explanation": "倍乘变换要求 $k \\neq 0$。$k=0$ 的变换不可逆，不能作为初等行变换，会破坏矩阵等价的可逆性。$k$ 可以是任意非零实数，包括负数、分数。",
+    "tags": [
+      "初等变换",
+      "倍乘"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 $k=-1$ 和 $k=\\frac{1}{2}$ 都是合法的非零常数；解释已改为强调不可逆性而非改变秩"
+  },
+  {
+    "id": "q-transform-equivalence-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "elementary-transform-equivalence",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "若 A 与 B 行等价，且 B 与 C 行等价，则 A 与 C 行等价。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "行等价具有传递性：A 经有限次行初等变换可化为 B，B 再经有限次行初等变换可化为 C，则 A 可经有限次行初等变换化为 C。",
+    "tags": [
+      "行等价",
+      "传递性"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "检查逻辑链：有限次+有限次=有限次，变化链始终一致"
+  },
+  {
+    "id": "q-inverse-def-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-matrix-definition-properties",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "按逆矩阵的定义，若要直接验证方阵 B 是方阵 A 的逆矩阵，需要同时验证 $AB=I$ 和 $BA=I$。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "逆矩阵的定义要求 $AB=BA=I$。这里讨论的是按定义直接验证；同阶方阵单侧逆可推出双侧逆是额外定理，不作为本题考查内容。",
+    "tags": [
+      "逆矩阵",
+      "定义"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "已按审核要求替换为安全题目；提醒人工确认「按定义直接验证」这一限定语已保留"
+  },
+  {
+    "id": "q-inverse-def-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-matrix-definition-properties",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "设 A 与 B 都是 $n$ 阶可逆矩阵，则 $(AB)^{-1}$ 等于？",
+    "options": [
+      "A. $A^{-1}B^{-1}$",
+      "B. $B^{-1}A^{-1}$",
+      "C. $(BA)^{-1}$",
+      "D. $B^{-1}+A^{-1}$"
+    ],
+    "answer": "B",
+    "explanation": "乘积的逆满足 $(AB)^{-1}=B^{-1}A^{-1}$，注意顺序要反过来。这类似于转置公式 $(AB)^T=B^T A^T$。",
+    "tags": [
+      "逆矩阵",
+      "乘积求逆"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "A 选项是不写反顺序的典型错误；C 选项形式上等于 $(AB)^{-1}$ 但不等于 $B^{-1}A^{-1}$，除非 A 与 B 可交换"
+  },
+  {
+    "id": "q-inverse-def-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-matrix-definition-properties",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "只有方阵才可能讨论逆矩阵，非方阵不存在通常意义下的逆矩阵。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "逆矩阵的定义要求 $AA^{-1}=A^{-1}A=I$，等式两边的 $I$ 是同阶单位矩阵，这就要求 A 必须是方阵。非方阵不满足此结构条件。",
+    "tags": [
+      "逆矩阵",
+      "方阵"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认「通常意义下」的限定是否必要——广义逆不在考试范围内"
+  },
+  {
+    "id": "q-inverse-def-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-matrix-definition-properties",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "设 A 可逆，$k$ 为非零常数，则 $(kA)^{-1}$ 等于？",
+    "options": [
+      "A. $kA^{-1}$",
+      "B. $k^{-1}A^{-1}$",
+      "C. $-kA^{-1}$",
+      "D. $k^{-n}A^{-1}$（$n$ 为 A 的阶数）"
+    ],
+    "answer": "B",
+    "explanation": "数乘的逆满足 $(kA)^{-1}=k^{-1}A^{-1}$，即常数提出后取倒数。注意这与行列式的数乘公式 $\\lvert kA\\rvert=k^n\\lvert A\\rvert$ 不同，不可混淆。",
+    "tags": [
+      "逆矩阵",
+      "数乘求逆"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 D 选项中 $k^{-n}$ 是混淆了行列式性质，干扰效果合理"
+  },
+  {
+    "id": "q-inverse-row-reduction-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-by-row-reduction",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "用行初等变换求逆矩阵时，只需对 $(A, I)$ 的左边 A 作行变换，右边的 $I$ 保持不动。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "B",
+    "explanation": "必须同时对 $(A, I)$ 的左右两部分进行完全相同的行初等变换。左边 A 每做一次变换，右边 $I$ 也要同步做相同的变换，最终才能得到 $(I, A^{-1})$。",
+    "tags": [
+      "求逆矩阵",
+      "行初等变换"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "这是操作时的经典错误。确认强调了「同步做相同的行变换」"
+  },
+  {
+    "id": "q-inverse-row-reduction-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-by-row-reduction",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "若方阵 A 不能经有限次行初等变换化为单位矩阵 $I$，这说明什么？",
+    "options": [
+      "A. 需要换一种初等变换方法",
+      "B. A 不可逆",
+      "C. 变换过程中出现了计算错误",
+      "D. 右边将自动变为零矩阵"
+    ],
+    "answer": "B",
+    "explanation": "A 可逆当且仅当 A 能经有限次行初等变换化为单位矩阵 $I$。若 A 不能经有限次行初等变换化为 $I$，则 A 不可逆。",
+    "tags": [
+      "可逆判定",
+      "求逆矩阵"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "已按审核要求收紧逻辑：改为「不能经有限次」而非「最终左边不能化成」"
+  },
+  {
+    "id": "q-inverse-row-reduction-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-by-row-reduction",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "在求逆矩阵的方法 $(A, I) \\to (I, A^{-1})$ 中，允许使用哪种初等变换？",
+    "options": [
+      "A. 只能使用行初等变换",
+      "B. 只能使用列初等变换",
+      "C. 行和列初等变换均可",
+      "D. 行和列初等变换交替使用"
+    ],
+    "answer": "A",
+    "explanation": "此方法基于「左乘行」的原则：行初等变换对应左乘初等矩阵，正好满足推导 $A^{-1}$ 的逻辑。使用列变换会破坏这个对应关系。",
+    "tags": [
+      "求逆矩阵",
+      "行初等变换"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认把「左乘行、右乘列」的对应逻辑说清楚了"
+  },
+  {
+    "id": "q-inverse-row-reduction-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-by-row-reduction",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "用行初等变换求逆矩阵时，如果需要交换两行来实现消元，这种交换操作是合法的。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "交换两行是三种初等行变换之一。在求逆过程中，只要始终对 $(A, I)$ 进行合法的行初等变换（交换、倍乘非零常数、倍加），每一种操作都是允许的。",
+    "tags": [
+      "求逆矩阵",
+      "交换行"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认交换两行属于合法的初等行变换，打消学生担心「交换行会破坏什么」的疑虑"
+  },
+  {
+    "id": "q-determinant-definition-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-definition",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "三阶行列式的对角线法则可以直接推广到四阶和更高阶的行列式计算。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "B",
+    "explanation": "对角线法则仅对二、三阶行列式有效。四阶及以上行列式不能用此方法，需使用性质化简、按行（列）展开等方法计算。这是学习行列式时最重要的注意事项之一。",
+    "tags": [
+      "行列式",
+      "对角线法则"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "这是核心易错点。确认题干中「直接推广」应理解为「不加修改地沿用法则计算」"
+  },
+  {
+    "id": "q-determinant-definition-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-definition",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "关于矩阵和它的行列式，下列说法正确的是？",
+    "options": [
+      "A. 行列式就是矩阵本身",
+      "B. 行列式是方阵按特定规则算出的一个数值",
+      "C. 每个矩阵都有唯一的行列式",
+      "D. 行列式是矩阵中所有元素的乘积"
+    ],
+    "answer": "B",
+    "explanation": "矩阵是一个数表，行列式是由方阵按规则确定的一个数值。二者本质不同：矩阵是工具，行列式是计算结果。此外，只有方阵才有行列式。",
+    "tags": [
+      "行列式",
+      "矩阵"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "C 选项中「每个矩阵」表述有歧义——应理解为「每个方阵」，但故意用「矩阵」来测试学生是否注意到非方阵无行列式"
+  },
+  {
+    "id": "q-determinant-definition-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-definition",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "三阶行列式按对角线法则展开后共有几项？",
+    "options": [
+      "A. $3$ 项",
+      "B. $6$ 项",
+      "C. $9$ 项",
+      "D. $12$ 项"
+    ],
+    "answer": "B",
+    "explanation": "三阶行列式展开共有 $3!=6$ 项。对角线法则中，三条主对角线方向各得一项（正号），三条副对角线方向各得一项（负号），合计 6 项。",
+    "tags": [
+      "三阶行列式",
+      "对角线法则"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 $3!=6$，正负各半，与对角线法则的图示对应"
+  },
+  {
+    "id": "q-determinant-properties-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-properties-calculation",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "交换行列式的两行后，行列式的值不变。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "B",
+    "explanation": "交换行列式的两行（或两列），行列式的值改变符号，即乘以 $-1$。这与「某行加上另一行的倍数」（值不变）不同，容易混淆。",
+    "tags": [
+      "行列式性质",
+      "交换行"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认区分了「交换」（变号）和「倍加」（不变）两种操作的效果"
+  },
+  {
+    "id": "q-determinant-properties-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-properties-calculation",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "若一个行列式有两行，其中一行是另一行的数倍，则该行列式的值等于？",
+    "options": [
+      "A. 等于比例系数",
+      "B. 等于 $0$",
+      "C. 等于 $1$",
+      "D. 无法确定"
+    ],
+    "answer": "B",
+    "explanation": "一行是另一行的数倍时，可提出比例系数使两行完全相同，而两行相同的行列式为零。特别地，若其中一行为零行，行列式自然也等于 $0$。",
+    "tags": [
+      "行列式性质",
+      "比例行"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "已按审核要求将「对应元素成比例」改为「一行是另一行的数倍」；补充说明了零行的退化情况"
+  },
+  {
+    "id": "q-determinant-properties-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-properties-calculation",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "设 $A$ 为 $n$ 阶方阵，$A^T$ 是 $A$ 的转置。下列关于行列式的等式恒成立的是？",
+    "options": [
+      "A. $\\lvert A^T\\rvert=-\\lvert A\\rvert$",
+      "B. $\\lvert A^T\\rvert=\\lvert A\\rvert$",
+      "C. $\\lvert A^T\\rvert=\\lvert A\\rvert^2$",
+      "D. $\\lvert A^T\\rvert=n\\lvert A\\rvert$"
+    ],
+    "answer": "B",
+    "explanation": "行列式转置后值不变，即 $\\lvert A^T\\rvert=\\lvert A\\rvert$。这是行列式的一个基本性质，说明行和列在行列式中的地位是对等的。",
+    "tags": [
+      "行列式",
+      "转置"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "检查 LaTeX 转义和 $\\lvert$/$\\rvert$ 是否正确渲染"
+  },
+  {
+    "id": "q-cofactor-expansion-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cofactor-expansion",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "将行列式按某一行展开时，下列做法正确的是？",
+    "options": [
+      "A. 每项直接用元素乘余子式",
+      "B. 每项用元素乘对应的代数余子式再求和",
+      "C. 只能按第一行展开",
+      "D. 展开项数等于 $(n-1)!$"
+    ],
+    "answer": "B",
+    "explanation": "按行展开的正确做法是：该行的每个元素乘以对应的代数余子式（含符号因子），然后对整行的所有元素求和。可以按任意一行或一列展开，不限于第一行。",
+    "tags": [
+      "代数余子式",
+      "按行展开"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 A 选项中「余子式」不含符号，是区别于「代数余子式」的关键"
+  },
+  {
+    "id": "q-cofactor-expansion-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cofactor-expansion",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "计算行列式时，选择零元素最多的行或列进行展开可以显著减少运算量。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "零元素对应的项 $a_{ij}A_{ij}=0$，不需要计算。选择零最多的行或列展开，实际需要计算的项最少，是手工计算的基本策略。",
+    "tags": [
+      "代数余子式",
+      "展开策略"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认表述无误——这是一个实用的计算技巧而非理论结论"
+  },
+  {
+    "id": "q-cofactor-expansion-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cofactor-expansion",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "设某四阶行列式中，元素 $a_{24}$ 的余子式为 $M_{24}$，则对应的代数余子式 $A_{24}$ 等于？",
+    "options": [
+      "A. $M_{24}$",
+      "B. $-M_{24}$",
+      "C. $2M_{24}$",
+      "D. $-2M_{24}$"
+    ],
+    "answer": "A",
+    "explanation": "代数余子式 $A_{ij}=(-1)^{i+j}M_{ij}$。这里 $i=2$，$j=4$，$(-1)^{2+4}=(-1)^6=1$，所以 $A_{24}=M_{24}$。当行标加列标为偶数时，代数余子式等于余子式。",
+    "tags": [
+      "代数余子式",
+      "符号因子"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "与已有题目 $A_{23}=-M_{23}$ 形成互补——分别展示奇、偶行标列标的情况"
+  },
+  {
+    "id": "q-cramer-rule-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cramer-rule",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "对于一个 $3$ 个方程、$4$ 个未知量的线性方程组，可以直接使用克拉默法则求解。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "B",
+    "explanation": "克拉默法则要求系数矩阵为方阵（方程个数等于未知量个数），且行列式不为零。$3$ 个方程 $4$ 个未知量的系数矩阵是 $3 \\times 4$，不是方阵，无法计算行列式，不能直接使用克拉默法则。",
+    "tags": [
+      "克拉默法则",
+      "适用条件"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认强调了系数矩阵必须是方阵这个前提条件"
+  },
+  {
+    "id": "q-cramer-rule-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cramer-rule",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "对于齐次线性方程组 $AX=0$，其中 $A$ 为 $n$ 阶方阵。该方程组有非零解的充要条件是？",
+    "options": [
+      "A. $\\lvert A\\rvert>0$",
+      "B. $\\lvert A\\rvert\\neq 0$",
+      "C. $\\lvert A\\rvert=0$",
+      "D. $A$ 可逆"
+    ],
+    "answer": "C",
+    "explanation": "当 $\\lvert A\\rvert\\neq 0$ 时，由克拉默法则可得唯一解 $x_i=0$（即只有零解）。因此，有非零解等价于 $\\lvert A\\rvert=0$，也等价于 $A$ 不可逆。",
+    "tags": [
+      "克拉默法则",
+      "齐次方程组"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认逻辑方向：$\\lvert A\\rvert=0 \\Leftrightarrow$ 齐次方程组有非零解。注意 D 选项「可逆」对应 $\\lvert A\\rvert \\neq 0$，与有非零解矛盾"
+  },
+  {
+    "id": "q-cramer-rule-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cramer-rule",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "设 $A$ 为 $n$ 阶方阵且 $\\lvert A\\rvert\\ne0$。用克拉默法则解方程组 $AX=b$ 时，第 $3$ 个未知量 $x_3$ 的表达式是？",
+    "options": [
+      "A. $\\frac{\\lvert A\\rvert}{\\lvert A_3\\rvert}$",
+      "B. $\\frac{\\lvert A_3\\rvert}{\\lvert A\\rvert}$",
+      "C. $\\lvert A_3\\rvert \\cdot \\lvert A\\rvert$",
+      "D. $\\lvert A_3\\rvert-\\lvert A\\rvert$"
+    ],
+    "answer": "B",
+    "explanation": "克拉默法则的公式为 $x_i=\\frac{\\lvert A_i\\rvert}{\\lvert A\\rvert}$，分子是 $A_i$（$A$ 的第 $i$ 列替换为 $b$）的行列式，分母是系数行列式。A 选项中分子分母的位置反了。",
+    "tags": [
+      "克拉默法则",
+      "公式"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 A 选项是反向错误（分子分母颠倒），这是常见记忆错误"
+  },
+  {
+    "id": "q-matrix-rank-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-rank-concept-calculation",
+    "type": "true_false",
+    "difficulty": "basic",
+    "stem": "零矩阵的秩等于 $0$。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "零矩阵不存在任何非零子式，其子式的最高非零阶数为 $0$，因此秩为 $0$。这是秩概念的基本边界情况。",
+    "tags": [
+      "矩阵秩",
+      "零矩阵"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认零矩阵的秩为 $0$ 是定义，而非推导结论"
+  },
+  {
+    "id": "q-matrix-rank-004",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-rank-concept-calculation",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "将矩阵用初等变换化为行阶梯形后，矩阵的秩等于什么？",
+    "options": [
+      "A. 行阶梯形中非零行的行数",
+      "B. 原矩阵的总行数",
+      "C. 原矩阵的总列数",
+      "D. 行阶梯形中首个元素为 $1$ 的行的行数"
+    ],
+    "answer": "A",
+    "explanation": "行阶梯形中非零行的个数就是矩阵的秩。注意区分「首元为 $1$ 的行」——这是行简化阶梯形的要求，一般行阶梯形不要求首元为 $1$。",
+    "tags": [
+      "矩阵秩",
+      "行阶梯形"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认 D 选项的迷惑性：行简化阶梯形要求首元为 $1$，但秩只看非零行数"
+  },
+  {
+    "id": "q-matrix-rank-005",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-rank-concept-calculation",
+    "type": "single_choice",
+    "difficulty": "basic",
+    "stem": "对一个矩阵作一次初等列变换后，其秩会如何变化？",
+    "options": [
+      "A. 可能增大",
+      "B. 可能减小",
+      "C. 保持不变",
+      "D. 变为原来的平方"
+    ],
+    "answer": "C",
+    "explanation": "初等变换（行的或列的）不改变矩阵的秩。这是用初等变换计算秩的理论基础，无论行变换还是列变换，秩都是不变量。",
+    "tags": [
+      "矩阵秩",
+      "初等变换"
+    ],
+    "source": "ai",
+    "status": "approved",
+    "review_notes": "确认强调了列变换也不改变秩，与解方程组时（只能用行变换）不同"
+  },
+  {
     "id": "q-poly-001",
     "course_id": "sjtu-advanced-algebra",
     "knowledge_point_id": "polynomial-division",
