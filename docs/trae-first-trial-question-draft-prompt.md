@@ -40,7 +40,7 @@ content-packs/uestc-linear-algebra/draft-first-trial-questions.json
 8. source 固定为 ai，status 固定为 draft。
 9. review_notes 用一句话标出人工审核时最该检查的数学条件或符号。
 10. 题干、选项、解析必须用自己的话写，不照抄教材、PPT 或既有题目。
-11. 公式使用 LaTeX 风格，例如 A^{-1}、\\lvert A\\rvert、\\frac{A^*}{\\lvert A\\rvert}；含中文说明时把公式放在自然句子中。
+11. 行内公式必须用 $...$ 包住，并使用 LaTeX 风格，例如 $A^{-1}$、$\\lvert A\\rvert$、$\\frac{A^*}{\\lvert A\\rvert}$；含中文说明时把公式放在自然句子中。
 12. 不出证明题、长计算题、超纲题；不使用 Sylvester 秩不等式、满秩分解或伴随矩阵秩规律。
 13. 每题必须能由对应知识点的速讲、公式或易错点解释清楚。
 14. 生成前逐题检查：答案唯一、答案与解析一致、适用条件完整、错误选项具有迷惑性但不含歧义。

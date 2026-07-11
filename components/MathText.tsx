@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { Formula } from "@/components/Formula";
+
 function readGroupedText(text: string, startIndex: number) {
   const opener = text[startIndex];
   const closer = opener === "{" ? "}" : opener === "(" ? ")" : "";
@@ -104,6 +106,21 @@ function renderMathNodes(text: string, keyPrefix: string): ReactNode[] {
 
   while (index < text.length) {
     const char = text[index];
+
+    if (char === "$") {
+      const endIndex = text.indexOf("$", index + 1);
+
+      if (endIndex > index + 1) {
+        flushBuffer();
+        nodes.push(
+          <Formula key={`${keyPrefix}-latex-${nodes.length}`}>
+            {text.slice(index + 1, endIndex)}
+          </Formula>
+        );
+        index = endIndex + 1;
+        continue;
+      }
+    }
 
     if ((char === "^" || char === "_") && index + 1 < text.length) {
       flushBuffer();
