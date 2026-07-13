@@ -47,6 +47,7 @@ export type Question = {
   options: string[];
   answer: string;
   explanation: string;
+  option_explanations?: Record<string, string>;
   tags: string[];
   source: "manual" | "ai";
   status: "approved" | "draft";

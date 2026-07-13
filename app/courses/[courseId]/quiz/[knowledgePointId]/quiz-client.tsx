@@ -30,10 +30,16 @@ export function QuizClient({
   questions: Question[];
 }) {
   const [answers, setAnswers] = useState<QuizAnswerMap>({});
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answerChecked, setAnswerChecked] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const result = useMemo(() => scoreQuiz(questions, answers), [answers, questions]);
   const allAnswered = questions.every((question) => answers[question.id]);
+  const currentQuestion = questions[currentQuestionIndex];
+  const currentAnswer = currentQuestion
+    ? answers[currentQuestion.id]
+    : undefined;
   const isChapterQuiz = Boolean(chapter);
   const quizTitle = chapter ? `${chapter.title} 混合自测` : `${point!.title} 自测`;
   const backHref = chapter
@@ -51,7 +57,7 @@ export function QuizClient({
       ? "回到章节"
       : "回到课程";
 
-  function handleSubmit() {
+  function handleFinishQuiz() {
     if (!allAnswered) {
       return;
     }
@@ -105,6 +111,19 @@ export function QuizClient({
     setSubmitted(true);
   }
 
+  function handleCheckAnswer() {
+    if (!currentAnswer) {
+      return;
+    }
+
+    setAnswerChecked(true);
+  }
+
+  function handleNextQuestion() {
+    setCurrentQuestionIndex((current) => current + 1);
+    setAnswerChecked(false);
+  }
+
   if (questions.length === 0) {
     return (
       <section className="rounded-lg border border-line bg-white p-6 shadow-sm">
@@ -141,8 +160,8 @@ export function QuizClient({
         </h1>
         <p className="mt-3 text-sm leading-6 text-muted">
           {isChapterQuiz
-            ? "本轮从本章不同知识点中选取 5 道题。提交后会显示答案和解析，错题仍按原知识点保存。"
-            : "先完成所有题目再提交。提交后会显示正确率、答案和解析，错题会保存在当前浏览器。"}
+            ? "本轮从本章不同知识点中选取题目。每题确认后立即查看答案与解析，错题仍按原知识点保存。"
+            : "每题确认后会立即显示正确答案、选项判断和完整解析；完成本轮后，错题会保存在当前浏览器。"}
         </p>
       </section>
 
@@ -154,27 +173,43 @@ export function QuizClient({
         />
       ) : null}
 
-      <div className="grid gap-4">
-        {questions.map((question, index) => (
-          <QuestionCard
-            key={question.id}
-            question={question}
-            index={index}
-            selectedAnswer={answers[question.id]}
-            submitted={submitted}
-            onSelect={(answer) =>
-              setAnswers((current) => ({
-                ...current,
-                [question.id]: answer
-              }))
-            }
-          />
-        ))}
-      </div>
+      {submitted ? (
+        <section className="grid gap-4">
+          <div>
+            <p className="text-sm font-medium text-muted">答题回顾</p>
+            <h2 className="mt-1 text-xl font-semibold text-ink">逐题查看答案与解析</h2>
+          </div>
+          {questions.map((question, index) => (
+            <QuestionCard
+              key={question.id}
+              question={question}
+              index={index}
+              selectedAnswer={answers[question.id]}
+              submitted
+              onSelect={() => undefined}
+            />
+          ))}
+        </section>
+      ) : (
+        <QuestionCard
+          question={currentQuestion}
+          index={currentQuestionIndex}
+          selectedAnswer={currentAnswer}
+          submitted={answerChecked}
+          onSelect={(answer) =>
+            setAnswers((current) => ({
+              ...current,
+              [currentQuestion.id]: answer
+            }))
+          }
+        />
+      )}
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-muted">
-          已作答 {Object.keys(answers).length}/{questions.length}
+          {submitted
+            ? `已完成 ${questions.length}/${questions.length}`
+            : `第 ${currentQuestionIndex + 1}/${questions.length} 题 · 已完成 ${currentQuestionIndex} 题`}
         </p>
         {submitted ? (
           <div className="flex flex-col gap-2 sm:flex-row">
@@ -191,14 +226,28 @@ export function QuizClient({
               {continueLabel}
             </Link>
           </div>
+        ) : answerChecked ? (
+          <button
+            type="button"
+            onClick={
+              currentQuestionIndex === questions.length - 1
+                ? handleFinishQuiz
+                : handleNextQuestion
+            }
+            className="inline-flex items-center justify-center rounded-md bg-accent px-4 py-3 text-sm font-semibold text-white transition hover:bg-accent/90"
+          >
+            {currentQuestionIndex === questions.length - 1
+              ? "查看本次结果"
+              : "确认后进入下一题"}
+          </button>
         ) : (
           <button
             type="button"
-            disabled={!allAnswered}
-            onClick={handleSubmit}
+            disabled={!currentAnswer}
+            onClick={handleCheckAnswer}
             className="inline-flex items-center justify-center rounded-md bg-accent px-4 py-3 text-sm font-semibold text-white transition hover:bg-accent/90 disabled:cursor-not-allowed disabled:bg-muted"
           >
-            提交并查看解析
+            确认答案并查看解析
           </button>
         )}
       </div>

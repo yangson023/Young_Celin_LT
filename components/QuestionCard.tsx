@@ -61,7 +61,28 @@ export function QuestionCard({
       {submitted ? (
         <div className="mt-4 rounded-md bg-paper p-4 text-sm leading-6">
           <p className="font-semibold text-ink">正确答案：{question.answer}</p>
-          <p className="mt-2 text-muted">
+          <div className="mt-3 grid gap-2">
+            <p className="font-semibold text-ink">选项判断</p>
+            {question.options.map((option) => {
+              const optionKey = option.slice(0, 1);
+              const savedExplanation = question.option_explanations?.[optionKey];
+              const fallbackExplanation =
+                optionKey === question.answer
+                  ? "正确选项，理由见下方完整解析。"
+                  : optionKey === selectedAnswer
+                    ? "你的选择不符合题意，请结合完整解析找出误区。"
+                    : "不是正确答案，请结合完整解析对照判断。";
+
+              return (
+                <p key={option} className="text-muted">
+                  <span className="font-medium text-ink">{optionKey}：</span>
+                  {savedExplanation ?? fallbackExplanation}
+                </p>
+              );
+            })}
+          </div>
+          <p className="mt-3 font-semibold text-ink">完整解析</p>
+          <p className="mt-1 text-muted">
             <MathText>{question.explanation}</MathText>
           </p>
         </div>
