@@ -68,10 +68,8 @@ export function QuestionCard({
               const savedExplanation = question.option_explanations?.[optionKey];
               const fallbackExplanation =
                 optionKey === question.answer
-                  ? "正确选项，理由见下方完整解析。"
-                  : optionKey === selectedAnswer
-                    ? "你的选择不符合题意，请结合完整解析找出误区。"
-                    : "不是正确答案，请结合完整解析对照判断。";
+                  ? "正确。"
+                  : "不正确。";
 
               return (
                 <p key={option} className="text-muted">

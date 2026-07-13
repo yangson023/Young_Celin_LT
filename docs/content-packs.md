@@ -133,6 +133,9 @@ questions.json
     "options": ["A. 将某一行乘以 0", "B. 交换矩阵的两行", "C. 删除矩阵的一列", "D. 任意改变矩阵元素位置"],
     "answer": "B",
     "explanation": "矩阵初等行变换包括交换两行、某一行乘以非零常数、某一行加上另一行的倍数。",
+    "option_explanations": {
+      "A": "初等行变换中的倍乘要求乘数非零；乘以 0 会丢失原方程信息。"
+    },
     "tags": ["矩阵", "初等变换"],
     "source": "manual",
     "status": "approved"
@@ -152,6 +155,7 @@ true_false
 - `id` 必须唯一。
 - `knowledge_point_id` 必须对应本课程的知识点。
 - `answer` 目前使用选项字母，例如 `A`、`B`。
+- `option_explanations` 是可选字段，只为典型易错选项补充简短说明；未填写时页面只显示简短判断和完整解析。
 - `status` 为 `approved` 的题目才会出现在自测中。
 
 ## 7. 两人协作建议
