@@ -72,6 +72,7 @@
 /courses
 /courses/[courseId]
 /courses/[courseId]/chapters/[chapterId]
+/courses/[courseId]/chapters/[chapterId]/quiz
 /courses/[courseId]/knowledge/[knowledgePointId]
 /courses/[courseId]/quiz/[knowledgePointId]
 /result
@@ -86,6 +87,7 @@
 | `/courses` | 课程包列表 |
 | `/courses/[courseId]` | 某门课程的章节和学习概览 |
 | `/courses/[courseId]/chapters/[chapterId]` | 章节下的知识点列表 |
+| `/courses/[courseId]/chapters/[chapterId]/quiz` | 从本章不同知识点抽取的混合自测 |
 | `/courses/[courseId]/knowledge/[knowledgePointId]` | 知识点速讲、公式、例题、易错点 |
 | `/courses/[courseId]/quiz/[knowledgePointId]` | 当前知识点自测 |
 | `/result` | 本次答题结果和反馈 |

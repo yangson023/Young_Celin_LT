@@ -58,6 +58,12 @@ export default async function ChapterPage({
           <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
             {chapter.summary}
           </p>
+          <Link
+            href={`/courses/${course.id}/chapters/${chapter.id}/quiz`}
+            className="mt-5 inline-flex w-full items-center justify-center rounded-md bg-accent px-4 py-3 text-sm font-semibold text-white transition hover:bg-accent/90 sm:w-auto"
+          >
+            开始章节混合自测
+          </Link>
         </section>
 
         <section>

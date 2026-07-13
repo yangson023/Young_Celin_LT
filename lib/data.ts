@@ -90,6 +90,19 @@ export function getQuestionsByKnowledgePointId(
   );
 }
 
+export function getQuestionsByChapterId(courseId: string, chapterId: string) {
+  const knowledgePointIds = new Set(
+    getKnowledgePointsByChapterId(courseId, chapterId).map((point) => point.id)
+  );
+
+  return questions.filter(
+    (question) =>
+      question.course_id === courseId &&
+      knowledgePointIds.has(question.knowledge_point_id) &&
+      question.status === "approved"
+  );
+}
+
 export function getQuestionCountByCourseId(courseId: string) {
   return questions.filter((question) => question.course_id === courseId).length;
 }

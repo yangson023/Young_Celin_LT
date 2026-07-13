@@ -34,7 +34,7 @@ export type LearningProgressRecord = {
 
 export type QuizProgressInput = {
   courseId: string;
-  knowledgePointId: string;
+  knowledgePointId?: string;
   questionCount: number;
   correctCount: number;
 };
@@ -134,9 +134,11 @@ export function recordQuizProgress(input: QuizProgressInput) {
     answeredCount: 0,
     correctCount: 0
   };
-  const knowledgePointProgress = current.knowledgePoints[input.knowledgePointId] ?? {
-    completedQuizCount: 0
-  };
+  const knowledgePointProgress = input.knowledgePointId
+    ? current.knowledgePoints[input.knowledgePointId] ?? {
+        completedQuizCount: 0
+      }
+    : null;
 
   const next: LearningProgressRecord = {
     completedQuizCount: current.completedQuizCount + 1,
@@ -150,12 +152,14 @@ export function recordQuizProgress(input: QuizProgressInput) {
         correctCount: courseProgress.correctCount + input.correctCount
       }
     },
-    knowledgePoints: {
-      ...current.knowledgePoints,
-      [input.knowledgePointId]: {
-        completedQuizCount: knowledgePointProgress.completedQuizCount + 1
-      }
-    }
+    knowledgePoints: input.knowledgePointId
+      ? {
+          ...current.knowledgePoints,
+          [input.knowledgePointId]: {
+            completedQuizCount: knowledgePointProgress!.completedQuizCount + 1
+          }
+        }
+      : current.knowledgePoints
   };
 
   writeJson(LEARNING_PROGRESS_KEY, next);

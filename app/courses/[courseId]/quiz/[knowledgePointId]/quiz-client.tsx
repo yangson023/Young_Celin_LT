@@ -9,17 +9,21 @@ import {
   saveLastLearning,
   saveWrongQuestions
 } from "@/lib/storage";
-import type { Course, KnowledgePoint, Question } from "@/lib/types";
+import type { Chapter, Course, KnowledgePoint, Question } from "@/lib/types";
 import { scoreQuiz, type QuizAnswerMap } from "@/lib/quiz";
 
 export function QuizClient({
   course,
   point,
+  chapter,
+  knowledgePoints = [],
   chapterTitle,
   questions
 }: {
   course: Course;
-  point: KnowledgePoint;
+  point?: KnowledgePoint;
+  chapter?: Chapter;
+  knowledgePoints?: KnowledgePoint[];
   chapterTitle?: string;
   questions: Question[];
 }) {
@@ -28,6 +32,12 @@ export function QuizClient({
 
   const result = useMemo(() => scoreQuiz(questions, answers), [answers, questions]);
   const allAnswered = questions.every((question) => answers[question.id]);
+  const isChapterQuiz = Boolean(chapter);
+  const quizTitle = chapter ? `${chapter.title} 混合自测` : `${point!.title} 自测`;
+  const backHref = chapter
+    ? `/courses/${course.id}/chapters/${chapter.id}`
+    : `/courses/${course.id}/knowledge/${point!.id}`;
+  const backLabel = chapter ? "返回章节" : "返回知识点";
 
   function handleSubmit() {
     if (!allAnswered) {
@@ -36,34 +46,42 @@ export function QuizClient({
 
     const wrongRecords = questions
       .filter((question) => answers[question.id] !== question.answer)
-      .map((question) => ({
-        questionId: question.id,
-        courseId: course.id,
-        courseTitle: course.title,
-        chapterTitle,
-        knowledgePointId: point.id,
-        knowledgeTitle: point.title,
-        stem: question.stem,
-        userAnswer: answers[question.id],
-        correctAnswer: question.answer,
-        explanation: question.explanation,
-        createdAt: new Date().toISOString()
-      }));
+      .map((question) => {
+        const questionPoint = point ?? knowledgePoints.find(
+          (item) => item.id === question.knowledge_point_id
+        );
+
+        return {
+          questionId: question.id,
+          courseId: course.id,
+          courseTitle: course.title,
+          chapterTitle,
+          knowledgePointId: questionPoint?.id ?? question.knowledge_point_id,
+          knowledgeTitle: questionPoint?.title ?? "未标记知识点",
+          stem: question.stem,
+          userAnswer: answers[question.id],
+          correctAnswer: question.answer,
+          explanation: question.explanation,
+          createdAt: new Date().toISOString()
+        };
+      });
 
     saveWrongQuestions(wrongRecords);
     recordQuizProgress({
       courseId: course.id,
-      knowledgePointId: point.id,
+      knowledgePointId: point?.id,
       questionCount: result.total,
       correctCount: result.correctCount
     });
-    saveLastLearning({
-      courseId: course.id,
-      courseTitle: course.title,
-      knowledgePointId: point.id,
-      knowledgeTitle: point.title,
-      href: `/courses/${course.id}/knowledge/${point.id}`
-    });
+    if (point) {
+      saveLastLearning({
+        courseId: course.id,
+        courseTitle: course.title,
+        knowledgePointId: point.id,
+        knowledgeTitle: point.title,
+        href: `/courses/${course.id}/knowledge/${point.id}`
+      });
+    }
     setSubmitted(true);
   }
 
@@ -72,16 +90,16 @@ export function QuizClient({
       <section className="rounded-lg border border-line bg-white p-6 shadow-sm">
         <p className="text-sm text-muted">{course.title}</p>
         <h1 className="mt-1 text-2xl font-semibold text-ink">
-          {point.title} 暂无题目
+          {quizTitle} 暂无题目
         </h1>
         <p className="mt-3 text-sm text-muted">
           这个知识点还没有录入题目，可以先返回知识点详情。
         </p>
         <Link
-          href={`/courses/${course.id}/knowledge/${point.id}`}
+          href={backHref}
           className="mt-5 inline-flex rounded-md border border-line px-4 py-3 text-sm font-semibold text-ink"
         >
-          返回知识点
+          {backLabel}
         </Link>
       </section>
     );
@@ -90,19 +108,21 @@ export function QuizClient({
   return (
     <div className="grid gap-6">
       <Link
-        href={`/courses/${course.id}/knowledge/${point.id}`}
+        href={backHref}
         className="text-sm font-medium text-accent"
       >
-        返回知识点
+        {backLabel}
       </Link>
 
       <section className="rounded-lg border border-line bg-white p-6 shadow-sm">
         <p className="text-sm text-muted">{course.title}</p>
         <h1 className="mt-1 text-3xl font-semibold text-ink">
-          {point.title} 自测
+          {quizTitle}
         </h1>
         <p className="mt-3 text-sm leading-6 text-muted">
-          先完成所有题目再提交。提交后会显示正确率、答案和解析，错题会保存在当前浏览器。
+          {isChapterQuiz
+            ? "本轮从本章不同知识点中选取 5 道题。提交后会显示答案和解析，错题仍按原知识点保存。"
+            : "先完成所有题目再提交。提交后会显示正确率、答案和解析，错题会保存在当前浏览器。"}
         </p>
       </section>
 
