@@ -1,4 +1,5 @@
 import { AppHeader } from "./AppHeader";
+import { LearningNavigator } from "./LearningNavigator";
 
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
@@ -14,9 +15,10 @@ export function PageShell({ children }: { children: React.ReactNode }) {
       />
       <div className="relative z-10">
         <AppHeader />
-        <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+        <main className="mx-auto w-full max-w-6xl px-4 pb-24 pt-6 sm:px-6 sm:py-8 xl:pr-64">
           {children}
         </main>
+        <LearningNavigator />
       </div>
     </div>
   );

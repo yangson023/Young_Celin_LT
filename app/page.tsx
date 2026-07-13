@@ -1,5 +1,6 @@
 import { ContinueLearningPanel } from "@/components/ContinueLearningPanel";
 import { CourseCard } from "@/components/CourseCard";
+import { FirstVisitGuide } from "@/components/FirstVisitGuide";
 import { LearningProgressPanel } from "@/components/LearningProgressPanel";
 import { PageShell } from "@/components/PageShell";
 import { QuickPracticePanel } from "@/components/QuickPracticePanel";
@@ -17,6 +18,7 @@ export default function HomePage() {
     <PageShell>
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="grid gap-6">
+          <FirstVisitGuide />
           <ContinueLearningPanel />
           <LearningProgressPanel title="整体学习进度" />
 

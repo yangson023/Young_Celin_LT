@@ -5,6 +5,7 @@ import type { WrongQuestionRecord } from "./types";
 const WRONG_QUESTIONS_KEY = "course-review-demo:wrong-questions";
 const LAST_LEARNING_KEY = "course-review-demo:last-learning";
 const LEARNING_PROGRESS_KEY = "course-review-demo:learning-progress";
+const ONBOARDING_DISMISSED_KEY = "course-review-demo:onboarding-dismissed";
 
 export type LastLearningRecord = {
   courseId: string;
@@ -111,6 +112,22 @@ export function getLastLearning() {
 
 export function saveLastLearning(record: LastLearningRecord) {
   writeJson(LAST_LEARNING_KEY, record);
+}
+
+export function hasDismissedOnboarding() {
+  if (typeof window === "undefined") {
+    return true;
+  }
+
+  return window.localStorage.getItem(ONBOARDING_DISMISSED_KEY) === "true";
+}
+
+export function dismissOnboarding() {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.localStorage.setItem(ONBOARDING_DISMISSED_KEY, "true");
 }
 
 export function getLearningProgress() {
