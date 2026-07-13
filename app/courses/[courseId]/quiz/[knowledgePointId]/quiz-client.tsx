@@ -15,6 +15,7 @@ import { scoreQuiz, type QuizAnswerMap } from "@/lib/quiz";
 export function QuizClient({
   course,
   point,
+  nextPoint,
   chapter,
   knowledgePoints = [],
   chapterTitle,
@@ -22,6 +23,7 @@ export function QuizClient({
 }: {
   course: Course;
   point?: KnowledgePoint;
+  nextPoint?: KnowledgePoint;
   chapter?: Chapter;
   knowledgePoints?: KnowledgePoint[];
   chapterTitle?: string;
@@ -38,6 +40,16 @@ export function QuizClient({
     ? `/courses/${course.id}/chapters/${chapter.id}`
     : `/courses/${course.id}/knowledge/${point!.id}`;
   const backLabel = chapter ? "返回章节" : "返回知识点";
+  const continueHref = nextPoint
+    ? `/courses/${course.id}/knowledge/${nextPoint.id}`
+    : chapter
+      ? `/courses/${course.id}/chapters/${chapter.id}`
+      : `/courses/${course.id}`;
+  const continueLabel = nextPoint
+    ? `继续：${nextPoint.title}`
+    : chapter
+      ? "回到章节"
+      : "回到课程";
 
   function handleSubmit() {
     if (!allAnswered) {
@@ -73,7 +85,15 @@ export function QuizClient({
       questionCount: result.total,
       correctCount: result.correctCount
     });
-    if (point) {
+    if (nextPoint) {
+      saveLastLearning({
+        courseId: course.id,
+        courseTitle: course.title,
+        knowledgePointId: nextPoint.id,
+        knowledgeTitle: nextPoint.title,
+        href: `/courses/${course.id}/knowledge/${nextPoint.id}`
+      });
+    } else if (point) {
       saveLastLearning({
         courseId: course.id,
         courseTitle: course.title,
@@ -165,10 +185,10 @@ export function QuizClient({
               查看错题
             </Link>
             <Link
-              href={`/courses/${course.id}`}
+              href={continueHref}
               className="inline-flex items-center justify-center rounded-md bg-accent px-4 py-3 text-sm font-semibold text-white transition hover:bg-accent/90"
             >
-              回到课程
+              {continueLabel}
             </Link>
           </div>
         ) : (

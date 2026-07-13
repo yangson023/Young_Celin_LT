@@ -29,7 +29,18 @@ const questions = [
 ] as Question[];
 
 function sortKnowledgePoints(a: KnowledgePoint, b: KnowledgePoint) {
-  return (a.order ?? 999) - (b.order ?? 999) || a.title.localeCompare(b.title);
+  const aChapterOrder = chapters.find(
+    (chapter) => chapter.id === a.chapter_id
+  )?.order ?? 999;
+  const bChapterOrder = chapters.find(
+    (chapter) => chapter.id === b.chapter_id
+  )?.order ?? 999;
+
+  return (
+    aChapterOrder - bChapterOrder ||
+    (a.order ?? 999) - (b.order ?? 999) ||
+    a.title.localeCompare(b.title)
+  );
 }
 
 export function getCourses() {
@@ -76,6 +87,18 @@ export function getKnowledgePointById(
   return knowledgePoints.find(
     (point) => point.course_id === courseId && point.id === knowledgePointId
   );
+}
+
+export function getNextKnowledgePointById(
+  courseId: string,
+  knowledgePointId: string
+) {
+  const coursePoints = getKnowledgePointsByCourseId(courseId);
+  const currentIndex = coursePoints.findIndex(
+    (point) => point.id === knowledgePointId
+  );
+
+  return currentIndex >= 0 ? coursePoints[currentIndex + 1] : undefined;
 }
 
 export function getQuestionsByKnowledgePointId(

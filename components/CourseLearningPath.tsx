@@ -36,9 +36,8 @@ export function CourseLearningPath({
     [chapters, knowledgePoints, progress]
   );
 
-  const nextChapter = chapterProgress.find(
-    ({ points, completedPointCount }) =>
-      points.length > 0 && completedPointCount < points.length
+  const nextPoint = knowledgePoints.find(
+    (point) => (progress?.knowledgePoints[point.id]?.completedQuizCount ?? 0) === 0
   );
 
   return (
@@ -47,21 +46,25 @@ export function CourseLearningPath({
         <div>
           <p className="text-sm font-medium text-muted">章节学习路径</p>
           <h2 className="mt-1 text-xl font-semibold text-ink">
-            {nextChapter ? `下一站：${nextChapter.chapter.title}` : "本课程的自测已完成"}
+            {nextPoint ? `下一步：${nextPoint.title}` : "本课程的自测已完成"}
           </h2>
         </div>
-        {nextChapter ? (
+        {nextPoint ? (
           <Link
-            href={`/courses/${courseId}/chapters/${nextChapter.chapter.id}`}
+            href={`/courses/${courseId}/knowledge/${nextPoint.id}`}
             className="inline-flex w-fit items-center justify-center rounded-md bg-accent px-3 py-2 text-sm font-semibold text-white transition hover:bg-accent/90"
           >
-            继续学习
+            开始下一步
           </Link>
         ) : null}
       </div>
 
       <div className="mt-5 grid gap-4">
         {chapterProgress.map(({ chapter, points, completedPointCount }) => {
+          const nextPointInChapter = points.find(
+            (point) =>
+              (progress?.knowledgePoints[point.id]?.completedQuizCount ?? 0) === 0
+          );
           const percentage = points.length
             ? Math.round((completedPointCount / points.length) * 100)
             : 0;
@@ -83,10 +86,16 @@ export function CourseLearningPath({
                   </p>
                 </div>
                 <Link
-                  href={`/courses/${courseId}/chapters/${chapter.id}`}
+                  href={
+                    nextPointInChapter
+                      ? `/courses/${courseId}/knowledge/${nextPointInChapter.id}`
+                      : `/courses/${courseId}/chapters/${chapter.id}`
+                  }
                   className="text-sm font-semibold text-accent transition hover:text-ink"
                 >
-                  {completedPointCount > 0 ? "查看进度" : "开始本章"}
+                  {completedPointCount === points.length && points.length > 0
+                    ? "查看本章"
+                    : "继续本章"}
                 </Link>
               </div>
               <div

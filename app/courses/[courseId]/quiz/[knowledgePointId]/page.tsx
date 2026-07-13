@@ -4,6 +4,7 @@ import {
   getCourseById,
   getChapterById,
   getKnowledgePointById,
+  getNextKnowledgePointById,
   getQuestionsByKnowledgePointId
 } from "@/lib/data";
 import { QuizClient } from "./quiz-client";
@@ -26,12 +27,14 @@ export default async function QuizPage({
     5
   );
   const chapter = getChapterById(course.id, point.chapter_id);
+  const nextPoint = getNextKnowledgePointById(course.id, point.id);
 
   return (
     <PageShell>
       <QuizClient
         course={course}
         point={point}
+        nextPoint={nextPoint}
         chapterTitle={chapter?.title}
         questions={questions}
       />
