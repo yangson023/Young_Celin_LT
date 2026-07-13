@@ -486,10 +486,10 @@
     "section_title": "2.4 克拉默法则",
     "order": 5,
     "title": "克拉默法则",
-    "one_sentence": "当系数行列式不为零时，克拉默法则可以用行列式表示线性方程组的唯一解。",
-    "summary": "对于 n 个方程 n 个未知量的线性方程组 AX=b，若系数矩阵 A 的行列式不为零，则方程组有唯一解。把 A 的第 i 列替换为常数项列向量 b 得到 A_i，则第 i 个未知量可写成 |A_i|/|A|。克拉默法则更适合理解理论关系和处理小规模计算，不适合大规模手算。",
+    "one_sentence": "当线性方程组的系数行列式不为零时，克拉默法则可以用行列式表示它的唯一解。",
+    "summary": "对于线性方程组 $AX=b$，若 $A$ 是 $n$ 阶系数方阵，且 $\\lvert A\\rvert\\ne0$，则方程组有唯一解。把 $A$ 的第 $i$ 列替换为常数项列向量 $b$，得到 $A_i$；第 $i$ 个未知量可由相应行列式之比求出。克拉默法则更适合理解理论关系和处理小规模计算，不适合大规模手算。",
     "formulas": [
-      "克拉默公式：x_i=\\frac{\\lvert A_i\\rvert}{\\lvert A\\rvert}（A 为 n 阶方阵且 \\lvert A\\rvert\\ne0）",
+      "克拉默公式：x_i=\\frac{\\lvert A_i\\rvert}{\\lvert A\\rvert}",
       "替换规则：A_i=[a_1,\\ldots,a_{i-1},b,a_{i+1},\\ldots,a_n]",
       "齐次方程组：AX=0\\text{ 有非零解}\\Leftrightarrow\\lvert A\\rvert=0（A 为 n 阶方阵）"
     ],
