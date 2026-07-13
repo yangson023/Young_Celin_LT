@@ -44,7 +44,7 @@ export function CourseLearningPath({
     <section className="rounded-lg border border-line bg-white p-5 shadow-sm">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="text-sm font-medium text-muted">章节学习路径</p>
+          <p className="text-sm font-medium text-muted">可点击学习路线</p>
           <h2 className="mt-1 text-xl font-semibold text-ink">
             {nextPoint ? `下一步：${nextPoint.title}` : "本课程的自测已完成"}
           </h2>
@@ -59,7 +59,7 @@ export function CourseLearningPath({
         ) : null}
       </div>
 
-      <div className="mt-5 grid gap-4">
+      <div className="mt-5 grid gap-5">
         {chapterProgress.map(({ chapter, points, completedPointCount }) => {
           const nextPointInChapter = points.find(
             (point) =>
@@ -76,7 +76,7 @@ export function CourseLearningPath({
                 : "待学习";
 
           return (
-            <div key={chapter.id} className="border-t border-line pt-4 first:border-t-0 first:pt-0">
+            <div key={chapter.id} className="border-t border-line pt-5 first:border-t-0 first:pt-0">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-xs font-medium text-muted">第 {chapter.order} 章 · {status}</p>
@@ -106,6 +106,59 @@ export function CourseLearningPath({
                   className="h-full rounded-full bg-accent transition-[width]"
                   style={{ width: `${percentage}%` }}
                 />
+              </div>
+
+              <div className="relative mt-5 grid gap-3 pl-7">
+                <div className="absolute bottom-4 left-2 top-4 w-px bg-line" />
+                {points.map((point) => {
+                  const isCompleted =
+                    (progress?.knowledgePoints[point.id]?.completedQuizCount ?? 0) > 0;
+                  const isNext = nextPoint?.id === point.id;
+                  const pointStatus = isCompleted
+                    ? "已自测"
+                    : isNext
+                      ? "下一步"
+                      : "待学习";
+
+                  return (
+                    <Link
+                      key={point.id}
+                      href={`/courses/${courseId}/knowledge/${point.id}`}
+                      aria-current={isNext ? "step" : undefined}
+                      className="group relative grid gap-1 rounded-md py-1 pr-2 transition hover:bg-paper"
+                    >
+                      <span
+                        className={[
+                          "absolute -left-7 top-2 flex h-4 w-4 items-center justify-center rounded-full border-2 bg-white text-[10px] font-bold",
+                          isCompleted
+                            ? "border-accent text-accent"
+                            : isNext
+                              ? "border-accent bg-accent text-white"
+                              : "border-line text-muted"
+                        ].join(" ")}
+                      >
+                        {isCompleted ? "✓" : isNext ? "→" : ""}
+                      </span>
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <span className="text-sm font-semibold text-ink group-hover:text-accent">
+                          {point.section_title ? `${point.section_title} · ` : ""}
+                          {point.title}
+                        </span>
+                        <span
+                          className={[
+                            "text-xs font-medium",
+                            isNext ? "text-accent" : "text-muted"
+                          ].join(" ")}
+                        >
+                          {pointStatus}
+                        </span>
+                      </div>
+                      <span className="text-xs leading-5 text-muted">
+                        {point.one_sentence}
+                      </span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           );
