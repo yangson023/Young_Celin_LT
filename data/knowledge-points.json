@@ -486,16 +486,16 @@
     "section_title": "2.4 克拉默法则",
     "order": 5,
     "title": "克拉默法则",
-    "one_sentence": "当系数行列式 $\\det(A)$ 不为零时，克拉默法则可以用行列式表示方程组的唯一解。",
-    "summary": "对于线性方程组 $A\\mathbf{x}=\\mathbf{b}$，若 $A$ 是 $n$ 阶系数方阵，且 $\\det(A)\\ne0$，则方程组有唯一解。把 $A$ 的第 $i$ 列替换为常数项列向量 $\\mathbf{b}$，得到 $A_i$；第 $i$ 个未知量可由相应行列式之比求出。克拉默法则更适合理解理论关系和处理小规模计算，不适合大规模手算。",
+    "one_sentence": "对于线性方程组 $AX=b$，当 $|A|\\ne0$ 时，克拉默法则可以用行列式表示它的唯一解。",
+    "summary": "对于 n 元线性方程组 $AX=b$，若 $A$ 是 n 阶方阵且 $\\lvert A\\rvert\\ne0$，则方程组有唯一解。把 $A$ 的第 $i$ 列替换为常数项列向量 $b$，得到 $A_{i}$；第 $i$ 个未知量可由相应行列式之比求出。克拉默法则更适合理解理论关系和处理小规模计算，不适合大规模手算。",
     "formulas": [
-      "克拉默公式：x_i=\\frac{\\det(A_i)}{\\det(A)},\\quad i=1,\\ldots,n",
-      "替换矩阵：A_i=[a_1,\\ldots,a_{i-1},\\mathbf{b},a_{i+1},\\ldots,a_n]",
-      "齐次情形：A\\mathbf{x}=\\mathbf{0}\\text{ 有非零解}\\Leftrightarrow\\det(A)=0"
+      "克拉默公式：x_{i}=\\frac{\\lvert A_{i}\\rvert}{\\lvert A\\rvert},\\quad i=1,2,\\ldots,n",
+      "替换矩阵：A_{i}=[a_{1},\\ldots,a_{i-1},b,a_{i+1},\\ldots,a_{n}]",
+      "齐次情形：AX=0\\text{ 有非零解}\\Leftrightarrow\\lvert A\\rvert=0"
     ],
     "common_mistakes": [
-      "忘记克拉默法则要求 $A$ 为方阵且 $\\det(A)\\ne0$",
-      "构造 $A_i$ 时替换了错误的列",
+      "忘记克拉默法则要求 $A$ 为方阵且 $\\lvert A\\rvert\\ne0$",
+      "构造 $A_{i}$ 时替换了错误的列",
       "误以为克拉默法则适用于任意形状的线性方程组"
     ],
     "question_types": [

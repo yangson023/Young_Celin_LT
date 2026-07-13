@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MathText } from "@/components/MathText";
 import type { KnowledgePoint } from "@/lib/types";
 
 export function KnowledgeCard({
@@ -19,7 +20,7 @@ export function KnowledgeCard({
           ) : null}
           <h2 className="text-lg font-semibold text-ink">{point.title}</h2>
           <p className="mt-2 text-sm leading-6 text-muted">
-            {point.one_sentence}
+            <MathText>{point.one_sentence}</MathText>
           </p>
         </div>
         <span className="rounded-full border border-line bg-paper px-2.5 py-1 text-xs text-muted">
