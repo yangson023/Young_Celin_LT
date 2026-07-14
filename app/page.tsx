@@ -4,6 +4,7 @@ import { FirstVisitGuide } from "@/components/FirstVisitGuide";
 import { LearningProgressPanel } from "@/components/LearningProgressPanel";
 import { PageShell } from "@/components/PageShell";
 import { QuickPracticePanel } from "@/components/QuickPracticePanel";
+import { WeakPointPanel } from "@/components/WeakPointPanel";
 import { WrongQuestionShortcut } from "@/components/WrongQuestionShortcut";
 import {
   getCourses,
@@ -21,6 +22,7 @@ export default function HomePage() {
           <FirstVisitGuide />
           <ContinueLearningPanel />
           <LearningProgressPanel title="整体学习进度" />
+          <WeakPointPanel />
 
           <section>
             <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
