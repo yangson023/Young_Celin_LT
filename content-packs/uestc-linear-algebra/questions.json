@@ -73,13 +73,13 @@
     "knowledge_point_id": "square-matrix-power-polynomial",
     "type": "true_false",
     "difficulty": "basic",
-    "stem": "任意 m×n 矩阵都可以定义 A^2。",
+    "stem": "任意 $m\\times n$ 矩阵都可以定义 $A^2$。",
     "options": [
       "A. 正确",
       "B. 错误"
     ],
     "answer": "B",
-    "explanation": "通常只有方阵才能自然定义幂，因为 A^2=AA 要求 A 的列数等于 A 的行数。",
+    "explanation": "通常只有方阵才能自然定义幂，因为 $A^2=AA$ 要求 A 的列数等于 A 的行数。",
     "tags": [
       "方阵幂"
     ],
@@ -94,13 +94,13 @@
     "difficulty": "basic",
     "stem": "下列转置公式正确的是？",
     "options": [
-      "A. (AB)^T=A^T B^T",
-      "B. (AB)^T=B^T A^T",
-      "C. (A+B)^T=A^T-B^T",
-      "D. (A^T)^T=0"
+      "A. $(AB)^T=A^T B^T$",
+      "B. $(AB)^T=B^T A^T$",
+      "C. $(A+B)^T=A^T-B^T$",
+      "D. $(A^T)^T=0$"
     ],
     "answer": "B",
-    "explanation": "乘积转置时因子顺序要反过来，即 (AB)^T=B^T A^T。",
+    "explanation": "乘积转置时因子顺序要反过来，即 $(AB)^T=B^T A^T$。",
     "tags": [
       "转置",
       "矩阵乘法"
@@ -116,13 +116,13 @@
     "difficulty": "basic",
     "stem": "齐次线性方程组的矩阵形式通常写作？",
     "options": [
-      "A. AX=b 且 b≠0",
-      "B. AX=0",
-      "C. A+B=0",
-      "D. A^{-1}X=b"
+      "A. $AX=b$ 且 $b\\ne0$",
+      "B. $AX=0$",
+      "C. $A+B=0$",
+      "D. $A^{-1}X=b$"
     ],
     "answer": "B",
-    "explanation": "齐次线性方程组的常数项全为 0，因此矩阵形式写为 AX=0。",
+    "explanation": "齐次线性方程组的常数项全为 0，因此矩阵形式写为 $AX=0$。",
     "tags": [
       "线性方程组",
       "齐次方程组"
@@ -156,13 +156,13 @@
     "knowledge_point_id": "solution-judgement-by-echelon",
     "type": "true_false",
     "difficulty": "basic",
-    "stem": "齐次线性方程组 AX=0 一定至少有零解。",
+    "stem": "齐次线性方程组 $AX=0$ 一定至少有零解。",
     "options": [
       "A. 正确",
       "B. 错误"
     ],
     "answer": "A",
-    "explanation": "把所有未知量都取 0 一定满足 AX=0，因此齐次线性方程组总有零解。",
+    "explanation": "把所有未知量都取 0 一定满足 $AX=0$，因此齐次线性方程组总有零解。",
     "tags": [
       "齐次方程组",
       "解的判定"
@@ -219,12 +219,12 @@
     "stem": "若 A 可逆，则下列说法正确的是？",
     "options": [
       "A. A 可以不是方阵",
-      "B. 存在 A^{-1} 使 AA^{-1}=A^{-1}A=I",
+      "B. 存在 $A^{-1}$ 使 $AA^{-1}=A^{-1}A=I$",
       "C. A 的逆矩阵不唯一",
       "D. A 一定是对角矩阵"
     ],
     "answer": "B",
-    "explanation": "可逆矩阵的定义要求存在逆矩阵 A^{-1}，使 AA^{-1}=A^{-1}A=I，且逆矩阵唯一。",
+    "explanation": "可逆矩阵的定义要求存在逆矩阵 $A^{-1}$，使 $AA^{-1}=A^{-1}A=I$，且逆矩阵唯一。",
     "tags": [
       "逆矩阵"
     ],
@@ -257,15 +257,15 @@
     "knowledge_point_id": "inverse-by-row-reduction",
     "type": "single_choice",
     "difficulty": "basic",
-    "stem": "用行初等变换求 A^{-1} 的标准增广形式是？",
+    "stem": "用行初等变换求 $A^{-1}$ 的标准增广形式是？",
     "options": [
-      "A. (A, I) -> (I, A^{-1})",
-      "B. (I, A) -> (A^{-1}, I)",
+      "A. $(A, I) \\to (I, A^{-1})$",
+      "B. $(I, A) \\to (A^{-1}, I)$",
       "C. (A, 0) -> (I, 0)",
       "D. (A, A) -> (I, I)"
     ],
     "answer": "A",
-    "explanation": "求逆矩阵时对 (A, I) 作同步行初等变换，若左边化为 I，则右边即为 A^{-1}。",
+    "explanation": "求逆矩阵时对 $(A, I)$ 作同步行初等变换，若左边化为 $I$，则右边即为 $A^{-1}$。",
     "tags": [
       "求逆矩阵",
       "行初等变换"
@@ -299,11 +299,11 @@
     "knowledge_point_id": "block-diagonal-inverse",
     "type": "single_choice",
     "difficulty": "basic",
-    "stem": "分块对角矩阵 diag(A_1,A_2) 可逆的充分条件是？",
+    "stem": "分块对角矩阵 $\\operatorname{diag}(A_1,A_2)$ 可逆的充分条件是？",
     "options": [
-      "A. A_1 和 A_2 都可逆",
-      "B. A_1 可逆即可",
-      "C. A_2 可逆即可",
+      "A. $A_1$ 和 $A_2$ 都可逆",
+      "B. $A_1$ 可逆即可",
+      "C. $A_2$ 可逆即可",
       "D. 任意分块对角矩阵都可逆"
     ],
     "answer": "A",
@@ -363,15 +363,15 @@
     "knowledge_point_id": "determinant-properties-calculation",
     "type": "single_choice",
     "difficulty": "basic",
-    "stem": "若 A 是 3 阶方阵，则 |2A| 等于？",
+    "stem": "若 $A$ 是 3 阶方阵，则 $\\lvert 2A\\rvert$ 等于？",
     "options": [
-      "A. 2|A|",
-      "B. 3|A|",
-      "C. 6|A|",
-      "D. 8|A|"
+      "A. $2\\lvert A\\rvert$",
+      "B. $3\\lvert A\\rvert$",
+      "C. $6\\lvert A\\rvert$",
+      "D. $8\\lvert A\\rvert$"
     ],
     "answer": "D",
-    "explanation": "n 阶方阵满足 |kA|=k^n|A|。A 为 3 阶时，|2A|=2^3|A|=8|A|。",
+    "explanation": "n 阶方阵满足 $\\lvert kA\\rvert=k^n\\lvert A\\rvert$。A 为 3 阶时，$\\lvert 2A\\rvert=2^3\\lvert A\\rvert=8\\lvert A\\rvert$。",
     "tags": [
       "行列式性质",
       "数乘"
@@ -405,13 +405,13 @@
     "knowledge_point_id": "cofactor-expansion",
     "type": "true_false",
     "difficulty": "basic",
-    "stem": "代数余子式 A_ij 与余子式 M_ij 完全相同，不需要考虑符号。",
+    "stem": "代数余子式 $A_{ij}$ 与余子式 $M_{ij}$ 完全相同，不需要考虑符号。",
     "options": [
       "A. 正确",
       "B. 错误"
     ],
     "answer": "B",
-    "explanation": "代数余子式 A_ij=(-1)^(i+j)M_ij，比余子式多了符号因子。",
+    "explanation": "代数余子式 $A_{ij}=(-1)^{i+j}M_{ij}$，比余子式多了符号因子。",
     "tags": [
       "代数余子式",
       "余子式"
@@ -425,15 +425,15 @@
     "knowledge_point_id": "cofactor-expansion",
     "type": "single_choice",
     "difficulty": "basic",
-    "stem": "若 M_23 是某行列式的余子式，则对应的代数余子式 A_23 等于？",
+    "stem": "若 $M_{23}$ 是某行列式的余子式，则对应的代数余子式 $A_{23}$ 等于？",
     "options": [
-      "A. M_23",
-      "B. -M_23",
-      "C. 2M_23",
-      "D. 3M_23"
+      "A. $M_{23}$",
+      "B. $-M_{23}$",
+      "C. $2M_{23}$",
+      "D. $3M_{23}$"
     ],
     "answer": "B",
-    "explanation": "A_23=(-1)^(2+3)M_23=-M_23。",
+    "explanation": "$A_{23}=(-1)^{2+3}M_{23}=-M_{23}$。",
     "tags": [
       "代数余子式",
       "符号"
@@ -474,7 +474,7 @@
       "D. 矩阵是否可逆"
     ],
     "answer": "B",
-    "explanation": "拉普拉斯定理中对应符号因子含 (-1)^(行标和+列标和)。",
+    "explanation": "拉普拉斯定理中对应符号因子含 $(-1)^{\\text{行标和}+\\text{列标和}}$。",
     "tags": [
       "拉普拉斯定理",
       "符号"
@@ -488,7 +488,7 @@
     "knowledge_point_id": "cramer-rule",
     "type": "true_false",
     "difficulty": "basic",
-    "stem": "克拉默法则要求系数矩阵 A 为方阵且 |A|≠0。",
+    "stem": "克拉默法则要求系数矩阵 $A$ 为方阵且 $\\lvert A\\rvert\\ne0$。",
     "options": [
       "A. 正确",
       "B. 错误"
@@ -550,15 +550,15 @@
     "knowledge_point_id": "adjoint-matrix-core-properties",
     "type": "single_choice",
     "difficulty": "basic",
-    "stem": "若方阵 A 满足 |A|≠0，则下列关于伴随矩阵的公式正确的是？",
+    "stem": "若方阵 A 满足 $\\lvert A\\rvert\\ne0$，则下列关于伴随矩阵的公式正确的是？",
     "options": [
-      "A. A^{-1}=A*/|A|",
-      "B. A^{-1}=|A|A*",
-      "C. A*=A^T",
-      "D. AA*=0"
+      "A. $A^{-1}=\\frac{A^*}{\\lvert A\\rvert}$",
+      "B. $A^{-1}=\\lvert A\\rvert A^*$",
+      "C. $A^*=A^T$",
+      "D. $AA^*=0$"
     ],
     "answer": "A",
-    "explanation": "伴随矩阵满足 AA*=A*A=|A|I，因此 |A|≠0 时 A^{-1}=A*/|A|。",
+    "explanation": "伴随矩阵满足 $AA^*=A^*A=\\lvert A\\rvert I$，因此 $\\lvert A\\rvert\\ne0$ 时 $A^{-1}=\\frac{A^*}{\\lvert A\\rvert}$。",
     "tags": [
       "伴随矩阵",
       "逆矩阵"

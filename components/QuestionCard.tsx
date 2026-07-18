@@ -66,15 +66,14 @@ export function QuestionCard({
             {question.options.map((option) => {
               const optionKey = option.slice(0, 1);
               const savedExplanation = question.option_explanations?.[optionKey];
-              const fallbackExplanation =
-                optionKey === question.answer
-                  ? "正确。"
-                  : "不正确。";
+              const mark = optionKey === question.answer ? "√" : "×";
 
               return (
                 <p key={option} className="text-muted">
-                  <span className="font-medium text-ink">{optionKey}：</span>
-                  {savedExplanation ?? fallbackExplanation}
+                  <span className="mr-2 font-medium text-ink">
+                    {optionKey} {mark}
+                  </span>
+                  {savedExplanation ? <MathText>{savedExplanation}</MathText> : null}
                 </p>
               );
             })}
