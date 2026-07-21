@@ -1464,5 +1464,561 @@
     ],
     "source": "manual",
     "status": "approved"
+  },
+  {
+    "id": "q-matrix-linear-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-linear-operations",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "设 $A$、$B$ 是同型矩阵，且 $2A-B=O$。下列等式一定成立的是？",
+    "options": [
+      "A. $A=2B$",
+      "B. $B=2A$",
+      "C. $A+B=O$",
+      "D. $AB=O$"
+    ],
+    "answer": "B",
+    "explanation": "由 $2A-B=O$ 可移项得 $B=2A$。这类题只用矩阵加法和数乘，前提是矩阵同型。",
+    "option_explanations": {
+      "A": "把等式两边的倍数关系看反了。",
+      "D": "题干没有给出矩阵乘法相关条件。"
+    },
+    "tags": [
+      "矩阵线性运算",
+      "等式变形"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-matrix-multiplication-006",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-multiplication",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "若 $A$ 为 $2\\times3$ 矩阵，$B$ 为 $3\\times2$ 矩阵，则下列说法正确的是？",
+    "options": [
+      "A. $AB$ 与 $BA$ 都有意义，且阶数相同",
+      "B. $AB$ 为 $2\\times2$ 矩阵，$BA$ 为 $3\\times3$ 矩阵",
+      "C. 只有 $AB$ 有意义",
+      "D. 只有 $BA$ 有意义"
+    ],
+    "answer": "B",
+    "explanation": "$AB$ 的阶数取 $A$ 的行数和 $B$ 的列数，是 $2\\times2$；$BA$ 的阶数取 $B$ 的行数和 $A$ 的列数，是 $3\\times3$。两者都能乘，但结果阶数不同。",
+    "option_explanations": {
+      "A": "两者都有意义，但阶数不同。",
+      "C": "$BA$ 也有意义，因为 $B$ 的列数等于 $A$ 的行数。"
+    },
+    "tags": [
+      "矩阵乘法",
+      "阶数判断"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-square-power-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "square-matrix-power-polynomial",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "设 $A$ 为方阵，且 $A^2=O$。下列关于 $I-A$ 的说法正确的是？",
+    "options": [
+      "A. $I-A$ 一定可逆，逆为 $I+A$",
+      "B. $I-A$ 一定不可逆",
+      "C. $I-A$ 的逆为 $I-A$",
+      "D. 只有 $A=O$ 时 $I-A$ 才可逆"
+    ],
+    "answer": "A",
+    "explanation": "因为 $(I-A)(I+A)=I-A^2=I$，所以 $I-A$ 可逆，且 $(I-A)^{-1}=I+A$。这是方阵幂的典型应用。",
+    "option_explanations": {
+      "C": "$(I-A)^2=I-2A+A^2$，一般不等于 $I$。",
+      "D": "只要 $A^2=O$，不要求 $A=O$。"
+    },
+    "tags": [
+      "方阵幂",
+      "逆矩阵构造"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-transpose-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "transpose-symmetric-matrices",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "设 $A$、$B$ 为同阶方阵，且 $A^T=A$、$B^T=B$。若 $AB$ 也是对称矩阵，则必有？",
+    "options": [
+      "A. $AB=BA$",
+      "B. $AB=-BA$",
+      "C. $A+B=O$",
+      "D. $A^2=B^2$"
+    ],
+    "answer": "A",
+    "explanation": "若 $AB$ 对称，则 $(AB)^T=AB$。又 $(AB)^T=B^TA^T=BA$，所以 $BA=AB$。",
+    "option_explanations": {
+      "B": "转置会改变乘积顺序，不会自动产生负号。",
+      "C": "题干只涉及对称性和乘法顺序，与和为零无关。"
+    },
+    "tags": [
+      "转置",
+      "对称矩阵",
+      "矩阵乘法"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-linear-system-form-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "linear-system-matrix-form",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "线性方程组有 $3$ 个方程、$4$ 个未知量，写成 $AX=b$ 时，系数矩阵 $A$ 的阶数应为？",
+    "options": [
+      "A. $3\\times4$",
+      "B. $4\\times3$",
+      "C. $3\\times3$",
+      "D. $4\\times4$"
+    ],
+    "answer": "A",
+    "explanation": "系数矩阵的行数对应方程个数，列数对应未知量个数，所以 $A$ 是 $3\\times4$ 矩阵。",
+    "option_explanations": {
+      "B": "把方程个数和未知量个数的位置换反了。"
+    },
+    "tags": [
+      "线性方程组",
+      "矩阵形式"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-solution-judgement-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "solution-judgement-by-echelon",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "某线性方程组的增广矩阵经行初等变换后出现一行 $[0\\quad0\\quad0\\mid 5]$。该方程组的解的情况是？",
+    "options": [
+      "A. 有唯一解",
+      "B. 有无穷多解",
+      "C. 无解",
+      "D. 一定只有零解"
+    ],
+    "answer": "C",
+    "explanation": "这一行对应方程 $0=5$，矛盾，因此原方程组无解。判断解的情况时，要特别看增广矩阵是否出现矛盾行。",
+    "option_explanations": {
+      "B": "无穷多解的前提是方程组相容，这里已经出现矛盾。",
+      "D": "零解是齐次方程组讨论中的说法，这里不是这个情形。"
+    },
+    "tags": [
+      "方程组解的判定",
+      "增广矩阵"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-elementary-matrix-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "elementary-matrices",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "对矩阵 $A$ 作一次“第 $2$ 行加上第 $1$ 行的 $3$ 倍”的行变换，相当于？",
+    "options": [
+      "A. 左乘相应初等矩阵",
+      "B. 右乘相应初等矩阵",
+      "C. 左右同时乘同一个初等矩阵",
+      "D. 与初等矩阵无关"
+    ],
+    "answer": "A",
+    "explanation": "行初等变换对应左乘初等矩阵，列初等变换对应右乘初等矩阵。口诀是“左乘行，右乘列”。",
+    "option_explanations": {
+      "B": "右乘对应列变换，不是行变换。"
+    },
+    "tags": [
+      "初等矩阵",
+      "行变换"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-invertible-equivalent-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "invertible-equivalent-conditions",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "设 $A$ 是 $n$ 阶方阵。下列哪一项不能单独作为 $A$ 可逆的判定条件？",
+    "options": [
+      "A. $A$ 可经有限次行初等变换化为 $I$",
+      "B. 存在 $B$ 使 $AB=BA=I$",
+      "C. 齐次方程组 $AX=0$ 只有零解",
+      "D. $A$ 的所有元素都不为 $0$"
+    ],
+    "answer": "D",
+    "explanation": "元素都不为 $0$ 不能保证矩阵可逆。例如两行相同的矩阵即使元素都非零，也不可逆。A、B、C 都是可逆的常见等价判定。",
+    "option_explanations": {
+      "D": "可逆性看行列、秩或方程组结构，不是看每个元素是否非零。"
+    },
+    "tags": [
+      "可逆判定",
+      "齐次方程组"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-inverse-row-reduction-006",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-by-row-reduction",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "用行初等变换求逆时，若 $(A,I)\\to(I,C)$，则 $C$ 应为？",
+    "options": [
+      "A. $A$",
+      "B. $A^{-1}$",
+      "C. $A^T$",
+      "D. $O$"
+    ],
+    "answer": "B",
+    "explanation": "对 $(A,I)$ 的左右两部分同步作行初等变换，若左边化为 $I$，右边就是 $A^{-1}$。",
+    "option_explanations": {
+      "C": "转置不是由这个增广矩阵流程得到的。"
+    },
+    "tags": [
+      "求逆矩阵",
+      "行初等变换"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-block-operation-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "block-matrix-operations",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "若分块矩阵 $M=\\begin{pmatrix}A&B\\\\C&D\\end{pmatrix}$ 的分块大小相容，则 $M^T$ 的右上角分块是？",
+    "options": [
+      "A. $B^T$",
+      "B. $C^T$",
+      "C. $A^T$",
+      "D. $D^T$"
+    ],
+    "answer": "B",
+    "explanation": "分块矩阵转置时，既要转置每个子块，也要交换块的位置。原来的左下角 $C$ 会到右上角，并变成 $C^T$。",
+    "option_explanations": {
+      "A": "只转置子块但忘记交换块位置，是常见错误。"
+    },
+    "tags": [
+      "分块矩阵",
+      "转置"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-block-diagonal-inverse-002",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "block-diagonal-inverse",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "若 $A$、$D$ 均可逆，则分块对角矩阵 $\\operatorname{diag}(A,D)$ 的逆为？",
+    "options": [
+      "A. $\\operatorname{diag}(A^{-1},D^{-1})$",
+      "B. $\\operatorname{diag}(D^{-1},A^{-1})$",
+      "C. $\\operatorname{diag}(A,D)$",
+      "D. 一定不存在"
+    ],
+    "answer": "A",
+    "explanation": "分块对角矩阵的逆仍是分块对角形式，每个对角块分别取逆，位置不交换。",
+    "option_explanations": {
+      "B": "对角块位置不需要交换。"
+    },
+    "tags": [
+      "分块矩阵",
+      "逆矩阵"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-determinant-definition-006",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-definition",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "二阶行列式 $\\begin{vmatrix}2&-1\\\\3&4\\end{vmatrix}$ 的值是？",
+    "options": [
+      "A. $5$",
+      "B. $8$",
+      "C. $11$",
+      "D. $-11$"
+    ],
+    "answer": "C",
+    "explanation": "二阶行列式按 $ad-bc$ 计算：$2\\cdot4-(-1)\\cdot3=8+3=11$。",
+    "option_explanations": {
+      "A": "忽略了 $bc=(-1)\\cdot3$ 的负号。",
+      "D": "整体符号算反了。"
+    },
+    "tags": [
+      "二阶行列式",
+      "基础计算"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-determinant-properties-006",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-properties-calculation",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "若 $A$ 是 $4$ 阶方阵，且 $\\lvert A\\rvert=3$，则 $\\lvert -2A\\rvert$ 等于？",
+    "options": [
+      "A. $-6$",
+      "B. $24$",
+      "C. $48$",
+      "D. $-48$"
+    ],
+    "answer": "C",
+    "explanation": "若 $A$ 为 $n$ 阶方阵，则 $\\lvert kA\\rvert=k^n\\lvert A\\rvert$。这里 $n=4$，所以 $\\lvert -2A\\rvert=(-2)^4\\cdot3=48$。",
+    "option_explanations": {
+      "D": "四阶时 $(-2)^4$ 为正，不保留负号。",
+      "A": "不能只把行列式乘以 $-2$。"
+    },
+    "tags": [
+      "行列式性质",
+      "数乘"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-determinant-properties-007",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-properties-calculation",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "某行列式 $D$ 的值为 $6$。若交换其中两行，再把第一行乘以 $3$，新行列式的值为？",
+    "options": [
+      "A. $18$",
+      "B. $-18$",
+      "C. $2$",
+      "D. $-2$"
+    ],
+    "answer": "B",
+    "explanation": "交换两行使行列式变号，乘某一行以 $3$ 使行列式乘以 $3$，所以新值为 $-3D=-18$。",
+    "option_explanations": {
+      "A": "忘记交换两行会变号。",
+      "C": "行倍乘会让行列式乘以该倍数，不是除以该倍数。"
+    },
+    "tags": [
+      "行列式性质",
+      "交换行",
+      "倍乘"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-cofactor-expansion-006",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cofactor-expansion",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "按第 $i$ 行展开行列式时，正确的表达式是？",
+    "options": [
+      "A. $\\sum_{j=1}^n a_{ij}M_{ij}$",
+      "B. $\\sum_{j=1}^n a_{ij}A_{ij}$",
+      "C. $\\sum_{j=1}^n M_{ij}$",
+      "D. $\\sum_{j=1}^n A_{ij}$"
+    ],
+    "answer": "B",
+    "explanation": "按一行展开时，每一项是该行元素 $a_{ij}$ 乘对应代数余子式 $A_{ij}$，再求和。不能把代数余子式误写成普通余子式。",
+    "option_explanations": {
+      "A": "少了 $(-1)^{i+j}$ 的符号因子。",
+      "C": "展开项必须包含该行元素。"
+    },
+    "tags": [
+      "代数余子式",
+      "按行展开"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-laplace-theorem-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "laplace-theorem",
+    "type": "true_false",
+    "difficulty": "medium",
+    "stem": "拉普拉斯定理可以看作“按一行展开”的推广，因此在第一版学习中应优先理解选取行列和对应余子式的配对关系。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "拉普拉斯定理本质上把按一行展开推广到按若干行或列展开。第一版不必追深技巧，但要知道它仍然围绕子式、代数余子式和符号配对展开。",
+    "tags": [
+      "拉普拉斯定理",
+      "概念理解"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-cramer-rule-006",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "cramer-rule",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "用克拉默法则求解 $AX=b$ 时，如果 $A_2$ 表示把 $A$ 的第 $2$ 列替换为 $b$ 得到的矩阵，则 $x_2$ 等于？",
+    "options": [
+      "A. $\\frac{\\lvert A\\rvert}{\\lvert A_2\\rvert}$",
+      "B. $\\frac{\\lvert A_2\\rvert}{\\lvert A\\rvert}$",
+      "C. $\\lvert A\\rvert-\\lvert A_2\\rvert$",
+      "D. $\\lvert A\\rvert\\lvert A_2\\rvert$"
+    ],
+    "answer": "B",
+    "explanation": "克拉默法则为 $x_i=\\frac{\\lvert A_i\\rvert}{\\lvert A\\rvert}$，分母始终是系数行列式，分子是替换第 $i$ 列后的行列式。",
+    "option_explanations": {
+      "A": "分子分母颠倒。",
+      "C": "克拉默法则使用比值，不是差值。"
+    },
+    "tags": [
+      "克拉默法则",
+      "公式应用"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-adjoint-matrix-003",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "adjoint-matrix-core-properties",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "若 $A$ 为 $n$ 阶方阵，且 $\\lvert A\\rvert\\ne0$，则由 $AA^*=\\lvert A\\rvert I$ 可推出？",
+    "options": [
+      "A. $A^{-1}=\\frac{A^*}{\\lvert A\\rvert}$",
+      "B. $A^*=A$",
+      "C. $AA^*=O$",
+      "D. $A^{-1}=\\lvert A\\rvert A^*$"
+    ],
+    "answer": "A",
+    "explanation": "因为 $\\lvert A\\rvert\\ne0$，可将 $AA^*=\\lvert A\\rvert I$ 两边除以 $\\lvert A\\rvert$，得到 $A\\left(\\frac{A^*}{\\lvert A\\rvert}\\right)=I$，所以 $A^{-1}=\\frac{A^*}{\\lvert A\\rvert}$。",
+    "option_explanations": {
+      "D": "应除以 $\\lvert A\\rvert$，不是乘以 $\\lvert A\\rvert$。"
+    },
+    "tags": [
+      "伴随矩阵",
+      "逆矩阵"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-matrix-rank-006",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-rank-concept-calculation",
+    "type": "single_choice",
+    "difficulty": "medium",
+    "stem": "若一个 $3\\times4$ 矩阵经初等行变换化为行阶梯形，且有 $2$ 个非零行，则该矩阵的秩为？",
+    "options": [
+      "A. $1$",
+      "B. $2$",
+      "C. $3$",
+      "D. $4$"
+    ],
+    "answer": "B",
+    "explanation": "矩阵化为行阶梯形后，非零行的个数就是矩阵的秩。因此该矩阵的秩为 $2$。",
+    "option_explanations": {
+      "C": "秩不是原矩阵的行数。",
+      "D": "秩不能超过 $\\min(3,4)=3$。"
+    },
+    "tags": [
+      "矩阵秩",
+      "行阶梯形"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-matrix-rank-007",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "matrix-rank-concept-calculation",
+    "type": "true_false",
+    "difficulty": "medium",
+    "stem": "若 $P$、$Q$ 均可逆，则 $R(PAQ)=R(A)$。",
+    "options": [
+      "A. 正确",
+      "B. 错误"
+    ],
+    "answer": "A",
+    "explanation": "左乘或右乘可逆矩阵相当于进行一系列初等行变换或列变换，不改变矩阵的秩，所以 $R(PAQ)=R(A)$。",
+    "tags": [
+      "矩阵秩",
+      "可逆矩阵"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-chapter-1-integrated-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "inverse-matrix-definition-properties",
+    "type": "single_choice",
+    "difficulty": "advanced",
+    "stem": "设 $A$、$B$ 为同阶方阵，且 $AB=I$。在当前课程范围内，下列说法最稳妥的是？",
+    "options": [
+      "A. $A$ 与 $B$ 都可逆，且 $B=A^{-1}$",
+      "B. 只能说明 $A$ 可逆，不能说明 $B$ 可逆",
+      "C. 只能说明 $B$ 可逆，不能说明 $A$ 可逆",
+      "D. $A+B=I$"
+    ],
+    "answer": "A",
+    "explanation": "在同阶方阵范围内，若 $AB=I$，则 $A$、$B$ 均可逆，且 $B=A^{-1}$、$A=B^{-1}$。注意这个结论依赖“同阶方阵”前提。",
+    "option_explanations": {
+      "B": "方阵情形下右逆也是左逆。",
+      "D": "乘积为 $I$ 不代表和为 $I$。"
+    },
+    "tags": [
+      "逆矩阵",
+      "综合判断"
+    ],
+    "source": "manual",
+    "status": "approved"
+  },
+  {
+    "id": "q-chapter-2-integrated-001",
+    "course_id": "uestc-linear-algebra",
+    "knowledge_point_id": "determinant-properties-calculation",
+    "type": "single_choice",
+    "difficulty": "advanced",
+    "stem": "若 $A$ 是 $3$ 阶方阵，且 $\\lvert A\\rvert=0$，下列说法一定正确的是？",
+    "options": [
+      "A. $A$ 可逆",
+      "B. 齐次方程组 $AX=0$ 有非零解",
+      "C. $\\lvert A^T\\rvert=1$",
+      "D. $A$ 的每个元素都为 $0$"
+    ],
+    "answer": "B",
+    "explanation": "$\\lvert A\\rvert=0$ 表明 $A$ 不可逆。对齐次方程组 $AX=0$，这意味着它有非零解。转置不改变行列式，因此 $\\lvert A^T\\rvert=0$，不是 $1$。",
+    "option_explanations": {
+      "A": "行列式为零时方阵不可逆。",
+      "D": "行列式为零不代表所有元素都为零。"
+    },
+    "tags": [
+      "行列式",
+      "可逆性",
+      "齐次方程组"
+    ],
+    "source": "manual",
+    "status": "approved"
   }
 ]
