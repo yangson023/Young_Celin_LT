@@ -1,0 +1,41 @@
+[
+  {
+    "id": "announcement-updates-module",
+    "published_at": "2026-09-15",
+    "version": "v0.1.0",
+    "category": "feature",
+    "title": "更新公告模块上线",
+    "summary": "现在可以在首页查看最近变化，也可以进入完整公告页回顾试用版的功能迭代。",
+    "highlights": [
+      "首页右侧新增最近两条公告入口。",
+      "更新页按时间展示功能更新、内容更新和体验修复。",
+      "后续每次稳定发布会同步补充一条面向同学的说明。"
+    ],
+    "is_pinned": true
+  },
+  {
+    "id": "announcement-resource-library",
+    "published_at": "2026-09-15",
+    "version": "v0.1.0",
+    "category": "feature",
+    "title": "资料图书室开放试用",
+    "summary": "资料页现在支持按学习目的浏览公开资源，为后续自制笔记、公式卡和思维导图预留了展示位置。",
+    "highlights": [
+      "可按课程路径、教材对照和直觉理解筛选。",
+      "每份资料都标出适合用途和原站入口。"
+    ]
+  },
+  {
+    "id": "announcement-quiz-improvements",
+    "published_at": "2026-09-15",
+    "version": "v0.1.0",
+    "category": "fix",
+    "title": "自测流程与数学公式体验优化",
+    "summary": "自测中已补充更清晰的答案反馈，并统一处理常见公式的上下标、转置和行列式显示。",
+    "highlights": [
+      "答完一题后先看该题解析，再进入下一题。",
+      "错误选项采用更简洁的标记与重点说明。",
+      "补充部分中等难度题，避免自测只有概念判断。"
+    ]
+  }
+]

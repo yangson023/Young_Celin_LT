@@ -4,6 +4,7 @@ import { FirstVisitGuide } from "@/components/FirstVisitGuide";
 import { LearningProgressPanel } from "@/components/LearningProgressPanel";
 import { PageShell } from "@/components/PageShell";
 import { QuickPracticePanel } from "@/components/QuickPracticePanel";
+import { UpdatePreview } from "@/components/UpdatePreview";
 import { WeakPointPanel } from "@/components/WeakPointPanel";
 import { WrongQuestionShortcut } from "@/components/WrongQuestionShortcut";
 import {
@@ -53,6 +54,7 @@ export default function HomePage() {
         <aside className="grid content-start gap-4">
           <QuickPracticePanel />
           <WrongQuestionShortcut />
+          <UpdatePreview />
         </aside>
       </div>
     </PageShell>

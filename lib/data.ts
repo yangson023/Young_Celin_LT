@@ -2,12 +2,14 @@ import sjtuAdvancedAlgebraChapters from "@/content-packs/sjtu-advanced-algebra/c
 import sjtuAdvancedAlgebraCourse from "@/content-packs/sjtu-advanced-algebra/course.json";
 import sjtuAdvancedAlgebraKnowledgePoints from "@/content-packs/sjtu-advanced-algebra/knowledge-points.json";
 import sjtuAdvancedAlgebraQuestions from "@/content-packs/sjtu-advanced-algebra/questions.json";
+import announcements from "@/data/announcements.json";
 import referenceSources from "@/data/source-index.json";
 import uestcLinearAlgebraChapters from "@/content-packs/uestc-linear-algebra/chapters.json";
 import uestcLinearAlgebraCourse from "@/content-packs/uestc-linear-algebra/course.json";
 import uestcLinearAlgebraKnowledgePoints from "@/content-packs/uestc-linear-algebra/knowledge-points.json";
 import uestcLinearAlgebraQuestions from "@/content-packs/uestc-linear-algebra/questions.json";
 import type {
+  Announcement,
   Chapter,
   Course,
   KnowledgePoint,
@@ -143,4 +145,14 @@ export function getKnowledgeCountByCourseId(courseId: string) {
 
 export function getReferenceSources() {
   return referenceSources as ReferenceSource[];
+}
+
+export function getAnnouncements() {
+  return [...(announcements as Announcement[])].sort((a, b) => {
+    if (a.is_pinned !== b.is_pinned) {
+      return a.is_pinned ? -1 : 1;
+    }
+
+    return b.published_at.localeCompare(a.published_at);
+  });
 }

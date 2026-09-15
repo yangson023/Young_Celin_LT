@@ -18,6 +18,12 @@ export function AppHeader() {
             资料
           </Link>
           <Link
+            href="/updates"
+            className="rounded-md border border-line px-3 py-2 text-muted transition hover:border-accent hover:text-accent"
+          >
+            更新
+          </Link>
+          <Link
             href="/wrong"
             className="rounded-md border border-line px-3 py-2 text-muted transition hover:border-accent hover:text-accent"
           >

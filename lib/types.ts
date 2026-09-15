@@ -64,6 +64,19 @@ export type ReferenceSource = {
   project_usage: string;
 };
 
+export type AnnouncementCategory = "feature" | "content" | "fix" | "notice";
+
+export type Announcement = {
+  id: string;
+  published_at: string;
+  version: string;
+  category: AnnouncementCategory;
+  title: string;
+  summary: string;
+  highlights: string[];
+  is_pinned?: boolean;
+};
+
 export type WrongQuestionRecord = {
   questionId: string;
   courseId: string;
