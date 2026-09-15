@@ -12,5 +12,19 @@
     "title": "第二章 行列式",
     "order": 2,
     "summary": "本章包含 n 阶行列式的定义、行列式性质与计算、拉普拉斯定理、克拉默法则和矩阵的秩，承接第一章的逆矩阵、线性方程组和初等变换，为后续向量空间与特征值内容打基础。"
+  },
+  {
+    "id": "chapter-3-geometric-space",
+    "course_id": "uestc-linear-algebra",
+    "title": "第三章 几何空间",
+    "order": 3,
+    "summary": "本章从空间直角坐标系和向量出发，学习向量的内积、外积与混合积，再用向量语言描述平面、空间直线及其位置关系。"
+  },
+  {
+    "id": "chapter-4-n-dimensional-vector-space",
+    "course_id": "uestc-linear-algebra",
+    "title": "第四章 n 维向量空间",
+    "order": 4,
+    "summary": "本章把前面的矩阵与方程组推广到 n 维：理解向量空间、线性相关、向量组的秩和极大无关组，并掌握线性方程组解的结构。"
   }
 ]

@@ -555,5 +555,190 @@
       "true_false"
     ],
     "review_status": "draft"
+  },
+  {
+    "id": "space-coordinate-vectors",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-3-geometric-space",
+    "section_id": "section-3-1-space-coordinate-vectors",
+    "section_title": "3.1 空间直角坐标系与向量",
+    "order": 1,
+    "title": "空间坐标与向量表示",
+    "one_sentence": "空间向量可以用三维坐标表示，位置变化可转化为两点坐标之差。",
+    "summary": "在空间直角坐标系中，向量可用三个坐标分量表示。向量的长度、方向和起终点关系能帮助我们把几何问题翻译成代数计算；两点确定的位移向量，就是终点坐标减去起点坐标。",
+    "formulas": [
+      "坐标表示：\\alpha=(x,y,z)^T",
+      "两点差向量：\\overrightarrow{AB}=(x_B-x_A,y_B-y_A,z_B-z_A)^T",
+      "向量长度：\\lVert\\alpha\\rVert=\\sqrt{x^2+y^2+z^2}"
+    ],
+    "common_mistakes": [
+      "把从 A 到 B 的向量误写成起点减终点",
+      "把点的坐标和向量的坐标混为同一个对象",
+      "计算长度时漏掉某个坐标分量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "space-vector-products",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-3-geometric-space",
+    "section_id": "section-3-2-vector-products",
+    "section_title": "3.2 向量的乘法",
+    "order": 2,
+    "title": "向量的内积、外积与混合积",
+    "one_sentence": "内积用来判断垂直，外积给出垂直于两个向量的方向，混合积可联系空间共面关系。",
+    "summary": "对非零空间向量，内积为零可判断两向量垂直；外积的结果是一个同时垂直于两个因子的向量，并且交换顺序会改变符号。混合积把三个向量联系起来，在判断共面关系时很有用。第一版先掌握几何含义和基本判断。",
+    "formulas": [
+      "内积：\\alpha\\cdot\\beta=x_1x_2+y_1y_2+z_1z_2",
+      "垂直判断：\\alpha\\cdot\\beta=0",
+      "外积反交换：\\alpha\\times\\beta=-\\beta\\times\\alpha",
+      "共面判断：[\\alpha,\\beta,\\gamma]=0"
+    ],
+    "common_mistakes": [
+      "把内积的结果误认为还是一个向量",
+      "交换外积顺序后忘记变号",
+      "未说明向量非零就直接用内积为零判断方向垂直"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "plane-equations-positions",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-3-geometric-space",
+    "section_id": "section-3-3-planes",
+    "section_title": "3.3 平面",
+    "order": 3,
+    "title": "平面方程与位置关系",
+    "one_sentence": "平面的一般方程中，三个一次项系数组成它的法向量。",
+    "summary": "平面可以通过一点和一个法向量确定，也可写成一般方程。比较两个平面的法向量，能够初步判断它们是平行、重合还是相交；涉及多个平面时，可把方程组与前面学过的秩和解的判定联系起来。",
+    "formulas": [
+      "一般方程：Ax+By+Cz+D=0",
+      "法向量：\\boldsymbol{n}=(A,B,C)^T",
+      "点法式：A(x-x_0)+B(y-y_0)+C(z-z_0)=0"
+    ],
+    "common_mistakes": [
+      "把一般方程的常数项 D 也当成法向量分量",
+      "判断平行时只比较一个坐标分量",
+      "没有检查一般方程的前三个系数不能同时为零"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "space-lines-positions",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-3-geometric-space",
+    "section_id": "section-3-4-space-lines",
+    "section_title": "3.4 空间直线",
+    "order": 4,
+    "title": "空间直线方程与位置关系",
+    "one_sentence": "空间直线由一点和一个方向向量确定，方向向量是判断平行、相交和异面的关键。",
+    "summary": "空间直线常用向量式、参数式或对称式表示。两条直线的位置关系不能只看方向向量：方向向量成比例时还要看是否共线；方向向量不成比例时，还要结合方程判断是否真正相交。",
+    "formulas": [
+      "向量式：\\boldsymbol{r}=\\boldsymbol{r}_0+t\\boldsymbol{a}",
+      "参数式：x=x_0+at,\\quad y=y_0+bt,\\quad z=z_0+ct",
+      "平行方向：\\boldsymbol{a}\\times\\boldsymbol{b}=\\boldsymbol{0}"
+    ],
+    "common_mistakes": [
+      "把方向向量平行直接等同于两条直线重合",
+      "看到方向向量不平行就断定直线一定相交",
+      "参数式中三个参数误用成互不相同的变量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "n-dimensional-vector-space-concept",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-4-n-dimensional-vector-space",
+    "section_id": "section-4-1-n-dimensional-vector-space",
+    "section_title": "4.1 n维向量空间的概念",
+    "order": 1,
+    "title": "n 维向量空间与子空间",
+    "one_sentence": "n 维向量空间把二维、三维向量的加法和数乘规则推广到任意有限维。",
+    "summary": "$\\mathbb{R}^n$ 中的元素是 n 个实数构成的列向量。一个非空集合若对向量加法和数乘都封闭，就能构成子空间；因此子空间一定含零向量。理解空间的关键不是画图，而是检查运算规则是否仍成立。",
+    "formulas": [
+      "n维空间：\\mathbb{R}^n=\\{(x_1,\\ldots,x_n)^T\\mid x_i\\in\\mathbb{R}\\}",
+      "封闭性：\\alpha,\\beta\\in W\\Rightarrow\\alpha+\\beta\\in W",
+      "数乘封闭：\\alpha\\in W,\\ k\\in\\mathbb{R}\\Rightarrow k\\alpha\\in W"
+    ],
+    "common_mistakes": [
+      "把向量空间中的元素误认为只能是三维箭头",
+      "只验证加法封闭却忘记验证数乘封闭",
+      "认为不含零向量的集合也能成为子空间"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "linear-combination-dependence",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-4-n-dimensional-vector-space",
+    "section_id": "section-4-2-linear-dependence",
+    "section_title": "4.2 向量组的线性相关性",
+    "order": 2,
+    "title": "线性组合、线性相关与线性无关",
+    "one_sentence": "一个向量能否由其他向量线性表示，是判断向量组是否冗余的核心。",
+    "summary": "向量组的线性组合是用一组数乘系数把各向量相加。若存在一组不全为零的系数使线性组合等于零向量，则该向量组线性相关；否则线性无关。对有限向量组，线性相关等价于其中至少一个向量可由其余向量线性表示。",
+    "formulas": [
+      "线性组合：\\beta=k_1\\alpha_1+\\cdots+k_m\\alpha_m",
+      "线性相关：k_1\\alpha_1+\\cdots+k_m\\alpha_m=\\boldsymbol{0}",
+      "线性无关：k_1=\\cdots=k_m=0"
+    ],
+    "common_mistakes": [
+      "把存在一组系数误当成线性相关，忽略“不全为零”条件",
+      "把零向量放入向量组后仍误判为线性无关",
+      "把向量组线性表示和矩阵乘法的阶数条件混淆"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "vector-rank-max-independent-set",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-4-n-dimensional-vector-space",
+    "section_id": "section-4-3-vector-rank-max-independent-set",
+    "section_title": "4.3 向量组的秩与极大无关组",
+    "order": 3,
+    "title": "向量组的秩与极大无关组",
+    "one_sentence": "向量组的秩是其中最多能保留多少个线性无关向量，极大无关组就是这样一组核心向量。",
+    "summary": "把向量组排成以向量为列的矩阵后，向量组的秩等于该矩阵的秩。极大无关组中的向量线性无关，而原向量组中其余向量都可由它表示；实际计算时常把矩阵化为行阶梯形，再从主元列追溯原向量。",
+    "formulas": [
+      "向量组矩阵：A=(\\alpha_1,\\ldots,\\alpha_m)",
+      "秩的对应：r(\\alpha_1,\\ldots,\\alpha_m)=r(A)",
+      "极大无关组向量个数：r(A)"
+    ],
+    "common_mistakes": [
+      "把化简后矩阵的列直接当成原向量组的极大无关组",
+      "把向量个数误当成向量组的秩",
+      "忘记极大无关组既要无关，也要能表示其余向量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "linear-system-solution-structure",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-4-n-dimensional-vector-space",
+    "section_id": "section-4-4-linear-system-solution-structure",
+    "section_title": "4.4 线性方程组解的结构",
+    "order": 4,
+    "title": "齐次与非齐次方程组解的结构",
+    "one_sentence": "非齐次方程组的所有解，等于一个特解加上对应齐次方程组的所有解。",
+    "summary": "若齐次方程组 $AX=0$ 的系数矩阵秩为 r，未知量个数为 n 且 r<n，则它的基础解系含 n-r 个向量。非齐次方程组 $AX=b$ 有解时，任选一个特解，再加上对应齐次方程组的通解，就得到原方程组的通解。",
+    "formulas": [
+      "齐次方程组：AX=\\boldsymbol{0}",
+      "基础解系个数：n-r(A)",
+      "非齐次通解：X=X_p+X_h"
+    ],
+    "common_mistakes": [
+      "把齐次方程组的零解误认为基础解系",
+      "非齐次方程组有解时漏掉齐次通解部分",
+      "把自由变量个数写成矩阵秩而不是未知量个数减秩"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
   }
 ]

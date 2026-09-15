@@ -87,7 +87,9 @@
     "course_id": "uestc-linear-algebra",
     "chapter_ids": [
       "chapter-1-matrix-elementary-transformations",
-      "chapter-2-determinants"
+      "chapter-2-determinants",
+      "chapter-3-geometric-space",
+      "chapter-4-n-dimensional-vector-space"
     ],
     "coverage": "全课程导读 · 覆盖后续章节",
     "title": "2025 线性代数讲座",
@@ -104,14 +106,21 @@
   {
     "id": "uestc-la-2025-ch3-ch4-doubts",
     "course_id": "uestc-linear-algebra",
-    "chapter_ids": [],
-    "coverage": "第三、四章 · 后续整理",
+    "chapter_ids": [
+      "chapter-3-geometric-space",
+      "chapter-4-n-dimensional-vector-space"
+    ],
+    "coverage": "第三、四章",
     "title": "2025 线性代数与空间解析几何（第 3-4 章疑难分析）",
     "source_file": "2025线性代数与空间解析几何(第3-4章 疑难分析) (1).pdf",
     "type": "lecture",
-    "status": "future",
-    "summary": "涉及向量、线性相关、向量组秩等后续章节内容；当前仅登记归档，待第三、四章上线后接入学习路径。",
-    "best_for": ["后续章节预习", "资料归档"]
+    "status": "organized",
+    "summary": "对应第三章几何空间与第四章 n 维向量空间，重点覆盖向量关系、线性相关、向量组秩和方程组解结构。",
+    "best_for": ["第三四章复习", "易错点排查"],
+    "action": {
+      "href": "/courses/uestc-linear-algebra",
+      "label": "查看第三、四章目录"
+    }
   },
   {
     "id": "uestc-la-sixth-edition-textbook",

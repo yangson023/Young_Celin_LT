@@ -8,8 +8,9 @@ const filters = [
   { id: "all", label: "全部资料" },
   { id: "chapter-1", label: "第一章" },
   { id: "chapter-2", label: "第二章" },
-  { id: "overview", label: "课程总览" },
-  { id: "future", label: "后续章节" }
+  { id: "chapter-3", label: "第三章" },
+  { id: "chapter-4", label: "第四章" },
+  { id: "overview", label: "课程总览" }
 ];
 
 function belongsToFilter(material: CourseMaterial, filterId: string) {
@@ -27,11 +28,19 @@ function belongsToFilter(material: CourseMaterial, filterId: string) {
     return material.chapter_ids.includes("chapter-2-determinants");
   }
 
+  if (filterId === "chapter-3") {
+    return material.chapter_ids.includes("chapter-3-geometric-space");
+  }
+
+  if (filterId === "chapter-4") {
+    return material.chapter_ids.includes("chapter-4-n-dimensional-vector-space");
+  }
+
   if (filterId === "overview") {
     return material.coverage.includes("全课程") || material.type === "textbook";
   }
 
-  return material.status === "future";
+  return false;
 }
 
 export function ResourceLibraryClient({
