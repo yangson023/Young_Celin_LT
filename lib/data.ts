@@ -2,11 +2,18 @@ import sjtuAdvancedAlgebraChapters from "@/content-packs/sjtu-advanced-algebra/c
 import sjtuAdvancedAlgebraCourse from "@/content-packs/sjtu-advanced-algebra/course.json";
 import sjtuAdvancedAlgebraKnowledgePoints from "@/content-packs/sjtu-advanced-algebra/knowledge-points.json";
 import sjtuAdvancedAlgebraQuestions from "@/content-packs/sjtu-advanced-algebra/questions.json";
+import referenceSources from "@/data/source-index.json";
 import uestcLinearAlgebraChapters from "@/content-packs/uestc-linear-algebra/chapters.json";
 import uestcLinearAlgebraCourse from "@/content-packs/uestc-linear-algebra/course.json";
 import uestcLinearAlgebraKnowledgePoints from "@/content-packs/uestc-linear-algebra/knowledge-points.json";
 import uestcLinearAlgebraQuestions from "@/content-packs/uestc-linear-algebra/questions.json";
-import type { Chapter, Course, KnowledgePoint, Question } from "./types";
+import type {
+  Chapter,
+  Course,
+  KnowledgePoint,
+  Question,
+  ReferenceSource
+} from "./types";
 
 const courses = [
   uestcLinearAlgebraCourse,
@@ -132,4 +139,8 @@ export function getQuestionCountByCourseId(courseId: string) {
 
 export function getKnowledgeCountByCourseId(courseId: string) {
   return knowledgePoints.filter((point) => point.course_id === courseId).length;
+}
+
+export function getReferenceSources() {
+  return referenceSources as ReferenceSource[];
 }

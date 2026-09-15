@@ -53,6 +53,17 @@ export type Question = {
   status: "approved" | "draft";
 };
 
+export type ReferenceSource = {
+  id: string;
+  title: string;
+  url: string;
+  type: string;
+  language: string;
+  license_note: string;
+  best_for: string[];
+  project_usage: string;
+};
+
 export type WrongQuestionRecord = {
   questionId: string;
   courseId: string;
