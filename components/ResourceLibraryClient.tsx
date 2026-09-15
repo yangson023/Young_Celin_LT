@@ -1,38 +1,51 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { ReferenceSource } from "@/lib/types";
-import { ReferenceSourceCard } from "./ReferenceSourceCard";
+import type { CourseMaterial } from "@/lib/types";
+import { CourseMaterialCard } from "./CourseMaterialCard";
 
 const filters = [
   { id: "all", label: "全部资料" },
-  { id: "course", label: "课程路径" },
-  { id: "open_textbook", label: "教材对照" },
-  { id: "online_course", label: "直觉理解" }
+  { id: "chapter-1", label: "第一章" },
+  { id: "chapter-2", label: "第二章" },
+  { id: "overview", label: "课程总览" },
+  { id: "future", label: "后续章节" }
 ];
 
-function belongsToFilter(source: ReferenceSource, filterId: string) {
+function belongsToFilter(material: CourseMaterial, filterId: string) {
   if (filterId === "all") {
     return true;
   }
 
-  if (filterId === "open_textbook") {
-    return source.type.startsWith("open_textbook");
+  if (filterId === "chapter-1") {
+    return material.chapter_ids.includes(
+      "chapter-1-matrix-elementary-transformations"
+    );
   }
 
-  return source.type === filterId ||
-    (filterId === "online_course" && source.type === "visual_course");
+  if (filterId === "chapter-2") {
+    return material.chapter_ids.includes("chapter-2-determinants");
+  }
+
+  if (filterId === "overview") {
+    return material.coverage.includes("全课程") || material.type === "textbook";
+  }
+
+  return material.status === "future";
 }
 
 export function ResourceLibraryClient({
-  sources
+  materials
 }: {
-  sources: ReferenceSource[];
+  materials: CourseMaterial[];
 }) {
   const [selectedFilter, setSelectedFilter] = useState("all");
-  const visibleSources = useMemo(
-    () => sources.filter((source) => belongsToFilter(source, selectedFilter)),
-    [selectedFilter, sources]
+  const visibleMaterials = useMemo(
+    () =>
+      materials.filter((material) =>
+        belongsToFilter(material, selectedFilter)
+      ),
+    [selectedFilter, materials]
   );
 
   return (
@@ -63,20 +76,20 @@ export function ResourceLibraryClient({
         <div className="mb-4 flex items-end justify-between gap-3">
           <div>
             <p className="text-sm font-medium text-muted">当前书架</p>
-            <h2 className="mt-1 text-2xl font-semibold text-ink">公开学习资源</h2>
+            <h2 className="mt-1 text-2xl font-semibold text-ink">课程资料目录</h2>
           </div>
-          <p className="text-sm text-muted">{visibleSources.length} 份资料</p>
+          <p className="text-sm text-muted">{visibleMaterials.length} 份资料</p>
         </div>
 
-        {visibleSources.length > 0 ? (
+        {visibleMaterials.length > 0 ? (
           <div className="grid gap-4 md:grid-cols-2">
-            {visibleSources.map((source) => (
-              <ReferenceSourceCard key={source.id} source={source} />
+            {visibleMaterials.map((material) => (
+              <CourseMaterialCard key={material.id} material={material} />
             ))}
           </div>
         ) : (
           <div className="rounded-lg border border-dashed border-line bg-white/80 px-5 py-10 text-center text-sm text-muted">
-            这一类资料正在整理中，先从其他书架开始看看吧。
+            这一部分还在按章节整理中，先从已经上线的内容开始看看吧。
           </div>
         )}
       </section>

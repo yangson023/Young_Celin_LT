@@ -3,6 +3,7 @@ import sjtuAdvancedAlgebraCourse from "@/content-packs/sjtu-advanced-algebra/cou
 import sjtuAdvancedAlgebraKnowledgePoints from "@/content-packs/sjtu-advanced-algebra/knowledge-points.json";
 import sjtuAdvancedAlgebraQuestions from "@/content-packs/sjtu-advanced-algebra/questions.json";
 import announcements from "@/data/announcements.json";
+import courseMaterials from "@/data/course-materials.json";
 import referenceSources from "@/data/source-index.json";
 import uestcLinearAlgebraChapters from "@/content-packs/uestc-linear-algebra/chapters.json";
 import uestcLinearAlgebraCourse from "@/content-packs/uestc-linear-algebra/course.json";
@@ -11,6 +12,7 @@ import uestcLinearAlgebraQuestions from "@/content-packs/uestc-linear-algebra/qu
 import type {
   Announcement,
   Chapter,
+  CourseMaterial,
   Course,
   KnowledgePoint,
   Question,
@@ -145,6 +147,12 @@ export function getKnowledgeCountByCourseId(courseId: string) {
 
 export function getReferenceSources() {
   return referenceSources as ReferenceSource[];
+}
+
+export function getCourseMaterials(courseId = "uestc-linear-algebra") {
+  return (courseMaterials as CourseMaterial[]).filter(
+    (material) => material.course_id === courseId
+  );
 }
 
 export function getAnnouncements() {

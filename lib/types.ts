@@ -64,6 +64,30 @@ export type ReferenceSource = {
   project_usage: string;
 };
 
+export type CourseMaterialType = "chapter_handout" | "lecture" | "textbook";
+
+export type CourseMaterialStatus =
+  | "organized"
+  | "future"
+  | "internal_reference";
+
+export type CourseMaterial = {
+  id: string;
+  course_id: string;
+  chapter_ids: string[];
+  coverage: string;
+  title: string;
+  source_file: string;
+  type: CourseMaterialType;
+  status: CourseMaterialStatus;
+  summary: string;
+  best_for: string[];
+  action?: {
+    href: string;
+    label: string;
+  };
+};
+
 export type AnnouncementCategory = "feature" | "content" | "fix" | "notice";
 
 export type Announcement = {

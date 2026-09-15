@@ -1,0 +1,128 @@
+[
+  {
+    "id": "uestc-la-ch1-section-1-1",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": ["chapter-1-matrix-elementary-transformations"],
+    "coverage": "第一章 · 1.1",
+    "title": "1.1 矩阵及其运算",
+    "source_file": "1.1.pdf",
+    "type": "chapter_handout",
+    "status": "organized",
+    "summary": "围绕矩阵的概念、线性运算、乘法、幂与转置整理，是第一章已上线知识点的主要参考材料之一。",
+    "best_for": ["矩阵运算复习", "公式条件核对"],
+    "action": {
+      "href": "/courses/uestc-linear-algebra/chapters/chapter-1-matrix-elementary-transformations",
+      "label": "进入第一章学习"
+    }
+  },
+  {
+    "id": "uestc-la-ch1-section-1-2",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": ["chapter-1-matrix-elementary-transformations"],
+    "coverage": "第一章 · 1.2",
+    "title": "1.2 高斯消元法与矩阵的初等变换",
+    "source_file": "1.2.pdf",
+    "type": "chapter_handout",
+    "status": "organized",
+    "summary": "用于梳理高斯消元、阶梯形矩阵、线性方程组与初等变换之间的关系。",
+    "best_for": ["消元步骤复习", "方程组判断"],
+    "action": {
+      "href": "/courses/uestc-linear-algebra/chapters/chapter-1-matrix-elementary-transformations",
+      "label": "进入第一章学习"
+    }
+  },
+  {
+    "id": "uestc-la-ch1-section-1-3",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": ["chapter-1-matrix-elementary-transformations"],
+    "coverage": "第一章 · 1.3",
+    "title": "1.3 逆矩阵",
+    "source_file": "1.3.pdf",
+    "type": "chapter_handout",
+    "status": "organized",
+    "summary": "对应逆矩阵的定义、可逆条件与用初等行变换求逆的基础内容。",
+    "best_for": ["可逆条件", "求逆方法"],
+    "action": {
+      "href": "/courses/uestc-linear-algebra/chapters/chapter-1-matrix-elementary-transformations",
+      "label": "进入第一章学习"
+    }
+  },
+  {
+    "id": "uestc-la-ch1-section-1-4",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": ["chapter-1-matrix-elementary-transformations"],
+    "coverage": "第一章 · 1.4",
+    "title": "1.4 分块矩阵与本章小结",
+    "source_file": "1.4和小结.pdf",
+    "type": "chapter_handout",
+    "status": "organized",
+    "summary": "用于补充分块矩阵的基本运算、分块对角矩阵求逆，以及第一章知识的回顾。",
+    "best_for": ["分块矩阵", "章节回顾"],
+    "action": {
+      "href": "/courses/uestc-linear-algebra/chapters/chapter-1-matrix-elementary-transformations",
+      "label": "进入第一章学习"
+    }
+  },
+  {
+    "id": "uestc-la-2025-ch1-ch2-doubts",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": [
+      "chapter-1-matrix-elementary-transformations",
+      "chapter-2-determinants"
+    ],
+    "coverage": "第一、二章",
+    "title": "2025 线性代数第一、二章疑难解析",
+    "source_file": "2025线性代数第一二章疑难解析.pdf",
+    "type": "lecture",
+    "status": "organized",
+    "summary": "校内答疑讲座材料，集中整理矩阵、初等变换、秩、分块矩阵与行列式中的易混概念和典型思路。",
+    "best_for": ["易错点排查", "第一二章串联"],
+    "action": {
+      "href": "/courses/uestc-linear-algebra",
+      "label": "查看前两章目录"
+    }
+  },
+  {
+    "id": "uestc-la-2025-course-lecture",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": [
+      "chapter-1-matrix-elementary-transformations",
+      "chapter-2-determinants"
+    ],
+    "coverage": "全课程导读 · 覆盖后续章节",
+    "title": "2025 线性代数讲座",
+    "source_file": "2025 线性代数讲座 PDF.pdf",
+    "type": "lecture",
+    "status": "organized",
+    "summary": "从全课程视角串联线性代数的核心概念与方法，适合在复习时建立章节间的联系。",
+    "best_for": ["课程知识地图", "复习路线规划"],
+    "action": {
+      "href": "/courses/uestc-linear-algebra",
+      "label": "返回课程目录"
+    }
+  },
+  {
+    "id": "uestc-la-2025-ch3-ch4-doubts",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": [],
+    "coverage": "第三、四章 · 后续整理",
+    "title": "2025 线性代数与空间解析几何（第 3-4 章疑难分析）",
+    "source_file": "2025线性代数与空间解析几何(第3-4章 疑难分析) (1).pdf",
+    "type": "lecture",
+    "status": "future",
+    "summary": "涉及向量、线性相关、向量组秩等后续章节内容；当前仅登记归档，待第三、四章上线后接入学习路径。",
+    "best_for": ["后续章节预习", "资料归档"]
+  },
+  {
+    "id": "uestc-la-sixth-edition-textbook",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": [],
+    "coverage": "全书目录校对",
+    "title": "线性代数与空间解析几何（第六版）",
+    "source_file": "线性代数与空间解析几何 第六版.pdf",
+    "type": "textbook",
+    "status": "internal_reference",
+    "summary": "用于核对课程章节目录、知识点归属和公式表述；不作为网页公开阅读或下载内容。",
+    "best_for": ["内容校对", "章节定位"]
+  }
+]

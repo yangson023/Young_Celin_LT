@@ -2,7 +2,25 @@
 
 网页入口：`/resources`
 
-资料图书室当前使用 `data/source-index.json` 维护。每条资料包含：
+资料图书室优先使用 `data/course-materials.json` 维护你们已经提供、已经用于课程整理的资料目录。每条资料包含：
+
+- 标题、原始文件名和对应章节
+- 资料类型、整理状态和适合的学习用途
+- 回到课程章节或课程目录的学习入口
+
+`data/source-index.json` 仍保留作后续开放参考来源库，但不再是资料页的主书架。
+
+当前已登记的电科线性代数资料按下列方式归类：
+
+- 第一章：`1.1.pdf`、`1.2.pdf`、`1.3.pdf`、`1.4和小结.pdf`
+- 第一、二章：`2025线性代数第一二章疑难解析.pdf`
+- 课程总览：`2025 线性代数讲座 PDF.pdf`
+- 后续章节：`2025线性代数与空间解析几何(第3-4章 疑难分析) (1).pdf`
+- 内部目录校对：`线性代数与空间解析几何 第六版.pdf`
+
+原始 PDF 不放入 `public/`，资料页也不提供下载按钮；当前页面只展示分类目录和已上线课程内容的入口。这样能先让资料服务于学习路径，同时避免把原始文件直接部署到公开网站。
+
+旧的开放来源库每条资料包含：
 
 - 标题和原站 URL
 - 资料类型、语言和许可提示
@@ -36,7 +54,28 @@
 
 ## 新增资料
 
-在 `data/source-index.json` 增加一条记录：
+自制、已审核的课程资料先增加到 `data/course-materials.json`。推荐格式：
+
+```json
+{
+  "id": "short-unique-id",
+  "course_id": "uestc-linear-algebra",
+  "chapter_ids": ["chapter-id"],
+  "coverage": "第一章 · 1.1",
+  "title": "资料名称",
+  "source_file": "原始文件名.pdf",
+  "type": "chapter_handout",
+  "status": "organized",
+  "summary": "用自己的话说明它服务哪一部分学习。",
+  "best_for": ["概念复习"],
+  "action": {
+    "href": "/courses/uestc-linear-algebra/chapters/chapter-id",
+    "label": "进入对应章节"
+  }
+}
+```
+
+需要登记开放网页来源时，再在 `data/source-index.json` 增加一条记录：
 
 ```json
 {
