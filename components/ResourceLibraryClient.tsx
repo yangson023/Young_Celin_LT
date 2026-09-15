@@ -10,6 +10,9 @@ const filters = [
   { id: "chapter-2", label: "第二章" },
   { id: "chapter-3", label: "第三章" },
   { id: "chapter-4", label: "第四章" },
+  { id: "chapter-5", label: "第五章" },
+  { id: "chapter-6", label: "第六章" },
+  { id: "chapter-7", label: "第七章" },
   { id: "overview", label: "课程总览" }
 ];
 
@@ -34,6 +37,18 @@ function belongsToFilter(material: CourseMaterial, filterId: string) {
 
   if (filterId === "chapter-4") {
     return material.chapter_ids.includes("chapter-4-n-dimensional-vector-space");
+  }
+
+  if (filterId === "chapter-5") {
+    return material.chapter_ids.includes("chapter-5-eigenvalues-eigenvectors");
+  }
+
+  if (filterId === "chapter-6") {
+    return material.chapter_ids.includes("chapter-6-quadratic-forms-quadrics");
+  }
+
+  if (filterId === "chapter-7") {
+    return material.chapter_ids.includes("chapter-7-linear-spaces-transformations");
   }
 
   if (filterId === "overview") {

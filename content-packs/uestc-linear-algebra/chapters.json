@@ -26,5 +26,26 @@
     "title": "第四章 n 维向量空间",
     "order": 4,
     "summary": "本章把前面的矩阵与方程组推广到 n 维：理解向量空间、线性相关、向量组的秩和极大无关组，并掌握线性方程组解的结构。"
+  },
+  {
+    "id": "chapter-5-eigenvalues-eigenvectors",
+    "course_id": "uestc-linear-algebra",
+    "title": "第五章 特征值与特征向量",
+    "order": 5,
+    "summary": "本章学习特征值与特征向量的计算、矩阵的相似与可对角化、n 维向量的内积和正交性，以及实对称矩阵的正交对角化。"
+  },
+  {
+    "id": "chapter-6-quadratic-forms-quadrics",
+    "course_id": "uestc-linear-algebra",
+    "title": "第六章 二次型与二次曲面",
+    "order": 6,
+    "summary": "本章把矩阵、特征值和空间几何联系起来：理解实二次型及其标准形、正定性，并能识别常见二次曲面和空间曲线。"
+  },
+  {
+    "id": "chapter-7-linear-spaces-transformations",
+    "course_id": "uestc-linear-algebra",
+    "title": "第七章 线性空间与线性变换",
+    "order": 7,
+    "summary": "本章进一步抽象线性代数的共同结构，学习线性空间、基与坐标、欧氏空间，以及线性变换、核与像的基本语言。"
   }
 ]

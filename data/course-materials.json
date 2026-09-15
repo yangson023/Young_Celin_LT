@@ -89,7 +89,10 @@
       "chapter-1-matrix-elementary-transformations",
       "chapter-2-determinants",
       "chapter-3-geometric-space",
-      "chapter-4-n-dimensional-vector-space"
+      "chapter-4-n-dimensional-vector-space",
+      "chapter-5-eigenvalues-eigenvectors",
+      "chapter-6-quadratic-forms-quadrics",
+      "chapter-7-linear-spaces-transformations"
     ],
     "coverage": "全课程导读 · 覆盖后续章节",
     "title": "2025 线性代数讲座",

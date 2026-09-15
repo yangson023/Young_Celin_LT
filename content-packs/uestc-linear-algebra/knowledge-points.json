@@ -740,5 +740,281 @@
     ],
     "question_types": ["single_choice", "true_false"],
     "review_status": "draft"
+  },
+  {
+    "id": "eigenvalue-eigenvector-concept-calculation",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-5-eigenvalues-eigenvectors",
+    "section_id": "section-5-1-eigenvalue-eigenvector",
+    "section_title": "5.1 特征值与特征向量的概念与计算",
+    "order": 1,
+    "title": "特征值与特征向量",
+    "one_sentence": "特征向量在矩阵变换后方向不变，只被相应的特征值缩放。",
+    "summary": "对 n 阶方阵 A，若存在非零向量 $\\alpha$ 和数 $\\lambda$，使 $A\\alpha=\\lambda\\alpha$，则 $\\lambda$ 是 A 的特征值，$\\alpha$ 是对应特征向量。先由特征方程求出 $\\lambda$，再解齐次方程组 $(\\lambda I-A)\\alpha=\\boldsymbol{0}$ 求特征向量。",
+    "formulas": [
+      "定义：A\\alpha=\\lambda\\alpha，\\alpha\\ne\\boldsymbol{0}",
+      "特征方程：\\lvert\\lambda I-A\\rvert=0",
+      "特征向量方程：(\\lambda I-A)\\alpha=\\boldsymbol{0}"
+    ],
+    "common_mistakes": [
+      "把零向量当成特征向量，忽略非零条件",
+      "特征方程中把 \\lambda I-A 与 A-\\lambda I 的行列式符号关系混乱",
+      "求得特征值后没有代回对应方程组求特征向量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "similarity-diagonalization",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-5-eigenvalues-eigenvectors",
+    "section_id": "section-5-2-similarity-diagonalization",
+    "section_title": "5.2 矩阵的相似对角化",
+    "order": 2,
+    "title": "相似矩阵与可对角化",
+    "one_sentence": "相似矩阵表示同一个线性变换在不同基下的矩阵，而对角化能把计算集中到各个特征值上。",
+    "summary": "若存在可逆矩阵 P 使 $B=P^{-1}AP$，则 A 与 B 相似。若能选出 n 个线性无关的特征向量作为 P 的列，就有 $P^{-1}AP=\\Lambda$，其中 $\\Lambda$ 是由对应特征值构成的对角矩阵。n 阶矩阵有 n 个互异特征值是可对角化的充分条件。",
+    "formulas": [
+      "相似关系：B=P^{-1}AP，P 可逆",
+      "对角化：P^{-1}AP=\\Lambda",
+      "P 的列：n 个线性无关的特征向量"
+    ],
+    "common_mistakes": [
+      "把 P^{-1}AP 的顺序写成 PAP^{-1}",
+      "认为有特征值就一定可对角化，忽略需要足够多的无关特征向量",
+      "把相似误认为两个矩阵必须逐项相等"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "inner-product-norm-orthogonality",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-5-eigenvalues-eigenvectors",
+    "section_id": "section-5-3-orthogonality",
+    "section_title": "5.3 n 维向量空间的正交性",
+    "order": 3,
+    "title": "内积、范数与正交性",
+    "one_sentence": "内积把向量的长度和夹角代数化，正交向量组让表示与计算更清楚。",
+    "summary": "在 $\\mathbb{R}^n$ 中，向量内积是对应分量乘积之和，范数是由内积得到的长度。两个非零向量内积为零时正交；每个向量长度为 1 的正交向量组称为标准正交组。正交化的目标是保持张成空间不变，同时得到相互正交的向量。",
+    "formulas": [
+      "内积：(\\alpha,\\beta)=\\sum_{i=1}^n a_i b_i",
+      "范数：\\lVert\\alpha\\rVert=\\sqrt{(\\alpha,\\alpha)}",
+      "正交：\\alpha\\perp\\beta\\Longleftrightarrow(\\alpha,\\beta)=0"
+    ],
+    "common_mistakes": [
+      "把内积为零与向量为零混淆",
+      "把正交组误认为一定是标准正交组，忽略长度是否为 1",
+      "归一化时忘记向量必须非零"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "real-symmetric-orthogonal-diagonalization",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-5-eigenvalues-eigenvectors",
+    "section_id": "section-5-4-real-symmetric-diagonalization",
+    "section_title": "5.4 实对称矩阵的相似对角化",
+    "order": 4,
+    "title": "实对称矩阵的正交对角化",
+    "one_sentence": "实对称矩阵总能用一组标准正交特征向量对角化，这是二次型化简的重要基础。",
+    "summary": "若实矩阵 A 满足 $A^T=A$，则 A 的特征值都为实数；属于不同特征值的特征向量彼此正交。经过适当选择和归一化，可构造正交矩阵 Q，使 $Q^TAQ=\\Lambda$。这里 $Q^{-1}=Q^T$，对角元是 A 的特征值。",
+    "formulas": [
+      "实对称：A^T=A",
+      "正交矩阵：Q^TQ=I，Q^{-1}=Q^T",
+      "正交对角化：Q^TAQ=\\Lambda"
+    ],
+    "common_mistakes": [
+      "把任意实矩阵都当成可以正交对角化",
+      "忘记正交对角化的前提是实对称矩阵",
+      "把不同特征值对应特征向量正交，误读成所有特征向量自动正交"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "quadratic-form-standard-form",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-6-quadratic-forms-quadrics",
+    "section_id": "section-6-1-quadratic-form-standard-form",
+    "section_title": "6.1 实二次型及其标准形",
+    "order": 1,
+    "title": "实二次型与标准形",
+    "one_sentence": "实二次型可以用对称矩阵表示，经过可逆变量替换后可化为若干平方项的和。",
+    "summary": "含 n 个实变量的二次齐次多项式称为实二次型，可写为 $f(X)=X^TAX$，其中 A 可取为对称矩阵。含交叉项时，对称矩阵的两个对应非对角元各取该交叉项系数的一半。经过可逆线性替换，二次型可化成只含平方项的标准形。",
+    "formulas": [
+      "矩阵形式：f(X)=X^TAX，A=A^T",
+      "标准形：f(Y)=d_1y_1^2+\\cdots+d_ny_n^2",
+      "交叉项 b x_i x_j：a_{ij}=a_{ji}=b/2"
+    ],
+    "common_mistakes": [
+      "把交叉项系数直接同时填入 a_{ij} 和 a_{ji}",
+      "忘记二次型不含一次项和常数项",
+      "把一般可逆变换化标准形与正交变换混为一谈"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "positive-definite-quadratic-form",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-6-quadratic-forms-quadrics",
+    "section_id": "section-6-2-positive-definite-quadratic-form",
+    "section_title": "6.2 正定二次型",
+    "order": 2,
+    "title": "正定二次型",
+    "one_sentence": "正定二次型对每个非零向量都给出正值，描述了稳定的“向上开口”二次结构。",
+    "summary": "若实二次型 $f(X)$ 对任意非零实向量 X 都满足 $f(X)>0$，则称它正定；若既能取正也能取负，则是不定的。对实对称矩阵 A，$X^TAX$ 正定当且仅当 A 的全部特征值为正。本版先掌握定义、简单判别和特征值条件。",
+    "formulas": [
+      "正定：X\\ne\\boldsymbol{0}\\Rightarrow X^TAX>0",
+      "半正定：X^TAX\\ge0",
+      "对称矩阵正定：全部特征值均大于 0"
+    ],
+    "common_mistakes": [
+      "只代入一个非零向量取正，就断定二次型正定",
+      "忽略正定定义中的“对任意非零向量”",
+      "对非对称矩阵直接套用特征值判定而不先转化为对应对称形式"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "surfaces-space-curves",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-6-quadratic-forms-quadrics",
+    "section_id": "section-6-3-surfaces-space-curves",
+    "section_title": "6.3 曲面与空间曲线",
+    "order": 3,
+    "title": "曲面与空间曲线的表示",
+    "one_sentence": "方程和参数都是描述空间几何对象的语言，前者方便判断归属，后者方便追踪运动。",
+    "summary": "空间曲面常由三元方程 $F(x,y,z)=0$ 给出，空间曲线可看作两个曲面的交线，也可用参数方程表示。参数方程把 x、y、z 都写成同一参数的函数；代入检验可以判断一个点是否在给定曲面或曲线上。",
+    "formulas": [
+      "曲面方程：F(x,y,z)=0",
+      "参数曲线：\\boldsymbol{r}(t)=(x(t),y(t),z(t))^T",
+      "球面：x^2+y^2+z^2=R^2"
+    ],
+    "common_mistakes": [
+      "把参数方程中参数的系数误当成固定坐标",
+      "判断点是否在曲面上时没有完整代入三个坐标",
+      "把圆柱面误看成球面，忽略缺少的变量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "quadrics-classification",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-6-quadratic-forms-quadrics",
+    "section_id": "section-6-4-quadrics",
+    "section_title": "6.4 二次曲面",
+    "order": 4,
+    "title": "常见二次曲面的识别",
+    "one_sentence": "二次曲面的符号、常数和变量位置决定它是椭球面、双曲面、锥面还是抛物面。",
+    "summary": "本版先识别最常见的标准方程：三个平方项同号且等于 1 常对应椭球面；两个正平方项减一个平方项等于 1 常对应单叶双曲面；等于 0 的齐次二次式常给出锥面；一个变量等于另外变量平方和时常对应椭圆抛物面。图形细节以后续交互可视化补充。",
+    "formulas": [
+      "椭球面：x^2/a^2+y^2/b^2+z^2/c^2=1",
+      "单叶双曲面：x^2/a^2+y^2/b^2-z^2/c^2=1",
+      "椭圆抛物面：z=x^2/a^2+y^2/b^2"
+    ],
+    "common_mistakes": [
+      "只看有平方项就把所有曲面判为椭球面",
+      "忽略等式右边是 0、1 还是变量本身",
+      "没有结合各项符号判断双曲面或锥面"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "general-linear-space-subspace",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-7-linear-spaces-transformations",
+    "section_id": "section-7-1-linear-space-subspace",
+    "section_title": "7.1 线性空间的概念",
+    "order": 1,
+    "title": "线性空间与子空间",
+    "one_sentence": "线性空间抽取了向量加法和数乘的共同规则，让多项式、矩阵等对象也能像向量一样研究。",
+    "summary": "只要一个集合定义了满足线性空间公理的加法和数乘，它的元素不必是几何箭头，也可以是多项式、矩阵或函数。子空间是原线性空间的非空子集，并沿用原来的运算；实际判断时，重点检查零元、加法封闭和数乘封闭。",
+    "formulas": [
+      "子空间判别：W\\ne\\varnothing，\\alpha,\\beta\\in W\\Rightarrow\\alpha+\\beta\\in W",
+      "数乘封闭：k\\in\\mathbb{R}，\\alpha\\in W\\Rightarrow k\\alpha\\in W",
+      "子空间一定含零元"
+    ],
+    "common_mistakes": [
+      "认为线性空间的元素只能是数列或坐标向量",
+      "只验证加法封闭，漏掉数乘封闭",
+      "不先检查零元是否属于候选集合"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "basis-dimension-coordinates",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-7-linear-spaces-transformations",
+    "section_id": "section-7-2-basis-dimension-coordinates",
+    "section_title": "7.2 线性空间的基、维数与坐标",
+    "order": 2,
+    "title": "基、维数与坐标",
+    "one_sentence": "一组基既不冗余又能表示空间中所有向量，坐标就是向量在这组基下的唯一系数。",
+    "summary": "若一组向量线性无关且能生成线性空间，则它是一组基。有限维线性空间任意两组基含有相同数目的向量，这个数叫维数。固定一组有序基后，每个向量都能唯一地写成基向量的线性组合，系数列就是该向量的坐标。",
+    "formulas": [
+      "基：线性无关且张成空间",
+      "维数：dim V=基向量个数",
+      "坐标：\\alpha=x_1\\varepsilon_1+\\cdots+x_n\\varepsilon_n"
+    ],
+    "common_mistakes": [
+      "只满足张成或只满足线性无关，就误称为基",
+      "忘记坐标依赖于所选的有序基",
+      "把向量本身和它在某组基下的坐标列混为一谈"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "euclidean-space-inner-product",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-7-linear-spaces-transformations",
+    "section_id": "section-7-3-euclidean-space",
+    "section_title": "7.3 欧氏空间",
+    "order": 3,
+    "title": "欧氏空间的内积与正交",
+    "one_sentence": "欧氏空间在线性空间上加入内积，使长度、夹角、投影与正交都有统一定义。",
+    "summary": "欧氏空间是带有实内积的线性空间。内积满足对称性、线性性和正定性，因此可定义范数、距离和正交。与第五章的 $\\mathbb{R}^n$ 内积相比，这一节强调这些概念可以放在线性空间的一般框架中使用。",
+    "formulas": [
+      "对称性：(\\alpha,\\beta)=(\\beta,\\alpha)",
+      "正定性：(\\alpha,\\alpha)>0，\\alpha\\ne\\boldsymbol{0}",
+      "范数：\\lVert\\alpha\\rVert=\\sqrt{(\\alpha,\\alpha)}"
+    ],
+    "common_mistakes": [
+      "把内积误认为任意两个对象相乘都可以得到",
+      "遗漏内积正定性中的非零条件",
+      "把正交和线性无关当成完全等价的概念"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "linear-transformations-kernel-image",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-7-linear-spaces-transformations",
+    "section_id": "section-7-4-linear-transformations",
+    "section_title": "7.4 线性变换",
+    "order": 4,
+    "title": "线性变换、核与像",
+    "one_sentence": "线性变换保持向量加法和数乘结构，核描述被压到零的方向，像描述能够到达的全部结果。",
+    "summary": "映射 T 若满足 $T(\\alpha+\\beta)=T(\\alpha)+T(\\beta)$ 和 $T(k\\alpha)=kT(\\alpha)$，就是线性变换。它必满足 $T(\\boldsymbol{0})=\\boldsymbol{0}$。核由所有映到零向量的元素组成，像由所有输出组成；在有限维情形，选定基后线性变换可由一个矩阵表示。",
+    "formulas": [
+      "线性性：T(k\\alpha+l\\beta)=kT(\\alpha)+lT(\\beta)",
+      "核：Ker(T)=\\{\\alpha\\mid T(\\alpha)=\\boldsymbol{0}\\}",
+      "像：Im(T)=\\{T(\\alpha)\\mid\\alpha\\in V\\}"
+    ],
+    "common_mistakes": [
+      "只验证加法保持而漏掉数乘保持",
+      "把核误认为方程中的零向量本身，而不是所有映到零的输入",
+      "认为线性变换可以把零向量映到非零向量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
   }
 ]
