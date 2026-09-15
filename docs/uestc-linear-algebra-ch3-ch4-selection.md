@@ -60,7 +60,7 @@ linear-system-solution-structure
 
 ## 题目状态
 
-本批增加 12 道基础题，均为当前网页支持的单选题或判断题：
+本批初始增加 12 道基础题，后续按章节补题后，第三、四章当前共 32 道题，均为网页支持的单选题或判断题：
 
 ```text
 source: manual
@@ -68,3 +68,13 @@ status: approved
 ```
 
 知识点内容仍标记为 `draft`，表示它们来自可靠资料，但团队还应在试用中继续校对公式表述、易错点和题目难度。
+
+## 补题参考与改写原则
+
+为补充题型覆盖，参考了以下公开练习的题型方向：
+
+- [OpenStax Calculus Volume 3 - Lines and Planes](https://openstax.org/books/calculus-volume-3/pages/2-5-equations-of-lines-and-planes-in-space)
+- [LibreTexts - Linear Independence and Dimension Exercises](https://math.libretexts.org/Bookshelves/Linear_Algebra/Linear_Algebra_with_Applications_(Nicholson)/06:_Vector_Spaces/6.03:_Linear_Independence_and_Dimension/6.3E:_Linear_Independence_and_Dimension_Exercises)
+- [MIT 18.06 Problem Sets](https://web.mit.edu/18.06/www/psets.shtml)
+
+网页题目没有复制上述来源的题干、数字、答案或解析；只参考了它们覆盖的概念与练习层次，并由团队改写为适合当前电科课程目录和网页题型的独立题目。
