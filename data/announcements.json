@@ -1,5 +1,19 @@
 [
   {
+    "id": "announcement-study-utilities",
+    "published_at": "2026-09-17",
+    "version": "v0.1.1",
+    "category": "feature",
+    "title": "学习工具入口与备忘录上线",
+    "summary": "资料、更新、错题本和备忘录现在均有独立图标入口；课程学习路线可按章节收起，资料页也改为课程专题书架。",
+    "highlights": [
+      "新增本地备忘录，可在当天晚上 21:00 和 22:00 弹出站内提醒。",
+      "线性代数资料先统一归入专题，再按章节筛选。",
+      "资料投稿先登记待审核，不会在 Demo 阶段自动上传或公开原文件。"
+    ],
+    "is_pinned": true
+  },
+  {
     "id": "announcement-updates-module",
     "published_at": "2026-09-15",
     "version": "v0.1.0",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { BookMarked, ChevronRight, LibraryBig } from "lucide-react";
 import type { CourseMaterial } from "@/lib/types";
 import { CourseMaterialCard } from "./CourseMaterialCard";
 
@@ -74,6 +75,20 @@ export function ResourceLibraryClient({
 
   return (
     <>
+      <section className="mt-6 overflow-hidden rounded-lg border border-accent/20 bg-white/95 shadow-sm">
+        <div className="grid gap-5 p-5 sm:grid-cols-[110px_minmax(0,1fr)] sm:p-6">
+          <div className="resource-course-cover" aria-hidden="true">
+            <LibraryBig className="h-10 w-10" />
+            <span>LA</span>
+          </div>
+          <div>
+            <p className="inline-flex items-center gap-2 text-sm font-medium text-accent"><BookMarked className="h-4 w-4" /> 课程专题</p>
+            <h2 className="mt-2 text-2xl font-semibold text-ink">电科线性代数资料书架</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">讲义、答疑与自己的整理笔记都先归到这一张课程封面下。下方可以按章节缩小范围，并随时回到相应学习内容。</p>
+            <button type="button" onClick={() => setSelectedFilter("all")} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent transition hover:text-ink">浏览全部线性代数资料 <ChevronRight className="h-4 w-4" /></button>
+          </div>
+        </div>
+      </section>
       <div className="mt-6 flex flex-wrap gap-2" aria-label="资料分类">
         {filters.map((filter) => {
           const isSelected = selectedFilter === filter.id;

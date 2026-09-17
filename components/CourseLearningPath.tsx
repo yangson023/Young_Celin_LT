@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { getLearningProgress, type LearningProgressRecord } from "@/lib/storage";
 import type { Chapter, KnowledgePoint } from "@/lib/types";
 
@@ -15,6 +16,7 @@ export function CourseLearningPath({
   knowledgePoints: KnowledgePoint[];
 }) {
   const [progress, setProgress] = useState<LearningProgressRecord | null>(null);
+  const [expandedChapterIds, setExpandedChapterIds] = useState<string[]>([]);
 
   useEffect(() => {
     setProgress(getLearningProgress());
@@ -40,6 +42,14 @@ export function CourseLearningPath({
     (point) => (progress?.knowledgePoints[point.id]?.completedQuizCount ?? 0) === 0
   );
 
+  function toggleChapter(chapterId: string) {
+    setExpandedChapterIds((current) =>
+      current.includes(chapterId)
+        ? current.filter((id) => id !== chapterId)
+        : [...current, chapterId]
+    );
+  }
+
   return (
     <section className="rounded-lg border border-line bg-white p-5 shadow-sm">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -61,6 +71,7 @@ export function CourseLearningPath({
 
       <div className="mt-5 grid gap-5">
         {chapterProgress.map(({ chapter, points, completedPointCount }) => {
+          const isExpanded = expandedChapterIds.includes(chapter.id);
           const nextPointInChapter = points.find(
             (point) =>
               (progress?.knowledgePoints[point.id]?.completedQuizCount ?? 0) === 0
@@ -78,39 +89,31 @@ export function CourseLearningPath({
           return (
             <div key={chapter.id} className="border-t border-line pt-5 first:border-t-0 first:pt-0">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-xs font-medium text-muted">第 {chapter.order} 章 · {status}</p>
-                  <h3 className="mt-1 font-semibold text-ink">{chapter.title}</h3>
-                  <p className="mt-1 text-sm text-muted">
-                    {points.length} 个知识点，已完成 {completedPointCount} 个知识点自测
-                  </p>
-                </div>
-                <Link
-                  href={
-                    nextPointInChapter
-                      ? `/courses/${courseId}/knowledge/${nextPointInChapter.id}`
-                      : `/courses/${courseId}/chapters/${chapter.id}`
-                  }
-                  className="text-sm font-semibold text-accent transition hover:text-ink"
+                <button
+                  type="button"
+                  onClick={() => toggleChapter(chapter.id)}
+                  aria-expanded={isExpanded}
+                  className="group flex min-w-0 flex-1 items-start gap-3 text-left"
                 >
-                  {completedPointCount === points.length && points.length > 0
-                    ? "查看本章"
-                    : "继续本章"}
+                  <ChevronDown className={`mt-1 h-5 w-5 shrink-0 text-accent transition-transform ${isExpanded ? "rotate-180" : ""}`} aria-hidden="true" />
+                  <span>
+                    <span className="block text-xs font-medium text-muted">第 {chapter.order} 章 · {status}</span>
+                    <span className="mt-1 block font-semibold text-ink group-hover:text-accent">{chapter.title}</span>
+                    <span className="mt-1 block text-sm text-muted">{points.length} 个知识点，已完成 {completedPointCount} 个知识点自测</span>
+                  </span>
+                </button>
+                <Link href={nextPointInChapter ? `/courses/${courseId}/knowledge/${nextPointInChapter.id}` : `/courses/${courseId}/chapters/${chapter.id}`} className="w-fit shrink-0 text-sm font-semibold text-accent transition hover:text-ink">
+                  {completedPointCount === points.length && points.length > 0 ? "查看本章" : "继续本章"}
                 </Link>
               </div>
-              <div
-                className="mt-3 h-2 overflow-hidden rounded-full bg-paper"
-                aria-label={`${chapter.title} 自测完成度 ${percentage}%`}
-              >
-                <div
-                  className="h-full rounded-full bg-accent transition-[width]"
-                  style={{ width: `${percentage}%` }}
-                />
-              </div>
-
-              <div className="relative mt-5 grid gap-3 pl-7">
-                <div className="absolute bottom-4 left-2 top-4 w-px bg-line" />
-                {points.map((point) => {
+              {isExpanded ? (
+                <>
+                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-paper" aria-label={`${chapter.title} 自测完成度 ${percentage}%`}>
+                    <div className="h-full rounded-full bg-accent transition-[width]" style={{ width: `${percentage}%` }} />
+                  </div>
+                  <div className="relative mt-5 grid gap-3 pl-7">
+                    <div className="absolute bottom-4 left-2 top-4 w-px bg-line" />
+                    {points.map((point) => {
                   const isCompleted =
                     (progress?.knowledgePoints[point.id]?.completedQuizCount ?? 0) > 0;
                   const isNext = nextPoint?.id === point.id;
@@ -158,8 +161,10 @@ export function CourseLearningPath({
                       </span>
                     </Link>
                   );
-                })}
-              </div>
+                    })}
+                  </div>
+                </>
+              ) : null}
             </div>
           );
         })}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageShell } from "@/components/PageShell";
 import { ResourceLibraryClient } from "@/components/ResourceLibraryClient";
+import { MaterialSubmissionDialog } from "@/components/MaterialSubmissionDialog";
 import { getCourseMaterials } from "@/lib/data";
 
 export default function ResourcesPage() {
@@ -19,12 +20,12 @@ export default function ResourcesPage() {
         <section className="mt-4 overflow-hidden rounded-lg border border-line bg-white/95 shadow-sm">
           <div className="grid gap-6 p-5 sm:p-7 md:grid-cols-[minmax(0,1fr)_210px] md:items-end">
             <div>
-              <p className="text-sm font-medium text-accent">电科线性代数资料图书室</p>
+              <p className="text-sm font-medium text-accent">课程资料图书室</p>
               <h1 className="mt-2 text-3xl font-semibold leading-tight text-ink">
-                先按章节，把自己的资料放回该在的位置
+                先进入一个课程专题，再按章节找资料
               </h1>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
-                这里优先收纳你们用于整理课程内容的讲义和答疑资料。选择一份资料后，可直接回到对应章节继续学习与自测。
+                线性代数资料先归入同一个专题书架，再按章节筛选。之后的课程也沿用“专题封面 + 章节检索”的结构，避免资料散落成一页清单。
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3 border-t border-line pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
@@ -39,7 +40,10 @@ export default function ResourcesPage() {
             </div>
           </div>
           <div className="border-t border-line bg-paper/80 px-5 py-3 text-sm text-muted sm:px-7">
-            当前资料页展示整理目录与学习入口，不公开托管原始 PDF，也不提供下载按钮。审核完成的自制笔记、公式卡和思维导图可逐步补入。
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <span>当前资料页展示整理目录与学习入口，不公开托管原始 PDF，也不提供下载按钮。</span>
+              <MaterialSubmissionDialog />
+            </div>
           </div>
         </section>
 

@@ -26,70 +26,94 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.study-assistant-avatar {
+.study-assistant-avatar-frame {
+  position: relative;
   display: inline-block;
   flex: 0 0 auto;
   border-radius: 9999px;
+}
+
+.study-assistant-avatar {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  border-radius: inherit;
   background-image: url("/images/study-assistant-moods.png");
   background-repeat: no-repeat;
   background-size: 300% 100%;
   background-color: #eaf6f2;
   box-shadow: inset 0 0 0 1px rgba(38, 104, 103, 0.18);
-  transition: background-position 460ms ease, transform 460ms ease, filter 460ms ease;
+  transition: background-position 460ms ease, filter 460ms ease;
 }
 
-.study-assistant-avatar-happy {
-  animation: assistant-happy 2.8s ease-in-out infinite;
+.assistant-expression {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12%;
+  padding-top: 35%;
 }
 
-.study-assistant-avatar-cute {
-  animation: assistant-cute 3.2s ease-in-out infinite;
+.assistant-expression i {
+  display: block;
+  width: 13%;
+  height: 10%;
+  border-radius: 9999px;
+  background: rgba(20, 29, 43, 0.2);
+  transform-origin: center;
+  animation: assistant-blink 4.8s ease-in-out infinite;
 }
 
-.study-assistant-avatar-confused {
-  animation: assistant-confused 3.6s ease-in-out infinite;
+.assistant-expression-cute i {
+  animation-duration: 3.6s;
+}
+
+.assistant-expression-confused i:last-child {
+  transform: translateY(10%) rotate(-10deg);
 }
 
 .study-assistant-trigger:hover .study-assistant-avatar {
   filter: saturate(1.08);
 }
 
-@keyframes assistant-happy {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  45% {
-    transform: translateY(-3px) rotate(-2deg);
-  }
+@keyframes assistant-blink {
+  0%, 43%, 47%, 100% { transform: scaleY(1); }
+  45% { transform: scaleY(0.16); }
 }
 
-@keyframes assistant-cute {
-  0%,
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(-5deg) scale(1.04);
-  }
+.memo-reminder-avatar {
+  display: inline-block;
+  height: 3.5rem;
+  width: 3.5rem;
+  flex: 0 0 auto;
+  border-radius: 9999px;
+  background: #eaf6f2 url("/images/study-assistant-moods.png") 0% center / 300% 100% no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(38, 104, 103, 0.18);
 }
 
-@keyframes assistant-confused {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  35% {
-    transform: rotate(3deg);
-  }
-  65% {
-    transform: rotate(-2deg);
-  }
+.resource-course-cover {
+  display: flex;
+  min-height: 110px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(47, 111, 115, 0.25);
+  border-radius: 0.5rem;
+  background: linear-gradient(145deg, #e8f3ef, #f7f7f2 60%, #e2edf5);
+  color: #2f6f73;
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .study-assistant-avatar {
-    animation: none;
     transition: none;
   }
+
+  .assistant-expression i { animation: none; }
 }

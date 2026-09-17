@@ -1,5 +1,6 @@
 import { AppHeader } from "./AppHeader";
 import { LearningNavigator } from "./LearningNavigator";
+import { MemoReminder } from "./MemoReminder";
 import { StudyAssistant } from "./StudyAssistant";
 
 export function PageShell({ children }: { children: React.ReactNode }) {
@@ -21,6 +22,7 @@ export function PageShell({ children }: { children: React.ReactNode }) {
         </main>
         <LearningNavigator />
         <StudyAssistant />
+        <MemoReminder />
       </div>
     </div>
   );

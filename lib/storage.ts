@@ -6,6 +6,9 @@ const WRONG_QUESTIONS_KEY = "course-review-demo:wrong-questions";
 const LAST_LEARNING_KEY = "course-review-demo:last-learning";
 const LEARNING_PROGRESS_KEY = "course-review-demo:learning-progress";
 const ONBOARDING_DISMISSED_KEY = "course-review-demo:onboarding-dismissed";
+const MEMOS_KEY = "course-review-demo:memos";
+const MATERIAL_SUBMISSIONS_KEY = "course-review-demo:material-submissions";
+const MEMO_REMINDERS_KEY = "course-review-demo:memo-reminders";
 
 export type LastLearningRecord = {
   courseId: string;
@@ -38,6 +41,23 @@ export type QuizProgressInput = {
   knowledgePointId?: string;
   questionCount: number;
   correctCount: number;
+};
+
+export type MemoRecord = {
+  id: string;
+  title: string;
+  content: string;
+  createdAt: string;
+  completed: boolean;
+};
+
+export type MaterialSubmissionRecord = {
+  id: string;
+  title: string;
+  note: string;
+  fileName: string;
+  createdAt: string;
+  status: "pending_review";
 };
 
 const emptyProgress: LearningProgressRecord = {
@@ -187,4 +207,81 @@ export function getAccuracy(correctCount: number, answeredCount: number) {
   return answeredCount === 0
     ? 0
     : Math.round((correctCount / answeredCount) * 100);
+}
+
+export function getMemos() {
+  return readJson<MemoRecord[]>(MEMOS_KEY, []);
+}
+
+export function addMemo(input: Pick<MemoRecord, "title" | "content">) {
+  const nextMemo: MemoRecord = {
+    id: `memo-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    title: input.title,
+    content: input.content,
+    createdAt: new Date().toISOString(),
+    completed: false
+  };
+  const next = [nextMemo, ...getMemos()];
+  writeJson(MEMOS_KEY, next);
+  return next;
+}
+
+export function toggleMemoCompleted(memoId: string) {
+  const next = getMemos().map((memo) =>
+    memo.id === memoId ? { ...memo, completed: !memo.completed } : memo
+  );
+  writeJson(MEMOS_KEY, next);
+  return next;
+}
+
+export function removeMemo(memoId: string) {
+  const next = getMemos().filter((memo) => memo.id !== memoId);
+  writeJson(MEMOS_KEY, next);
+  return next;
+}
+
+function sameLocalDay(first: Date, second: Date) {
+  return (
+    first.getFullYear() === second.getFullYear() &&
+    first.getMonth() === second.getMonth() &&
+    first.getDate() === second.getDate()
+  );
+}
+
+export function getDueMemoReminder(now: Date) {
+  if (now.getHours() !== 21 && now.getHours() !== 22) {
+    return null;
+  }
+
+  const reminderIds = readJson<string[]>(MEMO_REMINDERS_KEY, []);
+  const reminderKeySuffix = `:${now.getFullYear()}-${now.getMonth()}-${now.getDate()}:${now.getHours()}`;
+
+  return (
+    getMemos().find((memo) => {
+      const wasCreatedToday = sameLocalDay(new Date(memo.createdAt), now);
+      const hasShown = reminderIds.includes(`${memo.id}${reminderKeySuffix}`);
+      return wasCreatedToday && !memo.completed && !hasShown;
+    }) ?? null
+  );
+}
+
+export function markMemoReminderShown(memoId: string, hour: number) {
+  const now = new Date();
+  const key = `${memoId}:${now.getFullYear()}-${now.getMonth()}-${now.getDate()}:${hour}`;
+  const current = readJson<string[]>(MEMO_REMINDERS_KEY, []);
+  writeJson(MEMO_REMINDERS_KEY, [...current.slice(-100), key]);
+}
+
+export function saveMaterialSubmission(
+  input: Pick<MaterialSubmissionRecord, "title" | "note" | "fileName">
+) {
+  const record: MaterialSubmissionRecord = {
+    id: `material-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    ...input,
+    createdAt: new Date().toISOString(),
+    status: "pending_review"
+  };
+  const next = [record, ...readJson<MaterialSubmissionRecord[]>(MATERIAL_SUBMISSIONS_KEY, [])];
+  writeJson(MATERIAL_SUBMISSIONS_KEY, next);
+  return next;
 }

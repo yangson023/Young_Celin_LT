@@ -38,11 +38,13 @@ function AssistantAvatar({ mood, large = false }: { mood: Mood; large?: boolean 
     <span
       aria-label={`AI 助教当前是${moodLabels[mood]}表情`}
       role="img"
-      className={`study-assistant-avatar study-assistant-avatar-${mood} ${
-        large ? "h-24 w-24" : "h-11 w-11"
-      }`}
-      style={{ backgroundPosition: moodPositions[mood] }}
-    />
+      className={`study-assistant-avatar-frame ${large ? "h-24 w-24" : "h-11 w-11"}`}
+    >
+      <span className={`study-assistant-avatar study-assistant-avatar-${mood}`} style={{ backgroundPosition: moodPositions[mood] }} />
+      <span className={`assistant-expression assistant-expression-${mood}`} aria-hidden="true">
+        <i /><i />
+      </span>
+    </span>
   );
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BookOpenText, NotebookPen, ScrollText } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   getLastLearning,
@@ -44,20 +45,23 @@ export function LearningNavigator() {
         <div className="mt-3 grid gap-1 border-t border-line pt-3 text-sm">
           <Link
             href={courseHref}
-            className="rounded-md px-2 py-2 font-medium text-ink transition hover:bg-paper hover:text-accent"
+            className="inline-flex items-center gap-2 rounded-md px-2 py-2 font-medium text-ink transition hover:bg-paper hover:text-accent"
           >
+            <BookOpenText className="h-4 w-4" />
             我的课程
           </Link>
           <Link
             href="/wrong"
-            className="rounded-md px-2 py-2 font-medium text-ink transition hover:bg-paper hover:text-accent"
+            className="inline-flex items-center gap-2 rounded-md px-2 py-2 font-medium text-ink transition hover:bg-paper hover:text-accent"
           >
+            <ScrollText className="h-4 w-4" />
             错题本{wrongCount > 0 ? ` · ${wrongCount}` : ""}
           </Link>
+          <Link href="/memos" className="inline-flex items-center gap-2 rounded-md px-2 py-2 font-medium text-ink transition hover:bg-paper hover:text-accent"><NotebookPen className="h-4 w-4" />备忘录</Link>
         </div>
       </aside>
 
-      <nav className="fixed inset-x-3 bottom-3 z-20 grid grid-cols-3 overflow-hidden rounded-lg border border-line bg-white/95 p-1 shadow-sm xl:hidden">
+      <nav className="fixed inset-x-3 bottom-3 z-20 grid grid-cols-4 overflow-hidden rounded-lg border border-line bg-white/95 p-1 shadow-sm xl:hidden">
         <Link
           href={courseHref}
           className="rounded-md px-2 py-2 text-center text-xs font-medium text-muted transition hover:bg-paper hover:text-accent"
@@ -76,6 +80,7 @@ export function LearningNavigator() {
         >
           错题{wrongCount > 0 ? ` ${wrongCount}` : ""}
         </Link>
+        <Link href="/memos" className="rounded-md px-2 py-2 text-center text-xs font-medium text-muted transition hover:bg-paper hover:text-accent">备忘</Link>
       </nav>
     </>
   );
