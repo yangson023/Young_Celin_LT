@@ -44,44 +44,45 @@ a {
   background-size: 300% 100%;
   background-color: #eaf6f2;
   box-shadow: inset 0 0 0 1px rgba(38, 104, 103, 0.18);
-  transition: background-position 460ms ease, filter 460ms ease;
+  transition: filter 260ms ease;
 }
 
-.assistant-expression {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  gap: 12%;
-  padding-top: 35%;
+.study-assistant-avatar-happy {
+  animation: assistant-idle-happy 12s steps(1, end) infinite;
 }
 
-.assistant-expression i {
-  display: block;
-  width: 13%;
-  height: 10%;
-  border-radius: 9999px;
-  background: rgba(20, 29, 43, 0.2);
-  transform-origin: center;
-  animation: assistant-blink 4.8s ease-in-out infinite;
+.study-assistant-avatar-cute {
+  animation: assistant-idle-cute 12s steps(1, end) infinite;
 }
 
-.assistant-expression-cute i {
-  animation-duration: 3.6s;
+.study-assistant-avatar-confused {
+  animation: assistant-idle-confused 12s steps(1, end) infinite;
 }
 
-.assistant-expression-confused i:last-child {
-  transform: translateY(10%) rotate(-10deg);
+@keyframes assistant-idle-happy {
+  0%, 32% { background-position: 0% center; }
+  33%, 65% { background-position: 50% center; }
+  66%, 99% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
-.study-assistant-trigger:hover .study-assistant-avatar {
-  filter: saturate(1.08);
+@keyframes assistant-idle-cute {
+  0%, 32% { background-position: 50% center; }
+  33%, 65% { background-position: 100% center; }
+  66%, 99% { background-position: 0% center; }
+  100% { background-position: 50% center; }
 }
 
-@keyframes assistant-blink {
-  0%, 43%, 47%, 100% { transform: scaleY(1); }
-  45% { transform: scaleY(0.16); }
+@keyframes assistant-idle-confused {
+  0%, 32% { background-position: 100% center; }
+  33%, 65% { background-position: 0% center; }
+  66%, 99% { background-position: 50% center; }
+  100% { background-position: 100% center; }
+}
+
+.study-assistant-trigger:hover .study-assistant-avatar,
+.study-assistant-avatar-frame:hover .study-assistant-avatar {
+  filter: saturate(1.08) brightness(1.02);
 }
 
 .memo-reminder-avatar {
@@ -115,5 +116,4 @@ a {
     transition: none;
   }
 
-  .assistant-expression i { animation: none; }
 }

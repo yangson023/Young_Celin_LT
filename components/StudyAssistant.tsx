@@ -16,12 +16,6 @@ const moodLabels: Record<Mood, string> = {
   confused: "疑惑"
 };
 
-const moodPositions: Record<Mood, string> = {
-  happy: "0% center",
-  cute: "50% center",
-  confused: "100% center"
-};
-
 const quickQuestions = [
   "怎样完成一次自测？",
   "我应该从哪里开始复习？",
@@ -36,14 +30,11 @@ function randomMood() {
 function AssistantAvatar({ mood, large = false }: { mood: Mood; large?: boolean }) {
   return (
     <span
-      aria-label={`AI 助教当前是${moodLabels[mood]}表情`}
+      aria-label={`AI 助教正在待机活动，对话心情：${moodLabels[mood]}`}
       role="img"
       className={`study-assistant-avatar-frame ${large ? "h-24 w-24" : "h-11 w-11"}`}
     >
-      <span className={`study-assistant-avatar study-assistant-avatar-${mood}`} style={{ backgroundPosition: moodPositions[mood] }} />
-      <span className={`assistant-expression assistant-expression-${mood}`} aria-hidden="true">
-        <i /><i />
-      </span>
+      <span className={`study-assistant-avatar study-assistant-avatar-${mood}`} />
     </span>
   );
 }
@@ -163,7 +154,7 @@ export function StudyAssistant() {
               <div className="flex items-center gap-3">
                 <AssistantAvatar mood={mood} large />
                 <div>
-                  <p className="text-xs font-medium text-accent">当前心情：{currentMoodLabel}</p>
+                  <p className="text-xs font-medium text-accent">对话心情：{currentMoodLabel}</p>
                   <h2 id="study-assistant-title" className="mt-1 text-lg font-semibold text-ink">
                     课程小助教
                   </h2>
