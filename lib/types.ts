@@ -113,4 +113,24 @@ export type WrongQuestionRecord = {
   correctAnswer: string;
   explanation: string;
   createdAt: string;
+  mistakeTag?: MistakeTag;
+  reviewStage?: number;
+  nextReviewAt?: string;
+  lastReviewedAt?: string;
+};
+
+export type MistakeTag =
+  | "concept"
+  | "condition"
+  | "formula"
+  | "calculation"
+  | "notation";
+
+export type ChapterChallengeRecord = {
+  courseId: string;
+  chapterId: string;
+  completedAt: string;
+  correctCount: number;
+  total: number;
+  accuracy: number;
 };

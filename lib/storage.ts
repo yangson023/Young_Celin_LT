@@ -1,6 +1,6 @@
 "use client";
 
-import type { WrongQuestionRecord } from "./types";
+import type { ChapterChallengeRecord, WrongQuestionRecord } from "./types";
 
 const WRONG_QUESTIONS_KEY = "course-review-demo:wrong-questions";
 const LAST_LEARNING_KEY = "course-review-demo:last-learning";
@@ -9,6 +9,7 @@ const ONBOARDING_DISMISSED_KEY = "course-review-demo:onboarding-dismissed";
 const MEMOS_KEY = "course-review-demo:memos";
 const MATERIAL_SUBMISSIONS_KEY = "course-review-demo:material-submissions";
 const MEMO_REMINDERS_KEY = "course-review-demo:memo-reminders";
+const CHAPTER_CHALLENGES_KEY = "course-review-demo:chapter-challenges";
 
 export type LastLearningRecord = {
   courseId: string;
@@ -102,14 +103,74 @@ export function saveWrongQuestions(records: WrongQuestionRecord[]) {
       (item) => item.questionId === record.questionId
     );
 
+    const reviewRecord: WrongQuestionRecord = {
+      ...record,
+      reviewStage: 0,
+      nextReviewAt: new Date().toISOString()
+    };
+
     if (existingIndex >= 0) {
-      next[existingIndex] = record;
+      next[existingIndex] = reviewRecord;
     } else {
-      next.unshift(record);
+      next.unshift(reviewRecord);
     }
   });
 
   writeJson(WRONG_QUESTIONS_KEY, next);
+}
+
+export function getDueWrongQuestions(now = new Date()) {
+  return getWrongQuestions().filter((record) => {
+    const nextReviewAt = record.nextReviewAt ?? record.createdAt;
+    return new Date(nextReviewAt).getTime() <= now.getTime();
+  });
+}
+
+export function applyWrongQuestionReview(
+  results: Record<string, boolean>
+) {
+  const now = new Date();
+  let masteredCount = 0;
+  let scheduledCount = 0;
+  let resetCount = 0;
+
+  const next = getWrongQuestions().flatMap((record) => {
+    const isCorrect = results[record.questionId];
+    if (isCorrect === undefined) {
+      return [record];
+    }
+
+    if (!isCorrect) {
+      resetCount += 1;
+      return [{
+        ...record,
+        reviewStage: 0,
+        nextReviewAt: now.toISOString(),
+        lastReviewedAt: now.toISOString()
+      }];
+    }
+
+    const currentStage = record.reviewStage ?? 0;
+    if (currentStage >= 2) {
+      masteredCount += 1;
+      return [];
+    }
+
+    const nextStage = currentStage + 1;
+    const delayDays = nextStage === 1 ? 3 : 7;
+    const nextReviewAt = new Date(now);
+    nextReviewAt.setDate(nextReviewAt.getDate() + delayDays);
+    scheduledCount += 1;
+    return [{
+      ...record,
+      reviewStage: nextStage,
+      nextReviewAt: nextReviewAt.toISOString(),
+      lastReviewedAt: now.toISOString()
+    }];
+  });
+
+  writeJson(WRONG_QUESTIONS_KEY, next);
+  return { records: next, masteredCount, scheduledCount, resetCount };
 }
 
 export function clearWrongQuestions() {
@@ -284,4 +345,23 @@ export function saveMaterialSubmission(
   const next = [record, ...readJson<MaterialSubmissionRecord[]>(MATERIAL_SUBMISSIONS_KEY, [])];
   writeJson(MATERIAL_SUBMISSIONS_KEY, next);
   return next;
+}
+
+export function saveChapterChallenge(record: ChapterChallengeRecord) {
+  const current = readJson<ChapterChallengeRecord[]>(CHAPTER_CHALLENGES_KEY, []);
+  const next = [
+    record,
+    ...current.filter(
+      (item) =>
+        item.courseId !== record.courseId || item.chapterId !== record.chapterId
+    )
+  ];
+  writeJson(CHAPTER_CHALLENGES_KEY, next);
+  return next;
+}
+
+export function getChapterChallenge(courseId: string, chapterId: string) {
+  return readJson<ChapterChallengeRecord[]>(CHAPTER_CHALLENGES_KEY, []).find(
+    (item) => item.courseId === courseId && item.chapterId === chapterId
+  );
 }

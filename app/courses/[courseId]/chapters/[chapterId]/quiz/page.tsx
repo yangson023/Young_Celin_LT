@@ -28,12 +28,12 @@ function selectMixedQuestions(
   });
 
   questions.forEach((question) => {
-    if (selected.length < 5 && !selectedIds.has(question.id)) {
+    if (selected.length < 10 && !selectedIds.has(question.id)) {
       selected.push(question);
     }
   });
 
-  return selected.slice(0, 5);
+  return selected.slice(0, 10);
 }
 
 export default async function ChapterQuizPage({

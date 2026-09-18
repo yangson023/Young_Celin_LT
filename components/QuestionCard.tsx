@@ -1,20 +1,25 @@
 "use client";
 
 import { MathText } from "@/components/MathText";
-import type { Question } from "@/lib/types";
+import { mistakeTagOptions } from "@/lib/review";
+import type { MistakeTag, Question } from "@/lib/types";
 
 export function QuestionCard({
   question,
   index,
   selectedAnswer,
   submitted,
-  onSelect
+  onSelect,
+  mistakeTag,
+  onMistakeTagSelect
 }: {
   question: Question;
   index: number;
   selectedAnswer: string | undefined;
   submitted: boolean;
   onSelect: (answer: string) => void;
+  mistakeTag?: MistakeTag;
+  onMistakeTagSelect?: (tag: MistakeTag) => void;
 }) {
   return (
     <article className="rounded-lg border border-line bg-white p-5 shadow-sm">
@@ -82,6 +87,36 @@ export function QuestionCard({
           <p className="mt-1 text-muted">
             <MathText>{question.explanation}</MathText>
           </p>
+
+          {selectedAnswer !== question.answer && onMistakeTagSelect ? (
+            <div className="mt-4 border-t border-line pt-4">
+              <p className="font-semibold text-ink">这次主要卡在哪里？</p>
+              <p className="mt-1 text-xs leading-5 text-muted">
+                选一个最接近的错因，之后会按错因安排复习。
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {mistakeTagOptions.map((tag) => {
+                  const isSelected = mistakeTag === tag.id;
+                  return (
+                    <button
+                      key={tag.id}
+                      type="button"
+                      onClick={() => onMistakeTagSelect(tag.id)}
+                      aria-pressed={isSelected}
+                      title={tag.hint}
+                      className={`rounded-md border px-2.5 py-1.5 text-xs font-medium transition ${
+                        isSelected
+                          ? "border-accent bg-accent text-white"
+                          : "border-line bg-white text-muted hover:border-accent hover:text-accent"
+                      }`}
+                    >
+                      {tag.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
         </div>
       ) : null}
     </article>

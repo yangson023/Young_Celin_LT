@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 import { MathText } from "@/components/MathText";
 import {
   clearWrongQuestions,
+  getDueWrongQuestions,
   getWrongQuestions
 } from "@/lib/storage";
+import { getMistakeTagLabel, getReviewStageLabel } from "@/lib/review";
 import type { WrongQuestionRecord } from "@/lib/types";
 
 type KnowledgePointGroup = {
@@ -81,6 +83,7 @@ export function WrongQuestionsClient() {
   }
 
   const courseGroups = groupWrongQuestions(records);
+  const dueQuestionIds = new Set(getDueWrongQuestions().map((record) => record.questionId));
 
   return (
     <div className="grid gap-6">
@@ -90,6 +93,7 @@ export function WrongQuestionsClient() {
           <h1 className="mt-1 text-3xl font-semibold text-ink">
             当前浏览器保存了 {records.length} 道错题
           </h1>
+          {dueQuestionIds.size ? <Link href="/review/today" className="mt-3 inline-flex rounded-md bg-accent px-3 py-2 text-sm font-semibold text-white">今日有 {dueQuestionIds.size} 道待复习</Link> : null}
         </div>
         <button
           type="button"
@@ -169,6 +173,10 @@ export function WrongQuestionsClient() {
                                   <div className="rounded-md bg-accent/10 p-3 text-sm text-accent">
                                     正确答案：{record.correctAnswer}
                                   </div>
+                                </div>
+                                <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                                  <span className="rounded-md bg-paper px-2.5 py-1.5 text-muted">错因：{getMistakeTagLabel(record.mistakeTag)}</span>
+                                  <span className={`rounded-md px-2.5 py-1.5 ${dueQuestionIds.has(record.questionId) ? "bg-accent/10 font-medium text-accent" : "bg-paper text-muted"}`}>{dueQuestionIds.has(record.questionId) ? "今日应复习" : getReviewStageLabel(record.reviewStage)}</span>
                                 </div>
                                 <p className="mt-3 rounded-md bg-paper p-3 text-sm leading-6 text-muted">
                                   <MathText>{record.explanation}</MathText>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { KnowledgeCard } from "@/components/KnowledgeCard";
+import { ChapterChallengeStatus } from "@/components/ChapterChallengeStatus";
 import { PageShell } from "@/components/PageShell";
 import {
   getChapterById,
@@ -62,8 +63,9 @@ export default async function ChapterPage({
             href={`/courses/${course.id}/chapters/${chapter.id}/quiz`}
             className="mt-5 inline-flex w-full items-center justify-center rounded-md bg-accent px-4 py-3 text-sm font-semibold text-white transition hover:bg-accent/90 sm:w-auto"
           >
-            开始章节混合自测
+            开始本章挑战
           </Link>
+          <ChapterChallengeStatus courseId={course.id} chapterId={chapter.id} />
         </section>
 
         <section>

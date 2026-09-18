@@ -31,13 +31,13 @@ export function ResultSummary({
         <div className="rounded-md bg-paper p-4">
           <p className="text-sm text-muted">错题记录</p>
           <p className="mt-1 text-sm font-semibold text-ink">
-            错题已保存到本机浏览器
+            错题已进入复习队列
           </p>
         </div>
       </div>
 
       <p className="mt-4 rounded-md bg-paper p-3 text-sm leading-6 text-muted">
-        {studySuggestion}
+        {studySuggestion} 做错的题会先进入今日复习，答对后再安排到 3 天后和 7 天后巩固。
       </p>
     </section>
   );

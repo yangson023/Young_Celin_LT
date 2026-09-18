@@ -1,5 +1,19 @@
 [
   {
+    "id": "announcement-review-loop-and-challenge",
+    "published_at": "2026-09-18",
+    "version": "v0.1.2",
+    "category": "feature",
+    "title": "今日复习、错因标签与章节挑战上线",
+    "summary": "错题不再只是存档：学生可标记错因，并按当天、3 天后、7 天后的节奏完成巩固；章节挑战也会覆盖更多知识点。",
+    "highlights": [
+      "首页新增今日复习入口，自动列出到期错题。",
+      "错题解析后可选择概念、条件、公式、计算或符号类错因。",
+      "章节挑战最多覆盖 10 题，并在结束后按知识点给出掌握与回看建议。"
+    ],
+    "is_pinned": true
+  },
+  {
     "id": "announcement-study-utilities",
     "published_at": "2026-09-17",
     "version": "v0.1.1",

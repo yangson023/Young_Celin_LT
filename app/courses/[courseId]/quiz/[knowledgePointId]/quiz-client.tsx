@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { ChapterChallengeReport } from "@/components/ChapterChallengeReport";
 import { QuestionCard } from "@/components/QuestionCard";
 import { ResultSummary } from "@/components/ResultSummary";
 import {
   recordQuizProgress,
+  saveChapterChallenge,
   saveLastLearning,
   saveWrongQuestions
 } from "@/lib/storage";
-import type { Chapter, Course, KnowledgePoint, Question } from "@/lib/types";
+import type { Chapter, Course, KnowledgePoint, MistakeTag, Question } from "@/lib/types";
 import { scoreQuiz, type QuizAnswerMap } from "@/lib/quiz";
 
 export function QuizClient({
@@ -33,6 +35,7 @@ export function QuizClient({
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answerChecked, setAnswerChecked] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [mistakeTags, setMistakeTags] = useState<Record<string, MistakeTag>>({});
 
   const result = useMemo(() => scoreQuiz(questions, answers), [answers, questions]);
   const allAnswered = questions.every((question) => answers[question.id]);
@@ -80,7 +83,8 @@ export function QuizClient({
           userAnswer: answers[question.id],
           correctAnswer: question.answer,
           explanation: question.explanation,
-          createdAt: new Date().toISOString()
+          createdAt: new Date().toISOString(),
+          mistakeTag: mistakeTags[question.id]
         };
       });
 
@@ -91,6 +95,16 @@ export function QuizClient({
       questionCount: result.total,
       correctCount: result.correctCount
     });
+    if (chapter) {
+      saveChapterChallenge({
+        courseId: course.id,
+        chapterId: chapter.id,
+        completedAt: new Date().toISOString(),
+        correctCount: result.correctCount,
+        total: result.total,
+        accuracy: result.accuracy
+      });
+    }
     if (nextPoint) {
       saveLastLearning({
         courseId: course.id,
@@ -160,7 +174,7 @@ export function QuizClient({
         </h1>
         <p className="mt-3 text-sm leading-6 text-muted">
           {isChapterQuiz
-            ? "本轮从本章不同知识点中选取题目。每题确认后立即查看答案与解析，错题仍按原知识点保存。"
+            ? "本轮覆盖本章不同知识点，最多 10 题。每题确认后立即查看答案与解析，错题仍按原知识点保存并进入复习队列。"
             : "每题确认后会立即显示正确答案、选项判断和完整解析；完成本轮后，错题会保存在当前浏览器。"}
         </p>
       </section>
@@ -170,6 +184,16 @@ export function QuizClient({
           correctCount={result.correctCount}
           total={result.total}
           accuracy={result.accuracy}
+        />
+      ) : null}
+
+      {submitted && chapter ? (
+        <ChapterChallengeReport
+          course={course}
+          chapter={chapter}
+          knowledgePoints={knowledgePoints}
+          questions={questions}
+          answers={answers}
         />
       ) : null}
 
@@ -201,6 +225,10 @@ export function QuizClient({
               ...current,
               [currentQuestion.id]: answer
             }))
+          }
+          mistakeTag={mistakeTags[currentQuestion.id]}
+          onMistakeTagSelect={(tag) =>
+            setMistakeTags((current) => ({ ...current, [currentQuestion.id]: tag }))
           }
         />
       )}

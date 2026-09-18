@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { QuestionCard } from "@/components/QuestionCard";
 import { getQuestionsByKnowledgePointId } from "@/lib/data";
-import { getWrongQuestions, removeWrongQuestions } from "@/lib/storage";
+import { applyWrongQuestionReview, getWrongQuestions } from "@/lib/storage";
 import type { Course, KnowledgePoint, Question } from "@/lib/types";
 import { scoreQuiz, type QuizAnswerMap } from "@/lib/quiz";
 
@@ -19,6 +19,8 @@ export function WrongQuestionRetryClient({
   const [answers, setAnswers] = useState<QuizAnswerMap>({});
   const [submitted, setSubmitted] = useState(false);
   const [resolvedCount, setResolvedCount] = useState(0);
+  const [scheduledCount, setScheduledCount] = useState(0);
+  const [resetCount, setResetCount] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -48,12 +50,16 @@ export function WrongQuestionRetryClient({
       return;
     }
 
-    const correctedQuestionIds = questions
-      .filter((question) => answers[question.id] === question.answer)
-      .map((question) => question.id);
-
-    removeWrongQuestions(correctedQuestionIds);
-    setResolvedCount(correctedQuestionIds.length);
+    const results = Object.fromEntries(
+      questions.map((question) => [
+        question.id,
+        answers[question.id] === question.answer
+      ])
+    );
+    const reviewResult = applyWrongQuestionReview(results);
+    setResolvedCount(reviewResult.masteredCount);
+    setScheduledCount(reviewResult.scheduledCount);
+    setResetCount(reviewResult.resetCount);
     setSubmitted(true);
   }
 
@@ -90,7 +96,7 @@ export function WrongQuestionRetryClient({
           {point.title} 错题再练
         </h1>
         <p className="mt-3 text-sm leading-6 text-muted">
-          只练本知识点此前答错的题。重新答对后，题目会从错题本移除。
+          只练本知识点此前答错的题。答对后会进入下一轮复习；完成 3 次巩固后才会移出错题本。
         </p>
       </section>
 
@@ -101,7 +107,7 @@ export function WrongQuestionRetryClient({
             答对 {result.correctCount}/{result.total} 道
           </h2>
           <p className="mt-3 rounded-md bg-paper p-3 text-sm leading-6 text-muted">
-            本次已移除 {resolvedCount} 道已掌握错题；仍答错的题会继续保留在错题本。
+            本次已有 {resolvedCount} 道题完成最后一轮巩固，{scheduledCount} 道题已安排到下一次复习；{resetCount} 道仍留在今日回顾。
           </p>
         </section>
       ) : null}
