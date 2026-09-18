@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { CircleCheck, CircleHelp, Trophy } from "lucide-react";
+import { CircleCheck, CircleHelp } from "lucide-react";
+import { FeatureMark } from "@/components/FeatureMark";
 import type { Chapter, Course, KnowledgePoint, Question } from "@/lib/types";
 
 export function ChapterChallengeReport({
@@ -36,10 +37,13 @@ export function ChapterChallengeReport({
   return (
     <section className="border-y border-line bg-white/75 py-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p className="inline-flex items-center gap-2 text-sm font-medium text-accent"><Trophy className="h-4 w-4" /> 章节挑战回顾</p>
-          <h2 className="mt-1 text-xl font-semibold text-ink">把下一次复习缩小到具体知识点</h2>
-          <p className="mt-2 text-sm leading-6 text-muted">本次覆盖 {pointResults.length} 个知识点；全部答对的点可先放下，有失分的点建议优先回看。</p>
+        <div className="flex items-start gap-3">
+          <FeatureMark name="challenge" />
+          <div>
+            <p className="text-sm font-medium text-accent">章节挑战回顾</p>
+            <h2 className="mt-1 text-xl font-semibold text-ink">把下一次复习缩小到具体知识点</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">本次覆盖 {pointResults.length} 个知识点；全部答对的点可先放下，有失分的点建议优先回看。</p>
+          </div>
         </div>
         <Link href={`/courses/${course.id}/chapters/${chapter.id}`} className="w-fit shrink-0 text-sm font-semibold text-accent transition hover:text-ink">返回章节目录</Link>
       </div>

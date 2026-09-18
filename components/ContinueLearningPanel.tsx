@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FeatureMark } from "@/components/FeatureMark";
 import { getLastLearning, type LastLearningRecord } from "@/lib/storage";
 
 export function ContinueLearningPanel() {
@@ -15,7 +16,10 @@ export function ContinueLearningPanel() {
 
   return (
     <section className="rounded-lg border border-line bg-white p-5 shadow-sm">
-      <p className="text-sm font-medium text-muted">当前学习入口</p>
+      <div className="flex items-center gap-3">
+        <FeatureMark name="continue" />
+        <p className="text-sm font-medium text-muted">当前学习入口</p>
+      </div>
       {lastLearning ? (
         <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>

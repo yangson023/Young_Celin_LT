@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { Mail } from "lucide-react";
+import { FeatureMark } from "@/components/FeatureMark";
 import { useEffect, useState } from "react";
 
 export function FeedbackLetterDialog() {
@@ -30,10 +32,7 @@ export function FeedbackLetterDialog() {
         aria-expanded={isOpen}
         className="group inline-flex items-center gap-2 rounded-md border border-accent/30 bg-accent px-3 py-2 font-medium text-white shadow-sm shadow-accent/20 transition hover:-translate-y-0.5 hover:bg-[#24595d] hover:shadow-md hover:shadow-accent/30"
       >
-        <span className="relative flex h-4 w-5 items-center justify-center overflow-hidden rounded-[3px] border border-white/80">
-          <span className="absolute top-0 h-3 w-3 rotate-45 border-b border-r border-white/80 transition group-hover:translate-y-0.5" />
-          <span className="absolute inset-x-0 bottom-0 h-1.5 bg-white/20" />
-        </span>
+        <Mail className="h-4 w-4" aria-hidden="true" />
         <span>反馈</span>
       </button>
 
@@ -54,10 +53,7 @@ export function FeedbackLetterDialog() {
             <div className="p-5 sm:p-7">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <span className="relative flex h-10 w-12 items-center justify-center overflow-hidden rounded-md border border-accent/30 bg-[#eff8f5]">
-                    <span className="absolute top-0 h-7 w-7 rotate-45 border-b border-r border-accent/55" />
-                    <span className="absolute inset-x-0 bottom-0 h-3 bg-accent/10" />
-                  </span>
+                  <FeatureMark name="feedback" />
                   <div>
                     <p className="text-xs font-medium text-accent">一封来信</p>
                     <h2 id="feedback-letter-title" className="mt-1 text-xl font-semibold text-ink">

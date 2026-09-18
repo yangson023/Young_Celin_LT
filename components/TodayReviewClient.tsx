@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { CalendarCheck2 } from "lucide-react";
+import { FeatureMark } from "@/components/FeatureMark";
 import { QuestionCard } from "@/components/QuestionCard";
 import { getQuestionsByKnowledgePointId } from "@/lib/data";
 import { applyWrongQuestionReview, getDueWrongQuestions } from "@/lib/storage";
@@ -41,9 +41,14 @@ export function TodayReviewClient() {
     <div className="mx-auto max-w-4xl">
       <Link href="/" className="text-sm font-medium text-accent">返回首页</Link>
       <section className="mt-4 rounded-lg border border-line bg-white p-5 shadow-sm sm:p-7">
-        <p className="inline-flex items-center gap-2 text-sm font-medium text-accent"><CalendarCheck2 className="h-4 w-4" /> 今日复习</p>
-        <h1 className="mt-2 text-3xl font-semibold text-ink">把今天该回看的题做完</h1>
-        <p className="mt-3 text-sm leading-6 text-muted">每道题答对后会进入下一次复习安排；再次答错则留在今日回顾，直到概念真正稳定。</p>
+        <div className="flex items-start gap-3">
+          <FeatureMark name="today-review" />
+          <div>
+            <p className="text-sm font-medium text-accent">今日复习</p>
+            <h1 className="mt-1 text-3xl font-semibold text-ink">把今天该回看的题做完</h1>
+            <p className="mt-3 text-sm leading-6 text-muted">每道题答对后会进入下一次复习安排；再次答错则留在今日回顾，直到概念真正稳定。</p>
+          </div>
+        </div>
       </section>
 
       {!entries.length ? <section className="mt-6 rounded-lg border border-dashed border-line bg-white/80 px-5 py-12 text-center"><h2 className="text-xl font-semibold text-ink">今日复习已经清空</h2><p className="mt-2 text-sm text-muted">完成自测后，新错题会自动进入这里。</p><Link href="/courses/uestc-linear-algebra" className="mt-5 inline-flex rounded-md bg-accent px-4 py-3 text-sm font-semibold text-white">继续学习</Link></section> : null}

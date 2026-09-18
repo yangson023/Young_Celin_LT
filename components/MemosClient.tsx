@@ -2,6 +2,7 @@
 
 import { BellRing, Check, Clock3, NotebookPen, Trash2 } from "lucide-react";
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FeatureMark } from "@/components/FeatureMark";
 import {
   addMemo,
   getMemos,
@@ -49,10 +50,13 @@ export function MemosClient() {
     <div className="mx-auto max-w-4xl">
       <section className="rounded-lg border border-line bg-white/95 p-5 shadow-sm sm:p-7">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <p className="inline-flex items-center gap-2 text-sm font-medium text-accent"><NotebookPen className="h-4 w-4" /> 学习备忘录</p>
-            <h1 className="mt-2 text-3xl font-semibold text-ink">把要紧的事先记下来</h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">备忘录按创建时间排序。当天创建的未完成事项，会在晚上 21:00 和 22:00 由小助教礼貌提醒一次。</p>
+          <div className="flex items-start gap-3">
+            <FeatureMark name="memos" />
+            <div>
+              <p className="text-sm font-medium text-accent">学习备忘录</p>
+              <h1 className="mt-2 text-3xl font-semibold text-ink">把要紧的事先记下来</h1>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">备忘录按创建时间排序。当天创建的未完成事项，会在晚上 21:00 和 22:00 由小助教礼貌提醒一次。</p>
+            </div>
           </div>
           <button type="button" onClick={() => void enableNotifications()} className="inline-flex w-fit items-center gap-2 rounded-md border border-accent/25 bg-paper px-3 py-2 text-sm font-semibold text-accent transition hover:border-accent">
             <BellRing className="h-4 w-4" /> 开启系统提醒

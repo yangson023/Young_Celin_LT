@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FeatureMark } from "@/components/FeatureMark";
 import {
   getAccuracy,
   getLastLearning,
@@ -55,11 +56,14 @@ export function LearningProgressPanel({
   return (
     <section className="rounded-lg border border-line bg-white p-5 shadow-sm">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p className="text-sm font-medium text-muted">{title}</p>
-          <h2 className="mt-1 text-xl font-semibold text-ink">
-            {hasProgress ? "继续保持这个节奏" : "完成一次自测后会出现记录"}
-          </h2>
+        <div className="flex items-start gap-3">
+          <FeatureMark name="progress" />
+          <div>
+            <p className="text-sm font-medium text-muted">{title}</p>
+            <h2 className="mt-1 text-xl font-semibold text-ink">
+              {hasProgress ? "继续保持这个节奏" : "完成一次自测后会出现记录"}
+            </h2>
+          </div>
         </div>
         {showLastLearning ? (
           <Link

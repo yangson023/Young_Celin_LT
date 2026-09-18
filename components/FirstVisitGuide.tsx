@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FeatureMark } from "@/components/FeatureMark";
 import { dismissOnboarding, hasDismissedOnboarding } from "@/lib/storage";
 
 const guideSteps = ["选择课程", "阅读速讲", "完成自测"];
@@ -25,9 +26,12 @@ export function FirstVisitGuide() {
   return (
     <section className="rounded-lg border border-accent/30 bg-white/95 p-5 shadow-sm">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p className="text-sm font-medium text-accent">第一次使用</p>
-          <h1 className="mt-1 text-2xl font-semibold text-ink">从一个知识点开始</h1>
+        <div className="flex items-start gap-3">
+          <FeatureMark name="guide" />
+          <div>
+            <p className="text-sm font-medium text-accent">第一次使用</p>
+            <h1 className="mt-1 text-2xl font-semibold text-ink">从一个知识点开始</h1>
+          </div>
         </div>
         <button
           type="button"

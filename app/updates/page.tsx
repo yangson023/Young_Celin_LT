@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FeatureMark } from "@/components/FeatureMark";
 import { AnnouncementCard } from "@/components/AnnouncementCard";
 import { PageShell } from "@/components/PageShell";
 import { getAnnouncements } from "@/lib/data";
@@ -17,11 +18,16 @@ export default function UpdatesPage() {
         </Link>
 
         <section className="mt-4 rounded-lg border border-line bg-white/95 p-5 shadow-sm sm:p-7">
-          <p className="text-sm font-medium text-accent">课程自测助手</p>
-          <h1 className="mt-2 text-3xl font-semibold text-ink">更新公告</h1>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
-            这里记录影响学习体验的功能、内容和修复。每次稳定更新后，我们会把变化写清楚。
-          </p>
+          <div className="flex items-start gap-3">
+            <FeatureMark name="updates" />
+            <div>
+              <p className="text-sm font-medium text-accent">课程自测助手</p>
+              <h1 className="mt-2 text-3xl font-semibold text-ink">更新公告</h1>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
+                这里记录影响学习体验的功能、内容和修复。每次稳定更新后，我们会把变化写清楚。
+              </p>
+            </div>
+          </div>
         </section>
 
         <section className="mt-6">

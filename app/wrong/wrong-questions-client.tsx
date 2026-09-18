@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FeatureMark } from "@/components/FeatureMark";
 import { MathText } from "@/components/MathText";
 import {
   clearWrongQuestions,
@@ -88,12 +89,15 @@ export function WrongQuestionsClient() {
   return (
     <div className="grid gap-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="text-sm font-medium text-muted">错题本</p>
-          <h1 className="mt-1 text-3xl font-semibold text-ink">
-            当前浏览器保存了 {records.length} 道错题
-          </h1>
-          {dueQuestionIds.size ? <Link href="/review/today" className="mt-3 inline-flex rounded-md bg-accent px-3 py-2 text-sm font-semibold text-white">今日有 {dueQuestionIds.size} 道待复习</Link> : null}
+        <div className="flex items-start gap-3">
+          <FeatureMark name="wrong-questions" />
+          <div>
+            <p className="text-sm font-medium text-muted">错题本</p>
+            <h1 className="mt-1 text-3xl font-semibold text-ink">
+              当前浏览器保存了 {records.length} 道错题
+            </h1>
+            {dueQuestionIds.size ? <Link href="/review/today" className="mt-3 inline-flex rounded-md bg-accent px-3 py-2 text-sm font-semibold text-white">今日有 {dueQuestionIds.size} 道待复习</Link> : null}
+          </div>
         </div>
         <button
           type="button"

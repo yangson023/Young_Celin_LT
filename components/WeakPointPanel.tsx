@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FeatureMark } from "@/components/FeatureMark";
 import { getWrongQuestions } from "@/lib/storage";
 
 type WeakPoint = {
@@ -49,11 +50,14 @@ export function WeakPointPanel() {
 
   return (
     <section className="rounded-lg border border-line bg-white p-5 shadow-sm">
-      <div>
-        <p className="text-sm font-medium text-muted">优先复习</p>
-        <h2 className="mt-1 text-xl font-semibold text-ink">
-          {weakPoints.length > 0 ? "从当前错题开始补强" : "暂时没有待复习的错题"}
-        </h2>
+      <div className="flex items-start gap-3">
+        <FeatureMark name="weak-points" />
+        <div>
+          <p className="text-sm font-medium text-muted">优先复习</p>
+          <h2 className="mt-1 text-xl font-semibold text-ink">
+            {weakPoints.length > 0 ? "从当前错题开始补强" : "暂时没有待复习的错题"}
+          </h2>
+        </div>
       </div>
 
       {weakPoints.length > 0 ? (

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FeatureMark } from "@/components/FeatureMark";
 import { PageShell } from "@/components/PageShell";
 import { ResourceLibraryClient } from "@/components/ResourceLibraryClient";
 import { MaterialSubmissionDialog } from "@/components/MaterialSubmissionDialog";
@@ -19,14 +20,17 @@ export default function ResourcesPage() {
 
         <section className="mt-4 overflow-hidden rounded-lg border border-line bg-white/95 shadow-sm">
           <div className="grid gap-6 p-5 sm:p-7 md:grid-cols-[minmax(0,1fr)_210px] md:items-end">
-            <div>
-              <p className="text-sm font-medium text-accent">课程资料图书室</p>
-              <h1 className="mt-2 text-3xl font-semibold leading-tight text-ink">
-                先进入一个课程专题，再按章节找资料
-              </h1>
-              <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
-                线性代数资料先归入同一个专题书架，再按章节筛选。之后的课程也沿用“专题封面 + 章节检索”的结构，避免资料散落成一页清单。
-              </p>
+            <div className="flex items-start gap-3">
+              <FeatureMark name="materials" />
+              <div>
+                <p className="text-sm font-medium text-accent">课程资料图书室</p>
+                <h1 className="mt-2 text-3xl font-semibold leading-tight text-ink">
+                  先进入一个课程专题，再按章节找资料
+                </h1>
+                <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
+                  线性代数资料先归入同一个专题书架，再按章节筛选。之后的课程也沿用“专题封面 + 章节检索”的结构，避免资料散落成一页清单。
+                </p>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-3 border-t border-line pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
               <div>

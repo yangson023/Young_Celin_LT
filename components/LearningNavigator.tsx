@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpenText, NotebookPen, ScrollText } from "lucide-react";
+import { BookOpenText, NotebookPen, Play, ScrollText } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   getLastLearning,
@@ -64,23 +64,26 @@ export function LearningNavigator() {
       <nav className="fixed inset-x-3 bottom-3 z-20 grid grid-cols-4 overflow-hidden rounded-lg border border-line bg-white/95 p-1 shadow-sm xl:hidden">
         <Link
           href={courseHref}
-          className="rounded-md px-2 py-2 text-center text-xs font-medium text-muted transition hover:bg-paper hover:text-accent"
+          className="flex flex-col items-center gap-1 rounded-md px-2 py-1.5 text-center text-xs font-medium text-muted transition hover:bg-paper hover:text-accent"
         >
+          <BookOpenText className="h-4 w-4" aria-hidden="true" />
           课程
         </Link>
         <Link
           href={continueHref}
-          className="rounded-md bg-accent px-2 py-2 text-center text-xs font-semibold text-white transition hover:bg-accent/90"
+          className="flex flex-col items-center gap-1 rounded-md bg-accent px-2 py-1.5 text-center text-xs font-semibold text-white transition hover:bg-accent/90"
         >
+          <Play className="h-4 w-4" aria-hidden="true" />
           {continueLabel}
         </Link>
         <Link
           href="/wrong"
-          className="rounded-md px-2 py-2 text-center text-xs font-medium text-muted transition hover:bg-paper hover:text-accent"
+          className="flex flex-col items-center gap-1 rounded-md px-2 py-1.5 text-center text-xs font-medium text-muted transition hover:bg-paper hover:text-accent"
         >
+          <ScrollText className="h-4 w-4" aria-hidden="true" />
           错题{wrongCount > 0 ? ` ${wrongCount}` : ""}
         </Link>
-        <Link href="/memos" className="rounded-md px-2 py-2 text-center text-xs font-medium text-muted transition hover:bg-paper hover:text-accent">备忘</Link>
+        <Link href="/memos" className="flex flex-col items-center gap-1 rounded-md px-2 py-1.5 text-center text-xs font-medium text-muted transition hover:bg-paper hover:text-accent"><NotebookPen className="h-4 w-4" aria-hidden="true" />备忘</Link>
       </nav>
     </>
   );
