@@ -29,6 +29,24 @@ export type KnowledgePoint = {
   title: string;
   one_sentence: string;
   summary: string;
+  learning_goal?: string;
+  conditions?: string[];
+  worked_example?: {
+    title: string;
+    prompt: string;
+    steps: { title: string; detail: string }[];
+    takeaway: string;
+  };
+  guided_review?: {
+    question: string;
+    hint: string;
+    answer: string;
+  }[];
+  visual?: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
   formulas: string[];
   common_mistakes: string[];
   question_types: string[];
@@ -85,6 +103,19 @@ export type CourseMaterial = {
   action?: {
     href: string;
     label: string;
+  };
+};
+
+export type LectureInsight = {
+  id: string;
+  course_id: string;
+  chapter_ids: string[];
+  title: string;
+  focus: string;
+  takeaways: string[];
+  example: {
+    prompt: string;
+    approach: string;
   };
 };
 

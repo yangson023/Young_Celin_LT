@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChapterList } from "@/components/ChapterList";
 import { CourseLearningPath } from "@/components/CourseLearningPath";
+import { LectureInsightPanel } from "@/components/LectureInsightPanel";
 import { LearningProgressPanel } from "@/components/LearningProgressPanel";
 import { PageShell } from "@/components/PageShell";
 import { StatusBadge } from "@/components/StatusBadge";
 import {
   getChaptersByCourseId,
   getCourseById,
+  getLectureInsightsByCourseId,
   getKnowledgePointsByCourseId
 } from "@/lib/data";
 
@@ -25,6 +26,7 @@ export default async function CoursePage({
 
   const chapters = getChaptersByCourseId(course.id);
   const knowledgePoints = getKnowledgePointsByCourseId(course.id);
+  const lectureInsights = getLectureInsightsByCourseId(course.id);
 
   return (
     <PageShell>
@@ -64,25 +66,14 @@ export default async function CoursePage({
           title={`${course.title} 学习进度`}
         />
 
+        <LectureInsightPanel insights={lectureInsights} />
+
         <CourseLearningPath
           courseId={course.id}
           chapters={chapters}
           knowledgePoints={knowledgePoints}
         />
 
-        <section>
-          <div className="mb-4">
-            <p className="text-sm font-medium text-muted">章节</p>
-            <h2 className="mt-1 text-xl font-semibold text-ink">
-              选择一个章节
-            </h2>
-          </div>
-          <ChapterList
-            courseId={course.id}
-            chapters={chapters}
-            knowledgePoints={knowledgePoints}
-          />
-        </section>
       </div>
     </PageShell>
   );

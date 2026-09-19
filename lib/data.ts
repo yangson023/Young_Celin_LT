@@ -4,6 +4,7 @@ import sjtuAdvancedAlgebraKnowledgePoints from "@/content-packs/sjtu-advanced-al
 import sjtuAdvancedAlgebraQuestions from "@/content-packs/sjtu-advanced-algebra/questions.json";
 import announcements from "@/data/announcements.json";
 import courseMaterials from "@/data/course-materials.json";
+import lectureInsights from "@/data/lecture-insights.json";
 import referenceSources from "@/data/source-index.json";
 import uestcLinearAlgebraChapters from "@/content-packs/uestc-linear-algebra/chapters.json";
 import uestcLinearAlgebraCourse from "@/content-packs/uestc-linear-algebra/course.json";
@@ -15,6 +16,7 @@ import type {
   CourseMaterial,
   Course,
   KnowledgePoint,
+  LectureInsight,
   Question,
   ReferenceSource
 } from "./types";
@@ -151,7 +153,23 @@ export function getReferenceSources() {
 
 export function getCourseMaterials(courseId = "uestc-linear-algebra") {
   return (courseMaterials as CourseMaterial[]).filter(
-    (material) => material.course_id === courseId
+    (material) =>
+      material.course_id === courseId && material.status !== "internal_reference"
+  );
+}
+
+export function getLectureInsightsByCourseId(courseId: string) {
+  return (lectureInsights as LectureInsight[]).filter(
+    (insight) => insight.course_id === courseId
+  );
+}
+
+export function getLectureInsightsByChapterId(
+  courseId: string,
+  chapterId: string
+) {
+  return getLectureInsightsByCourseId(courseId).filter((insight) =>
+    insight.chapter_ids.includes(chapterId)
   );
 }
 

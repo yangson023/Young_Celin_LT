@@ -2,10 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { KnowledgeCard } from "@/components/KnowledgeCard";
 import { ChapterChallengeStatus } from "@/components/ChapterChallengeStatus";
+import { ChapterLearningGuide } from "@/components/ChapterLearningGuide";
+import { LectureInsightPanel } from "@/components/LectureInsightPanel";
 import { PageShell } from "@/components/PageShell";
 import {
   getChapterById,
   getCourseById,
+  getLectureInsightsByChapterId,
   getKnowledgePointsByChapterId
 } from "@/lib/data";
 
@@ -26,6 +29,7 @@ export default async function ChapterPage({
     course.id,
     chapter.id
   );
+  const lectureInsights = getLectureInsightsByChapterId(course.id, chapter.id);
   const sectionGroups = knowledgePoints.reduce(
     (groups, point) => {
       const sectionTitle = point.section_title ?? "知识点";
@@ -67,6 +71,14 @@ export default async function ChapterPage({
           </Link>
           <ChapterChallengeStatus courseId={course.id} chapterId={chapter.id} />
         </section>
+
+        <ChapterLearningGuide
+          courseId={course.id}
+          chapter={chapter}
+          points={knowledgePoints}
+        />
+
+        <LectureInsightPanel insights={lectureInsights} compact />
 
         <section>
           <div className="mb-4">

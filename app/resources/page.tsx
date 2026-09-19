@@ -28,14 +28,14 @@ export default function ResourcesPage() {
                   先进入一个课程专题，再按章节找资料
                 </h1>
                 <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
-                  线性代数资料先归入同一个专题书架，再按章节筛选。之后的课程也沿用“专题封面 + 章节检索”的结构，避免资料散落成一页清单。
+                  课程书本负责按章节逐步呈现知识点、引导回顾和自测；这里仅保留可按需查阅的讲义参考与讲座提炼，避免资料页替代学习路径。
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3 border-t border-line pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
               <div>
                 <p className="text-2xl font-semibold text-ink">{materials.length}</p>
-                <p className="mt-1 text-xs text-muted">已登记资料</p>
+                <p className="mt-1 text-xs text-muted">已整理参考</p>
               </div>
               <div>
                 <p className="text-2xl font-semibold text-ink">2</p>

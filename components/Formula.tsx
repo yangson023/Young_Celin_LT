@@ -28,9 +28,15 @@ function normalizeLatex(value: string) {
     .replaceAll("\u21d4", "\\Leftrightarrow ")
     .replaceAll("\u2192", "\\to ")
     .replaceAll("\u00d7", "\\times ")
+    .replaceAll("，", ",\\quad ")
+    .replaceAll("（", "\\;(")
+    .replaceAll("）", ")")
     .replace(/([A-Za-z])\*/g, "$1^*")
     .replace(/A\^\*\/\|A\|/g, "\\frac{A^*}{|A|}")
-    .replace(/([A-Za-z])_([A-Za-z0-9]+)/g, "$1_{$2}");
+    .replace(/([A-Za-z])_([A-Za-z]+)(?![A-Za-z0-9_])/g, "$1_{$2}")
+    .replace(/\\text\{[^}]*\}|[\u4e00-\u9fff]+/g, (match) =>
+      match.startsWith("\\text{") ? match : "\\text{" + match + "}"
+    );
 }
 
 function splitFormulaText(value: string) {

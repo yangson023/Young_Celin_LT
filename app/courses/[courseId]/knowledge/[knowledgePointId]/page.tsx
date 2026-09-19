@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Formula } from "@/components/Formula";
+import { KnowledgeExplanation } from "@/components/KnowledgeExplanation";
 import { MathText } from "@/components/MathText";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
@@ -61,6 +62,8 @@ export default async function KnowledgePointPage({
             开始自测
           </Link>
         </section>
+
+        <KnowledgeExplanation point={point} />
 
         <section className="grid gap-4 md:grid-cols-2">
           <div className="rounded-lg border border-line bg-white p-5 shadow-sm">

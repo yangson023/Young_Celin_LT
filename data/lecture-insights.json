@@ -1,0 +1,38 @@
+[
+  {
+    "id": "matrix-determinant-condition-chain",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": ["chapter-1-matrix-elementary-transformations", "chapter-2-determinants"],
+    "title": "矩阵到行列式：先问条件，再选工具",
+    "focus": "把矩阵运算、初等变换、可逆性和行列式非零串成一条条件链，而不是把公式当作彼此独立的结论。",
+    "takeaways": ["矩阵乘法先检查“左列 = 右行”；加减法先检查同型。", "消元负责把方程组或矩阵结构看清楚；它不是随意改写每个对象。", "用行列式或伴随矩阵求逆前，先确认对象是方阵且行列式非零。"],
+    "example": {"prompt": "看到“求 A 的逆”时，第一步该算什么？", "approach": "先确认 A 为方阵，再判断 |A| 是否为 0；只有非零时才可继续。"}
+  },
+  {
+    "id": "geometry-vector-space-translation",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": ["chapter-3-geometric-space", "chapter-4-n-dimensional-vector-space"],
+    "title": "从空间图形到 n 维：对象变了，判断方式没变",
+    "focus": "第三章用可画出的向量、直线和平面训练关系判断；第四章把同一套线性组合与独立性语言推广到看不见的 n 维。",
+    "takeaways": ["空间中的平行、垂直和共面，先翻译为向量关系再计算。", "线性相关表示有冗余：至少一个向量可由其余向量表示。", "求极大无关组时，化简用于找主元位置，最后必须回到原向量组取向量。"],
+    "example": {"prompt": "三个向量中一个能由另外两个线性表示，秩最多是多少？", "approach": "先识别冗余，最多保留两个线性无关向量，再结合其余关系判断。"}
+  },
+  {
+    "id": "eigenvalue-quadratic-principal-directions",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": ["chapter-5-eigenvalues-eigenvectors", "chapter-6-quadratic-forms-quadrics"],
+    "title": "从特征方向到二次型：把交叉项化成主方向",
+    "focus": "特征向量给出线性变换的稳定方向；实对称矩阵的正交对角化则把二次型换到更容易判断的平方项坐标中。",
+    "takeaways": ["特征向量必须非零；先解特征值，再解对应齐次方程组。", "实对称矩阵可以正交对角化，得到的对角元就是特征值。", "判断正定时先确认对应对称矩阵，再看每个主方向上的系数是否为正。"],
+    "example": {"prompt": "标准形 d₁y₁²+d₂y₂² 中 d₁、d₂ 都为正，能说明什么？", "approach": "非零 Y 至少有一个分量非零，平方项和严格为正，因此该二次型正定。"}
+  },
+  {
+    "id": "linear-map-structure-view",
+    "course_id": "uestc-linear-algebra",
+    "chapter_ids": ["chapter-7-linear-spaces-transformations"],
+    "title": "线性变换的结构视角：输入、被压扁的方向与可到达结果",
+    "focus": "把线性变换看成保持加法和数乘的规则：核说明哪些输入被送到零，像说明输出能覆盖到哪里。",
+    "takeaways": ["验证线性性时，加法保持和数乘保持缺一不可。", "核是所有被映为零的输入构成的集合，不只是零向量。", "选定基后，矩阵只是线性变换的一种坐标表达，换基时表示会改变。"],
+    "example": {"prompt": "若 T(x,y)=(x,0)，哪些向量属于 Ker(T)？", "approach": "令输出为零，得到 x=0；所有 (0,y) 都被压到零。"}
+  }
+]

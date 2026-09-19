@@ -89,9 +89,10 @@ export function StudyAssistant() {
 
       if (!response.ok || !data.answer) {
         const fallback =
-          data.error === "configuration_missing"
+          data.answer ??
+          (data.error === "configuration_missing"
             ? "AI 服务正在等待管理员配置。当前你仍可以从课程页选择章节，进入知识点后点击“开始自测”完成练习。"
-            : "我暂时没有连上服务。稍后再试一次，或先从课程页继续学习。";
+            : "我暂时没有连上服务。稍后再试一次，或先从课程页继续学习。");
         setMessages((current) => [
           ...current,
           { role: "assistant", content: fallback }

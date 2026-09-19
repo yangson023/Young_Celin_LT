@@ -6,6 +6,31 @@
     "title": "矩阵概念与特殊矩阵",
     "one_sentence": "矩阵是按行列排列的数表，也是描述线性方程组和实际关系的基础工具。",
     "summary": "本节先从线性方程组、航班关系等例子引入矩阵，强调矩阵的行数、列数、元素位置和同型矩阵。常见特殊矩阵包括零矩阵、方阵、单位矩阵、对角矩阵、上三角矩阵和下三角矩阵。",
+    "learning_goal": "能读出一个矩阵的阶数和元素位置，并能区分一般对角矩阵与单位矩阵。",
+    "conditions": [
+      "两个矩阵相等，必须先同型，再要求每个对应位置的元素相等。",
+      "单位矩阵一定是方阵；它的主对角元全为 1，其余元素全为 0。",
+      "元素 $a_{ij}$ 的下标顺序固定：先看第 $i$ 行，再看第 $j$ 列。"
+    ],
+    "worked_example": {
+      "title": "从位置读懂一个矩阵",
+      "prompt": "设 $A=\\begin{pmatrix}1&-2&0\\\\3&4&5\\end{pmatrix}$。请判断 $A$ 的阶数，并读出 $a_{23}$。",
+      "steps": [
+        {
+          "title": "先数行和列",
+          "detail": "$A$ 有 2 行、3 列，所以它是一个 $2\\times3$ 矩阵；不要把 6 个元素误写成 $6\\times1$。"
+        },
+        {
+          "title": "按“行、列”定位元素",
+          "detail": "$a_{23}$ 表示第 2 行第 3 列。沿第 2 行移动到第 3 列，得到 $a_{23}=5$。"
+        },
+        {
+          "title": "和单位矩阵作对照",
+          "detail": "这个 $A$ 不是方阵，因此不可能是单位矩阵；单位矩阵必须先满足行数等于列数。"
+        }
+      ],
+      "takeaway": "读矩阵时先看阶数，再按“行在前、列在后”定位；判断单位矩阵的第一步是检查它是否为方阵。"
+    },
     "formulas": [
       "A=(a_ij)_{m×n}",
       "单位矩阵 I 的主对角元为 1，其余元为 0"
@@ -31,6 +56,31 @@
     "title": "矩阵线性运算",
     "one_sentence": "矩阵加减法和数乘都按对应元素进行，但加减法必须要求矩阵同型。",
     "summary": "矩阵线性运算包括矩阵相等、加法、负矩阵、减法和数乘。加法和减法只对同型矩阵有意义，数乘则是把每个元素同时乘以同一个数。",
+    "learning_goal": "能先判断两个矩阵能否相加或相减，再逐个位置完成加减和数乘。",
+    "conditions": [
+      "$A+B$ 与 $A-B$ 有意义的前提是 $A,B$ 同型；只要行数或列数有一项不同，就不能直接运算。",
+      "数乘 $kA$ 不改变矩阵的阶数，系数 $k$ 要乘到 $A$ 的每一个元素。",
+      "负矩阵 $-A$ 是把 $A$ 的每个元素变成相反数，而不是改变行列位置。"
+    ],
+    "worked_example": {
+      "title": "先验阶，再做 $2A-B$",
+      "prompt": "设 $A=\\begin{pmatrix}1&-1\\\\2&0\\end{pmatrix}$，$B=\\begin{pmatrix}3&1\\\\-2&4\\end{pmatrix}$。求 $2A-B$。",
+      "steps": [
+        {
+          "title": "检查能否相减",
+          "detail": "$A$ 和 $B$ 都是 $2\\times2$ 矩阵，所以 $2A$ 与 $B$ 同型，可以相减。"
+        },
+        {
+          "title": "先把数乘完整做完",
+          "detail": "$2A=\\begin{pmatrix}2&-2\\\\4&0\\end{pmatrix}$；四个位置都要乘以 2。"
+        },
+        {
+          "title": "对应位置相减",
+          "detail": "$2A-B=\\begin{pmatrix}2-3&-2-1\\\\4-(-2)&0-4\\end{pmatrix}=\\begin{pmatrix}-1&-3\\\\6&-4\\end{pmatrix}$。"
+        }
+      ],
+      "takeaway": "线性运算只做对应位置的运算；遇到减去负数时，要保留括号。"
+    },
     "formulas": [
       "A+B=(a_ij+b_ij)",
       "kA=(ka_ij)",
@@ -57,6 +107,31 @@
     "title": "矩阵乘法",
     "one_sentence": "矩阵乘法要求左矩阵列数等于右矩阵行数，结果元素来自行与列的对应乘积求和。",
     "summary": "矩阵乘法可用于表达产量利润、线性方程组等问题。若 A 为 m×t 矩阵，B 为 t×n 矩阵，则 AB 为 m×n 矩阵，其中第 i 行第 j 列元素由 A 的第 i 行与 B 的第 j 列对应相乘再求和得到。",
+    "learning_goal": "能用“左列等于右行”判断乘法是否有意义，并按“左行乘右列”计算一个结果元素。",
+    "conditions": [
+      "若 $A$ 是 $m\\times t$ 矩阵、$B$ 是 $t\\times n$ 矩阵，$AB$ 才有意义，结果是 $m\\times n$ 矩阵。",
+      "一个结果元素 $c_{ij}$ 只由 $A$ 的第 $i$ 行与 $B$ 的第 $j$ 列相乘求和得到。",
+      "即使 $AB$ 和 $BA$ 都有意义，它们通常也不相等；计算前不要交换顺序。"
+    ],
+    "worked_example": {
+      "title": "用“行乘列”计算 $AB$",
+      "prompt": "设 $A=\\begin{pmatrix}1&2\\\\0&1\\end{pmatrix}$，$B=\\begin{pmatrix}3&1\\\\4&-1\\end{pmatrix}$。求 $AB$。",
+      "steps": [
+        {
+          "title": "先看阶数是否接得上",
+          "detail": "$A$ 是 $2\\times2$，$B$ 也是 $2\\times2$。左边的列数 2 等于右边的行数 2，因此 $AB$ 有意义，结果仍是 $2\\times2$。"
+        },
+        {
+          "title": "先算第一行",
+          "detail": "第一行第一列：$1\\times3+2\\times4=11$；第一行第二列：$1\\times1+2\\times(-1)=-1$。"
+        },
+        {
+          "title": "再算第二行",
+          "detail": "第二行第一列：$0\\times3+1\\times4=4$；第二行第二列：$0\\times1+1\\times(-1)=-1$，所以 $AB=\\begin{pmatrix}11&-1\\\\4&-1\\end{pmatrix}$。"
+        }
+      ],
+      "takeaway": "矩阵乘法不是对应元素相乘，而是“左行乘右列”；每个位置都要重新配一行和一列。"
+    },
     "formulas": [
       "c_ij=a_i1 b_1j+a_i2 b_2j+...+a_it b_tj",
       "(AB)C=A(BC)",
@@ -83,6 +158,31 @@
     "title": "方阵的幂与多项式",
     "one_sentence": "只有方阵才能自然定义幂，方阵多项式就是把数的多项式中的变量替换成方阵。",
     "summary": "方阵的幂由连续矩阵乘法定义，方阵多项式由方阵幂、数量矩阵和矩阵加法组合而成。由于方阵和单位矩阵可交换，许多普通多项式恒等式在同一个方阵上仍可使用。",
+    "learning_goal": "能判断何时可以写矩阵的幂，并在矩阵多项式中正确处理常数项 $a_0I$。",
+    "conditions": [
+      "$A^2,A^3,\\ldots$ 只对方阵 $A$ 定义，因为连续相乘要求每一步的行列数都能对上。",
+      "矩阵多项式的常数项不是普通数字，而是 $a_0I$，这样它才能和其他矩阵项相加。",
+      "只涉及同一个方阵 $A$ 的幂时可沿用普通多项式的整理；涉及不同矩阵时，不能随意交换顺序。"
+    ],
+    "worked_example": {
+      "title": "算一个方阵多项式",
+      "prompt": "设 $A=\\begin{pmatrix}1&1\\\\0&1\\end{pmatrix}$，求 $A^2-2A+3I$。",
+      "steps": [
+        {
+          "title": "先确认可以平方",
+          "detail": "$A$ 是 $2\\times2$ 方阵，所以 $A^2$ 有意义。直接相乘得 $A^2=\\begin{pmatrix}1&2\\\\0&1\\end{pmatrix}$。"
+        },
+        {
+          "title": "把常数 3 变成矩阵项",
+          "detail": "这里的 $3$ 要写成 $3I=\\begin{pmatrix}3&0\\\\0&3\\end{pmatrix}$，不能把 3 直接加到矩阵上。"
+        },
+        {
+          "title": "统一为同型矩阵后相加减",
+          "detail": "$A^2-2A+3I=\\begin{pmatrix}1&2\\\\0&1\\end{pmatrix}-\\begin{pmatrix}2&2\\\\0&2\\end{pmatrix}+\\begin{pmatrix}3&0\\\\0&3\\end{pmatrix}=\\begin{pmatrix}2&0\\\\0&2\\end{pmatrix}$。"
+        }
+      ],
+      "takeaway": "矩阵多项式中的每一项都必须是同阶方阵；常数项要借助单位矩阵进入运算。"
+    },
     "formulas": [
       "A^{k+1}=A^k A",
       "f(A)=a_m A^m+...+a_1 A+a_0 I"
@@ -751,6 +851,29 @@
     "title": "特征值与特征向量",
     "one_sentence": "特征向量在矩阵变换后方向不变，只被相应的特征值缩放。",
     "summary": "对 n 阶方阵 A，若存在非零向量 $\\alpha$ 和数 $\\lambda$，使 $A\\alpha=\\lambda\\alpha$，则 $\\lambda$ 是 A 的特征值，$\\alpha$ 是对应特征向量。先由特征方程求出 $\\lambda$，再解齐次方程组 $(\\lambda I-A)\\alpha=\\boldsymbol{0}$ 求特征向量。",
+    "learning_goal": "能把“方向不变、长度可变”的图形直觉，翻译成 $A\\alpha=\\lambda\\alpha$，并按“先特征值、后特征向量”的顺序完成基本计算。",
+    "guided_review": [
+      {
+        "question": "为什么零向量不能作为特征向量？",
+        "hint": "想一想 $A\\boldsymbol{0}=\\lambda\\boldsymbol{0}$ 对任何 $\\lambda$ 都成立会带来什么问题。",
+        "answer": "零向量会让等式对任意数 $\\lambda$ 都成立，无法对应一个确定的“被缩放方向”；特征向量必须满足 $\\alpha\\ne\\boldsymbol{0}$。"
+      },
+      {
+        "question": "求特征向量时，为什么不能只停在特征方程？",
+        "hint": "特征方程的未知量是 $\\lambda$；另一个方程的未知量是谁？",
+        "answer": "特征方程 $\\lvert\\lambda I-A\\rvert=0$ 只给出特征值。对每个求得的 $\\lambda$，还要解 $(\\lambda I-A)\\alpha=\\boldsymbol{0}$，才能得到对应的非零向量。"
+      },
+      {
+        "question": "图中的金色方向说明了什么？",
+        "hint": "观察变换前后，它的方向和长度分别怎样变化。",
+        "answer": "它表示一个特征方向：变换后仍与原方向共线，长度可能被放大、缩小或反向；缩放倍数就是特征值。"
+      }
+    ],
+    "visual": {
+      "src": "/images/learning/eigenvector-linear-transformation.png",
+      "alt": "线性变换前后的坐标网格，金色向量保持同一方向",
+      "caption": "把矩阵看成对平面网格的整体变形。金色箭头展示“方向保持”的特征向量直觉；蓝色箭头则提醒你，一般向量通常会改变方向。"
+    },
     "formulas": [
       "定义：A\\alpha=\\lambda\\alpha，\\alpha\\ne\\boldsymbol{0}",
       "特征方程：\\lvert\\lambda I-A\\rvert=0",
@@ -843,10 +966,28 @@
     "title": "实二次型与标准形",
     "one_sentence": "实二次型可以用对称矩阵表示，经过可逆变量替换后可化为若干平方项的和。",
     "summary": "含 n 个实变量的二次齐次多项式称为实二次型，可写为 $f(X)=X^TAX$，其中 A 可取为对称矩阵。含交叉项时，对称矩阵的两个对应非对角元各取该交叉项系数的一半。经过可逆线性替换，二次型可化成只含平方项的标准形。",
+    "learning_goal": "能从二次型读出对应对称矩阵，特别是把交叉项系数平均分到两个对称位置，并理解标准形为什么只剩平方项。",
+    "guided_review": [
+      {
+        "question": "为什么交叉项 $b x_i x_j$ 要让 $a_{ij}$ 和 $a_{ji}$ 都取 $b/2$？",
+        "hint": "展开 $X^TAX$ 时，非对角位置会出现几次。",
+        "answer": "当 $A=A^T$ 时，$a_{ij}x_ix_j$ 和 $a_{ji}x_jx_i$ 会相加，合计为 $2a_{ij}x_ix_j$；要得到 $b x_i x_j$，每个位置必须取 $b/2$。"
+      },
+      {
+        "question": "标准形与原二次型的区别是什么？",
+        "hint": "关注有没有交叉项，以及变量是否已换成新坐标。",
+        "answer": "原二次型可含交叉项；经过可逆变量替换后，标准形写成 $d_1y_1^2+\\cdots+d_ny_n^2$，只保留平方项，方便判断符号与形状。"
+      },
+      {
+        "question": "“可逆变量替换”为什么重要？",
+        "hint": "若不同的原变量映到同一个新变量，会发生什么？",
+        "answer": "可逆替换保证新旧坐标一一对应，不会丢失或合并原来的方向，因此化简后的标准形仍在描述同一个二次结构。"
+      }
+    ],
     "formulas": [
-      "矩阵形式：f(X)=X^TAX，A=A^T",
+      "矩阵形式：f(X)=X^{T}AX,\\quad A=A^{T}",
       "标准形：f(Y)=d_1y_1^2+\\cdots+d_ny_n^2",
-      "交叉项 b x_i x_j：a_{ij}=a_{ji}=b/2"
+      "交叉项系数：a_{ij}=a_{ji}=\\frac{b}{2}"
     ],
     "common_mistakes": [
       "把交叉项系数直接同时填入 a_{ij} 和 a_{ji}",
@@ -866,10 +1007,33 @@
     "title": "正定二次型",
     "one_sentence": "正定二次型对每个非零向量都给出正值，描述了稳定的“向上开口”二次结构。",
     "summary": "若实二次型 $f(X)$ 对任意非零实向量 X 都满足 $f(X)>0$，则称它正定；若既能取正也能取负，则是不定的。对实对称矩阵 A，$X^TAX$ 正定当且仅当 A 的全部特征值为正。本版先掌握定义、简单判别和特征值条件。",
+    "learning_goal": "能区分正定、半正定与不定，并在实对称矩阵前提下，把“所有非零向量取正”连接到“全部特征值为正”。",
+    "guided_review": [
+      {
+        "question": "检验正定时，为什么只代入一个非零向量取正还不够？",
+        "hint": "定义中量词是“存在”还是“任意”？",
+        "answer": "正定要求对任意 $X\\ne\\boldsymbol{0}$ 都有 $X^TAX>0$。一个向量取正只能说明局部情况，不能排除其他方向取零或取负。"
+      },
+      {
+        "question": "实对称矩阵的全部特征值为正，会怎样影响标准形？",
+        "hint": "正交对角化后的对角元是什么？",
+        "answer": "正交对角化后，二次型化为 $\\lambda_1y_1^2+\\cdots+\\lambda_ny_n^2$。若每个 $\\lambda_i>0$，任何非零 $Y$ 都使该和严格为正。"
+      },
+      {
+        "question": "碗形图像只能帮助理解什么，不能代替什么？",
+        "hint": "图形对应的是特定二维或三维例子。",
+        "answer": "它帮助理解“从任意非零方向离开最低点，函数值会上升”的直觉；实际判别仍要使用定义、特征值或课程要求的方法。"
+      }
+    ],
+    "visual": {
+      "src": "/images/learning/positive-definite-quadratic-form.png",
+      "alt": "向上开口的二次型曲面和底部等高线",
+      "caption": "正定二次型可用向上开口的碗形来理解：中心是唯一最低处，沿任意非零方向离开中心都会上升。图形仅作直觉辅助，判别须回到公式条件。"
+    },
     "formulas": [
-      "正定：X\\ne\\boldsymbol{0}\\Rightarrow X^TAX>0",
-      "半正定：X^TAX\\ge0",
-      "对称矩阵正定：全部特征值均大于 0"
+      "正定：X\\ne\\boldsymbol{0}\\Rightarrow X^{T}AX>0",
+      "半正定：X^{T}AX\\ge 0",
+      "特征值判别（A=A^{T}）：\\lambda_i>0\\quad(i=1,\\ldots,n)"
     ],
     "common_mistakes": [
       "只代入一个非零向量取正，就断定二次型正定",
@@ -1013,6 +1177,354 @@
       "只验证加法保持而漏掉数乘保持",
       "把核误认为方程中的零向量本身，而不是所有映到零的输入",
       "认为线性变换可以把零向量映到非零向量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "determinant-product-invertibility",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-2-determinant-properties",
+    "section_title": "2.2 行列式性质与可逆性",
+    "order": 8,
+    "title": "行列式乘法性与可逆性",
+    "one_sentence": "方阵乘积的行列式等于各自行列式的乘积，因此行列式是否为零能直接判断方阵能否可逆。",
+    "summary": "对同阶方阵，$\\lvert AB\\rvert=\\lvert A\\rvert\\lvert B\\rvert$。这条性质把矩阵乘法与可逆性连接起来：若 $\\lvert A\\rvert\\ne0$，则 $A$ 可逆；若 $\\lvert A\\rvert=0$，则 $A$ 不可逆。求逆公式中的分母正是这个非零条件。",
+    "learning_goal": "能在涉及乘积、逆矩阵或方程组唯一解时，先用行列式的非零条件判断对象是否可逆。",
+    "conditions": [
+      "行列式只属于方阵；写 $\\lvert A\\rvert$ 前先确认 $A$ 是方阵。",
+      "乘法性中的 $A,B$ 必须是同阶方阵，才能同时讨论 $\\lvert A\\rvert$、$\\lvert B\\rvert$ 与 $\\lvert AB\\rvert$。",
+      "$\\lvert A\\rvert\\ne0$ 是可逆的充要条件，不是只在求逆时才使用的技巧。"
+    ],
+    "formulas": [
+      "乘法性：\\lvert AB\\rvert=\\lvert A\\rvert\\lvert B\\rvert",
+      "可逆判别：A^{-1}\\ \\text{存在}\\Longleftrightarrow\\lvert A\\rvert\\ne0",
+      "逆的行列式：\\lvert A^{-1}\\rvert=\\frac{1}{\\lvert A\\rvert}"
+    ],
+    "common_mistakes": [
+      "把 $\\lvert A+B\\rvert$ 误写成 $\\lvert A\\rvert+\\lvert B\\rvert$",
+      "没有确认行列式非零就直接使用逆矩阵",
+      "把矩阵 $AB$ 与数 $\\lvert A\\rvert\\lvert B\\rvert$ 当成同一类对象"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "rank-product-inequality",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-2-determinants",
+    "section_id": "section-2-5-matrix-rank",
+    "section_title": "2.5 矩阵的秩",
+    "order": 9,
+    "title": "矩阵乘积的秩与秩不等式",
+    "one_sentence": "矩阵相乘不会凭空增加独立方向，因此乘积的秩不超过任一因子的秩。",
+    "summary": "若乘积 $AB$ 有意义，则 $r(AB)\\le r(A)$ 且 $r(AB)\\le r(B)$。把 $B$ 的列向量先经过 $A$ 变换，可以理解为输出方向不可能比原来的独立方向更多。这个结论常用于快速排除不可能的秩，或判断方程组和线性变换的上界。",
+    "learning_goal": "能从 $r(AB)\\le\\min\\{r(A),r(B)\\}$ 给出乘积秩的上界，并知道等号不是默认成立。",
+    "conditions": [
+      "先检查 $AB$ 的阶数是否匹配；乘积无意义时不能谈 $r(AB)$。",
+      "不等式给出上界，不保证 $r(AB)$ 等于两者中较小的一个。",
+      "若 $A$ 或 $B$ 为零矩阵，则 $AB$ 为零矩阵，秩为 0。"
+    ],
+    "formulas": [
+      "基本不等式：r(AB)\\le\\min\\{r(A),r(B)\\}",
+      "加法上界：r(A+B)\\le r(A)+r(B)",
+      "满列秩条件：r(A)=n\\Rightarrow\\operatorname{Ker}(A)=\\{\\boldsymbol{0}\\}"
+    ],
+    "common_mistakes": [
+      "把 $r(AB)$ 直接当成 $r(A)r(B)$",
+      "把秩不等式的上界误读为恒等式",
+      "忽略矩阵乘法本身是否有意义"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "vector-angle-projection",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-3-geometric-space",
+    "section_id": "section-3-2-vector-products",
+    "section_title": "3.2 向量的乘法",
+    "order": 5,
+    "title": "向量夹角与正交投影",
+    "one_sentence": "内积同时记录长度和夹角，投影则把一个向量在指定方向上的有效分量提取出来。",
+    "summary": "对非零向量 $\\alpha,\\beta$，内积满足 $(\\alpha,\\beta)=\\lVert\\alpha\\rVert\\lVert\\beta\\rVert\\cos\\theta$。把 $\\alpha$ 投影到 $\\beta$ 的方向上，需要先除以 $\\lVert\\beta\\rVert^2$，这样结果才与 $\\beta$ 共线且长度正确。",
+    "learning_goal": "能由内积判断夹角和垂直关系，并正确写出一个向量在非零向量方向上的正交投影。",
+    "conditions": [
+      "计算投影时，作为投影方向的 $\\beta$ 必须非零。",
+      "内积为 0 只能说明两个非零向量垂直；若包含零向量，夹角并不定义。",
+      "投影结果是一个向量，标量投影则只是一个带符号长度。"
+    ],
+    "formulas": [
+      "夹角公式：\\cos\\theta=\\frac{(\\alpha,\\beta)}{\\lVert\\alpha\\rVert\\lVert\\beta\\rVert}",
+      "正交判别：(\\alpha,\\beta)=0",
+      "向量投影：\\operatorname{proj}_{\\beta}\\alpha=\\frac{(\\alpha,\\beta)}{(\\beta,\\beta)}\\beta"
+    ],
+    "common_mistakes": [
+      "投影公式分母误写成 $\\lVert\\alpha\\rVert^2$",
+      "把标量投影和向量投影混为一谈",
+      "没有先排除零向量就计算夹角"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "point-plane-distance",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-3-geometric-space",
+    "section_id": "section-3-3-planes",
+    "section_title": "3.3 平面",
+    "order": 6,
+    "title": "点到平面的距离与垂足",
+    "one_sentence": "点到平面的最短线段一定沿平面的法向量，因此距离公式来自法向量方向上的投影。",
+    "summary": "对平面 $Ax+By+Cz+D=0$ 和点 $P_0(x_0,y_0,z_0)$，把点坐标代入左侧得到有向偏离量，再除以法向量长度即可得到距离。公式中的绝对值保证距离非负；若要找垂足，还需沿法向量写出过点直线。",
+    "learning_goal": "能识别平面法向量，使用距离公式计算点到平面的距离，并说明绝对值出现的原因。",
+    "conditions": [
+      "$A,B,C$ 不能同时为 0，否则给出的不是一个平面。",
+      "距离始终非负，因此分子必须取绝对值。",
+      "要求垂足时，要使用经过给定点且方向为法向量的直线。"
+    ],
+    "formulas": [
+      "法向量：\\boldsymbol{n}=(A,B,C)^{T}",
+      "点面距离：d=\\frac{\\lvert Ax_0+By_0+Cz_0+D\\rvert}{\\sqrt{A^2+B^2+C^2}}",
+      "法线：\\boldsymbol{r}=\\boldsymbol{r}_0+t\\boldsymbol{n}"
+    ],
+    "common_mistakes": [
+      "漏掉分子绝对值，得到负的“距离”",
+      "把平面一般方程中的常数项 $D$ 遗漏",
+      "用平面内方向而不是法向量去构造垂线"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "homogeneous-system-basis-solution",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-4-n-dimensional-vector-space",
+    "section_id": "section-4-4-linear-system-solution-structure",
+    "section_title": "4.4 线性方程组解的结构",
+    "order": 5,
+    "title": "齐次方程组的基础解系",
+    "one_sentence": "齐次方程组的所有解组成一个子空间，基础解系就是描述这个解空间的一组基。",
+    "summary": "把 $AX=\\boldsymbol{0}$ 化为行阶梯形后，用自由变量分别取一个为 1、其余为 0 的方式可构造基础解系。若未知量有 $n$ 个、秩为 $r$，自由变量数为 $n-r$，这也就是基础解系中向量的个数。",
+    "learning_goal": "能从阶梯形矩阵识别主变量与自由变量，并按自由变量逐个取值构造基础解系。",
+    "conditions": [
+      "基础解系讨论的是齐次方程组 $AX=\\boldsymbol{0}$ 的解空间。",
+      "自由变量数为 $n-r(A)$，其中 $n$ 是未知量个数，不是方程个数。",
+      "构造出的向量必须都满足原齐次方程组，且彼此线性无关。"
+    ],
+    "formulas": [
+      "齐次方程组：AX=\\boldsymbol{0}",
+      "自由变量数：n-r(A)",
+      "通解：X=c_1\\eta_1+\\cdots+c_s\\eta_s"
+    ],
+    "common_mistakes": [
+      "把零解本身当成基础解系",
+      "把方程个数误当成未知量个数",
+      "选取主变量而不是自由变量来构造基向量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "nonhomogeneous-system-compatibility",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-4-n-dimensional-vector-space",
+    "section_id": "section-4-4-linear-system-solution-structure",
+    "section_title": "4.4 线性方程组解的结构",
+    "order": 6,
+    "title": "非齐次方程组的相容性与解集",
+    "one_sentence": "非齐次方程组是否有解由系数矩阵与增广矩阵的秩决定；有解时，解集是一个特解平移齐次解空间得到的集合。",
+    "summary": "对于 $AX=b$，当且仅当 $r(A)=r(A\\mid b)$ 时方程组有解。若共同秩等于未知量个数，则唯一解；若小于未知量个数，则有无穷多解。任何一个特解加上 $AX=\\boldsymbol{0}$ 的通解，恰好给出全部解。",
+    "learning_goal": "能用秩判别 $AX=b$ 是否有解，并在有解时区分唯一解与无穷多解。",
+    "conditions": [
+      "必须比较系数矩阵和增广矩阵的秩，而不是只计算其中一个。",
+      "若 $r(A)\\ne r(A\\mid b)$，方程组无解，不能继续写通解。",
+      "特解不是全部解；有自由变量时还要加上齐次通解。"
+    ],
+    "formulas": [
+      "有解条件：r(A)=r(A\\mid b)",
+      "唯一解：r(A)=r(A\\mid b)=n",
+      "全部解：X=X_p+X_h"
+    ],
+    "common_mistakes": [
+      "增广矩阵出现矛盾行后仍继续求特解",
+      "把共同秩小于未知量个数误判为无解",
+      "只写出一个特解就停止"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "characteristic-polynomial-trace-determinant",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-5-eigenvalues-eigenvectors",
+    "section_id": "section-5-1-eigenvalue-eigenvector",
+    "section_title": "5.1 特征值与特征向量的概念与计算",
+    "order": 5,
+    "title": "特征多项式、迹与行列式",
+    "one_sentence": "特征多项式的根给出特征值，而特征值的和与积分别连接到矩阵的迹和行列式。",
+    "summary": "对 $n$ 阶矩阵，特征方程 $\\lvert\\lambda I-A\\rvert=0$ 的根（按代数重数计）是特征值。它们的和等于 $\\operatorname{tr}(A)$，积等于 $\\lvert A\\rvert$。这些关系适合用于检验计算、快速排除选项，但不能单独替代求特征向量。",
+    "learning_goal": "能从特征多项式得到特征值，并用迹与行列式核对特征值的和与积。",
+    "conditions": [
+      "迹与行列式关系中的特征值要按代数重数重复计算。",
+      "该关系针对方阵；非方阵没有完整的特征多项式与行列式。",
+      "和与积正确不代表每个特征值都已完全确定。"
+    ],
+    "formulas": [
+      "特征方程：\\lvert\\lambda I-A\\rvert=0",
+      "迹：\\operatorname{tr}(A)=\\lambda_1+\\cdots+\\lambda_n",
+      "行列式：\\lvert A\\rvert=\\lambda_1\\cdots\\lambda_n"
+    ],
+    "common_mistakes": [
+      "遗漏重根在和与积中的重复次数",
+      "把迹误写成所有矩阵元素之和",
+      "只用迹和行列式就断言已经找全特征向量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "gram-schmidt-orthogonalization",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-5-eigenvalues-eigenvectors",
+    "section_id": "section-5-3-orthogonality",
+    "section_title": "5.3 n 维向量空间的正交性",
+    "order": 6,
+    "title": "施密特正交化与标准正交组",
+    "one_sentence": "施密特正交化逐步减去已有方向上的投影，把线性无关向量组变成张成同一空间的正交组。",
+    "summary": "从 $\\alpha_1,\\alpha_2,\\ldots$ 出发，先保留第一个向量，再从后一个向量中减去它在已得到正交向量上的投影。得到非零正交向量 $\\beta_i$ 后，除以自身范数即可单位化为标准正交组。过程不改变张成空间。",
+    "learning_goal": "能解释“减去投影”为什么会产生垂直方向，并区分正交化和最后的单位化。",
+    "conditions": [
+      "输入向量组应线性无关，否则某一步可能得到零向量而无法单位化。",
+      "投影分母为 $(\\beta_i,\\beta_i)$，所以被投影的方向必须非零。",
+      "正交组不一定标准；还要逐个除以范数才得到标准正交组。"
+    ],
+    "formulas": [
+      "\\beta_1=\\alpha_1",
+      "\\beta_2=\\alpha_2-\\frac{(\\alpha_2,\\beta_1)}{(\\beta_1,\\beta_1)}\\beta_1",
+      "e_i=\\frac{\\beta_i}{\\lVert\\beta_i\\rVert}"
+    ],
+    "common_mistakes": [
+      "减去投影时把投影方向写反",
+      "得到正交向量后忘记单位化",
+      "把零向量放入标准正交组"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "leading-principal-minors-criterion",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-6-quadratic-forms-quadrics",
+    "section_id": "section-6-2-positive-definite-quadratic-form",
+    "section_title": "6.2 正定二次型",
+    "order": 5,
+    "title": "正定性的顺序主子式判别",
+    "one_sentence": "对实对称矩阵，所有顺序主子式都为正是判定正定的一种直接方法。",
+    "summary": "设 $A$ 为实对称矩阵，记左上角 $k\\times k$ 子矩阵为 $A^{(k)}$，其行列式为 $\\Delta_k$。当 $\\Delta_1,\\Delta_2,\\ldots,\\Delta_n$ 全部大于 0 时，$X^TAX$ 正定。它与特征值判别服务于同一目标，但使用前提和操作路径要分清。",
+    "learning_goal": "能识别顺序主子式是“左上角依次截取”的行列式，并在实对称矩阵前提下使用正定判别。",
+    "conditions": [
+      "该判别直接用于实对称矩阵；不能跳过对称性检查。",
+      "需要依次检查全部 $\\Delta_1$ 到 $\\Delta_n$，只检查一个不够。",
+      "顺序主子式不是任意选择的主子式。"
+    ],
+    "formulas": [
+      "顺序主子式：\\Delta_k=\\lvert A^{(k)}\\rvert",
+      "正定判别：\\Delta_1>0,\\ldots,\\Delta_n>0",
+      "前提：A=A^{T}"
+    ],
+    "common_mistakes": [
+      "把任意主子式都当成顺序主子式",
+      "只验证一阶或二阶就停止",
+      "对非对称矩阵直接套用该判别"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "quadrics-cross-sections",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-6-quadratic-forms-quadrics",
+    "section_id": "section-6-4-quadrics",
+    "section_title": "6.4 二次曲面",
+    "order": 6,
+    "title": "二次曲面的截面法",
+    "one_sentence": "固定一个变量观察截面，把三维曲面还原成圆、椭圆、双曲线或抛物线，是识别曲面的可靠方法。",
+    "summary": "面对三元二次方程时，可以固定 $x$、$y$ 或 $z$ 为常数，考察剩下两个变量的平面曲线。不同截面的形状、是否为空以及随常数变化的趋势，能帮助区分椭球面、双曲面、锥面和抛物面。",
+    "learning_goal": "能选择一个变量固定，写出对应二维截面，并用截面的存在性和形状辅助判断曲面类别。",
+    "conditions": [
+      "截面是在指定平面内观察到的二维曲线，不是原曲面的全部形状。",
+      "固定不同变量可能得到不同类型的截面，应结合多个方向判断。",
+      "当方程无实数解时，该截面为空，不能误画成曲线。"
+    ],
+    "formulas": [
+      "椭球面：\\frac{x^2}{a^2}+\\frac{y^2}{b^2}+\\frac{z^2}{c^2}=1",
+      "固定 z=z_0：\\frac{x^2}{a^2}+\\frac{y^2}{b^2}=1-\\frac{z_0^2}{c^2}",
+      "锥面：\\frac{x^2}{a^2}+\\frac{y^2}{b^2}-\\frac{z^2}{c^2}=0"
+    ],
+    "common_mistakes": [
+      "只看一个截面就仓促判定曲面类型",
+      "忽略右端为负时截面为空",
+      "把固定变量后的常数仍当作自由变量"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "linear-map-matrix-representation",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-7-linear-spaces-transformations",
+    "section_id": "section-7-4-linear-transformations",
+    "section_title": "7.4 线性变换",
+    "order": 5,
+    "title": "线性变换的矩阵表示",
+    "one_sentence": "选定输入与输出的基后，线性变换对每个基向量的像按列排成一个矩阵，就能把变换计算转成矩阵乘法。",
+    "summary": "设 $T:V\\to W$，选定 $V$ 的基和 $W$ 的基。把每个输入基向量经过 $T$ 后在输出基下的坐标列依次写成矩阵的列，得到 $[T]$。于是任意向量的坐标满足 $[T(v)]=[T][v]$；换基会改变矩阵表示，但不会改变变换本身。",
+    "learning_goal": "能说明矩阵的列从哪里来，并区分线性变换本身与它在特定基下的矩阵表示。",
+    "conditions": [
+      "输入空间与输出空间的基都要先固定，矩阵表示才有明确含义。",
+      "第 $j$ 列是第 $j$ 个输入基向量的像在输出基下的坐标。",
+      "矩阵相乘时，坐标所使用的基必须前后一致。"
+    ],
+    "formulas": [
+      "[T]=\\bigl([T(v_1)]\\ \\cdots\\ [T(v_n)]\\bigr)",
+      "[T(v)]=[T][v]",
+      "T(\\boldsymbol{0})=\\boldsymbol{0}"
+    ],
+    "common_mistakes": [
+      "把输入基向量直接抄成矩阵列而没有先作用 $T$",
+      "混用不同基下的坐标列",
+      "认为换基会改变线性变换的本质"
+    ],
+    "question_types": ["single_choice", "true_false"],
+    "review_status": "draft"
+  },
+  {
+    "id": "rank-nullity-theorem",
+    "course_id": "uestc-linear-algebra",
+    "chapter_id": "chapter-7-linear-spaces-transformations",
+    "section_id": "section-7-4-linear-transformations",
+    "section_title": "7.4 线性变换",
+    "order": 6,
+    "title": "秩—零度定理",
+    "one_sentence": "有限维线性变换中，输入空间的维数等于像的维数与核的维数之和。",
+    "summary": "对有限维线性变换 $T:V\\to W$，有 $\\dim V=\\dim\\operatorname{Ker}(T)+\\dim\\operatorname{Im}(T)$。它解释了一个变换一方面保留了多少独立输出方向，另一方面又压扁了多少输入方向；在矩阵语言中就是列数等于秩加零空间维数。",
+    "learning_goal": "能用秩—零度定理在已知核维数或像维数时求另一项，并理解它对应“保留与压缩”的维数分配。",
+    "conditions": [
+      "定理用于有限维线性空间与线性变换。",
+      "零度是核的维数，不是核中某个向量的长度。",
+      "矩阵版本中，定义域维数对应矩阵的列数。"
+    ],
+    "formulas": [
+      "\\dim V=\\dim\\operatorname{Ker}(T)+\\dim\\operatorname{Im}(T)",
+      "\\operatorname{nullity}(A)=n-r(A)",
+      "\\operatorname{rank}(T)=\\dim\\operatorname{Im}(T)"
+    ],
+    "common_mistakes": [
+      "把矩阵行数而不是列数当成定义域维数",
+      "把核中的元素数量误作核的维数",
+      "对非线性映射直接使用该定理"
     ],
     "question_types": ["single_choice", "true_false"],
     "review_status": "draft"

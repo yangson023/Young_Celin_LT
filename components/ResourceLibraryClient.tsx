@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { BookMarked, ChevronRight, LibraryBig } from "lucide-react";
+import Link from "next/link";
 import type { CourseMaterial } from "@/lib/types";
 import { CourseMaterialCard } from "./CourseMaterialCard";
 
@@ -64,7 +65,7 @@ export function ResourceLibraryClient({
 }: {
   materials: CourseMaterial[];
 }) {
-  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [selectedFilter, setSelectedFilter] = useState("overview");
   const visibleMaterials = useMemo(
     () =>
       materials.filter((material) =>
@@ -83,9 +84,12 @@ export function ResourceLibraryClient({
           </div>
           <div>
             <p className="inline-flex items-center gap-2 text-sm font-medium text-accent"><BookMarked className="h-4 w-4" /> 课程专题</p>
-            <h2 className="mt-2 text-2xl font-semibold text-ink">电科线性代数资料书架</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">讲义、答疑与自己的整理笔记都先归到这一张课程封面下。下方可以按章节缩小范围，并随时回到相应学习内容。</p>
-            <button type="button" onClick={() => setSelectedFilter("all")} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent transition hover:text-ink">浏览全部线性代数资料 <ChevronRight className="h-4 w-4" /></button>
+            <h2 className="mt-2 text-2xl font-semibold text-ink">电科线性代数参考与讲座提炼</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">学习主线在课程书本内按章节展开；这里仅保留讲义参考和讲座导读，不再把全部内容平铺成资料清单。</p>
+            <div className="mt-4 flex flex-wrap gap-4">
+              <Link href="/courses/uestc-linear-algebra" className="inline-flex items-center gap-1 text-sm font-semibold text-accent transition hover:text-ink">进入课程书本 <ChevronRight className="h-4 w-4" /></Link>
+              <button type="button" onClick={() => setSelectedFilter("all")} className="inline-flex items-center gap-1 text-sm font-semibold text-accent transition hover:text-ink">浏览已整理参考 <ChevronRight className="h-4 w-4" /></button>
+            </div>
           </div>
         </div>
       </section>
@@ -114,8 +118,8 @@ export function ResourceLibraryClient({
       <section className="mt-5">
         <div className="mb-4 flex items-end justify-between gap-3">
           <div>
-            <p className="text-sm font-medium text-muted">当前书架</p>
-            <h2 className="mt-1 text-2xl font-semibold text-ink">课程资料目录</h2>
+            <p className="text-sm font-medium text-muted">参考目录</p>
+            <h2 className="mt-1 text-2xl font-semibold text-ink">按需查阅，不替代学习路径</h2>
           </div>
           <p className="text-sm text-muted">{visibleMaterials.length} 份资料</p>
         </div>
